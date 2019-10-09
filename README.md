@@ -1,2 +1,2 @@
 # sportest
-Diplomarbeit sportest
+PWA der Diplomarbeit "sportest"
