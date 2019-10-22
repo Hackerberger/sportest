@@ -2,13 +2,6 @@
   <v-container grid-list-xs>
     <v-layout row wrap>
       <v-bottom-nav :value="true" fixed dark color="#00295D">
-        <v-btn @click="addTest()" color="#00295D" value="statistics">
-          <v-icon>done</v-icon>
-        </v-btn>
-
-        <v-btn @click="$router.push({ name:'home'})" color="teal" value="home">
-          <v-icon>clear</v-icon>
-        </v-btn>
       </v-bottom-nav>
 
       <v-carousel interval="60000" hide-delimiters hide-controls>
@@ -97,47 +90,60 @@
             <v-container>
               <h3>Balancieren rückwärts:</h3>
               <v-layout wrap>
-                <v-flex sm1>
-                  <span>6cm-Balken:</span>
-                  <v-text-field
-                    label="Durchgang 1"
-                    suffix="Schritte"
-                    single-line
-                    v-model="testDaten.balance6_1"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex sm1>
-                  <v-text-field
-                    label="Durchgang 2"
-                    suffix="Schritte"
-                    single-line
-                    v-model="testDaten.balance6_2"
-                  ></v-text-field>
-                </v-flex>
 
-                <br>
+                    <v-container fluid>
+      <v-row>
+        <v-col cols="12">
 
-                <v-flex sm1>
-                  <span>4,5cm-Balken:</span>
-                  <v-text-field
-                    label="Durchgang 1"
-                    suffix="Schritte"
-                    single-line
-                    v-model="testDaten.balance4_5_1"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex sm1>
-                  <v-text-field
-                    label="Durchgang 2"
-                    suffix="Schritte"
-                    single-line
-                    v-model="testDaten.balance4_5_2"
-                  ></v-text-field>
-                </v-flex>
+            <v-card
+              v-for="n in 1"
+              :key="n"
+              class="ma-3 pa-6"
+              outlined
+              tile
+            >
+                      <span class="white--text">6cm-Balken:</span>
+                <v-slider v-model="testDaten.balance6_1" label="1.Durchgang" min="0" max="8"></v-slider>
+                <v-slider v-model="testDaten.balance6_2" label="2.Durchgang" min="0" max="320"></v-slider>
+            </v-card>
 
-                <br>
+                        <v-card
+              v-for="n in 1"
+              :key="n"
+              class="ma-3 pa-6"
+              outlined
+              tile
+            >
 
-                <v-flex sm1>
+                                  <span class="white--text">4,5cm-Balken:</span>
+                <v-slider v-model="testDaten.balance4_5_1" label="1.Durchgang" min="0" max="8"></v-slider>
+                <v-slider v-model="testDaten.balance4_5_2" label="2.Durchgang" min="0" max="6"></v-slider>
+            </v-card>
+
+            
+                        <v-card
+              v-for="n in 1"
+              :key="n"
+              class="ma-3 pa-6"
+              outlined
+              tile
+            >
+
+                                  <span class="white--text">3cm-Balken:</span>
+                <v-slider v-model="testDaten.balance3_1" label="1.Durchgang" min="0" max="8"></v-slider>
+                <v-slider v-model="testDaten.balance3_2" label="2.Durchgang" min="0" max="6"></v-slider>
+            </v-card>
+
+        </v-col>
+        <v-col cols="12">
+
+        </v-col>
+      </v-row>
+    </v-container>
+              
+
+
+                <!-- <v-flex sm2>
                   <span>3cm-Balken:</span>
                   <v-text-field
                     label="Durchgang 1"
@@ -146,14 +152,14 @@
                     v-model="testDaten.balance3_1"
                   ></v-text-field>
                 </v-flex>
-                <v-flex sm1>
+                <v-flex sm2>
                   <v-text-field
                     label="Durchgang 2"
                     suffix="Schritte"
                     single-line
                     v-model="testDaten.balance3_2"
                   ></v-text-field>
-                </v-flex>
+                </v-flex> -->
               </v-layout>
             </v-container>
           </v-carousel-item>
@@ -243,27 +249,7 @@
             </v-container>
           </v-carousel-item>
 
-          <v-carousel-item>
-            <v-container>
-              <h3>20m-Sprint:</h3>
-              <v-layout wrap>
-                <v-flex sm1>
-                  <v-text-field label="Zeit" suffix="sek" single-line v-model="testDaten.sprint"></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-carousel-item>
 
-          <v-carousel-item>
-            <v-container>
-              <h3>6-Minuten-Lauf:</h3>
-              <v-layout wrap>
-                <v-flex sm1>
-                  <v-text-field label="Zeit" suffix="sek" single-line v-model="testDaten.lauf"></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-carousel-item>
 
           <v-carousel-item>
             <v-container>
@@ -288,8 +274,17 @@
           </v-carousel-item>
         </v-form>
       </v-carousel>
+
     </v-layout>
+            <v-btn @click="addTest()" color="#00295D" value="statistics">
+          <v-icon>done</v-icon>
+        </v-btn>
+
+        <v-btn @click="$router.push({ name:'home'})" color="teal" value="home">
+          <v-icon>clear</v-icon>
+        </v-btn>
   </v-container>
+
 </template>
 
 <script>

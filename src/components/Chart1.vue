@@ -14,13 +14,14 @@ export default {
         {
           type: "line",
           label: "Durchschnitt",
-          borderColor: "#000",
+          borderColor: "white",
           fill:"false",
+          average: 50,
           data: [100,100,100,100,100]
         },
         {
           label: "Punkte",
-          backgroundColor: "#f2d039",
+          backgroundColor: "white",
           data: [103, 80, 70, 120, 88]
         }
       ]

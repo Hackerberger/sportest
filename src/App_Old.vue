@@ -5,7 +5,7 @@
         <span>Sportest</span>
         <span
           class="font-weight-light"
-        >Diplomarbeit von Lukas Hechenberger, Timo Naderer, Nugüzel Keles und Phillip Georgiev</span>
+        >Diplomarbeit von Lukas Hechenberger, Timo Naderer, Nurgüzel Keles und Phillip Georgiev</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank">
