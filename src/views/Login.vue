@@ -8,7 +8,7 @@
           @error="onSignInError"
         >
           <v-btn id="googleButton" color="white" large>
-            <img id="img-button" src="../assets/google_logo.png">
+            <img id="img-button" src="../../public/img/Google/google_logo.png">
             <span>Log In mit Google</span>
           </v-btn>
         </g-signin-button>
