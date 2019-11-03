@@ -17,6 +17,112 @@
     <br>
     <span class="white--text">Anleitungen zu den Übungen:</span>
 
+
+
+
+
+
+
+
+<div>
+  <v-app>
+    <v-expansion-panels dark>
+      <v-expansion-panel dark>
+        <v-expansion-panel-header color="#800000" class="white--text"> <h4> Balancieren </h4> </v-expansion-panel-header>
+        <v-expansion-panel-content >
+                     <h4>Testziel</h4>
+            Die Aufgabe dient der Überprüfung der Koordination bei Präzisionsaufgaben.
+            <h4>Testaufgabe</h4>
+            Die Ver­suchs­person muss hier rückwärts über einen 6 cm, 4,5 cm und 3 cm breiten Balken balan­cieren. Der Test­versuch beginnt stets mit beiden Füßen vom Startbrett aus. Gezählt wird jeweils die Anzahl der Schritte, bis es zum Bodenkontakt kommt. Vor dem Test wird jeweils ein Probeversuch vorwärts und rückwärts über die gesamte Balkenlänge durchgeführt. Somit wird als Vorübung pro Balken einmal vorwärts und einmal rückwärts, an­schließend zur Lei­stungs­messung je zweimal rück­wärts balanciert. Insge­samt werden damit zwei gültige Versuche pro Bal­ken ge­wer­tet.
+        </v-expansion-panel-content>
+        </v-expansion-panel>
+
+<v-expansion-panel>
+        <v-expansion-panel-header> <h4> Seitliches Hin- U. Herspringen </h4> </v-expansion-panel-header>
+        <v-expansion-panel-content>
+               <h4>Testziel</h4>
+            Die Aufgabe dient dazu...
+            <h4>Testaufgabe</h4>
+            Die Ver­suchs­person muss...
+        </v-expansion-panel-content>
+                </v-expansion-panel>
+
+<v-expansion-panel>
+
+        <v-expansion-panel-header>  <h4> Rumpfbeuge</h4> </v-expansion-panel-header>
+        <v-expansion-panel-content>
+                          <h4>Testziel</h4>
+            Die Aufgabe dient für...
+            <h4>Testaufgabe</h4>
+            Die Ver­suchs­person muss das..
+        </v-expansion-panel-content>
+                  </v-expansion-panel>
+                  <v-expansion-panel>
+
+        <v-expansion-panel-header>  <h4>Liegestütze</h4> </v-expansion-panel-header>
+        <v-expansion-panel-content>
+                          <h4>Testziel</h4>
+            Die Aufgabe dient für...
+            <h4>Testaufgabe</h4>
+            Die Ver­suchs­person muss das..
+        </v-expansion-panel-content>
+                  </v-expansion-panel>
+                  <v-expansion-panel>
+
+        <v-expansion-panel-header>  <h4>Situps</h4> </v-expansion-panel-header>
+        <v-expansion-panel-content>
+                          <h4>Testziel</h4>
+            Die Aufgabe dient für...
+            <h4>Testaufgabe</h4>
+            Die Ver­suchs­person muss das..
+        </v-expansion-panel-content>
+                  </v-expansion-panel>
+                  <v-expansion-panel>
+
+        <v-expansion-panel-header>  <h4>Standweitsprung</h4> </v-expansion-panel-header>
+        <v-expansion-panel-content>
+                          <h4>Testziel</h4>
+            Die Aufgabe dient für...
+            <h4>Testaufgabe</h4>
+            Die Ver­suchs­person muss das..
+        </v-expansion-panel-content>
+                  </v-expansion-panel>
+
+                  <v-expansion-panel>
+
+        <v-expansion-panel-header> <h4> 20m-Sprint </h4> </v-expansion-panel-header>
+        <v-expansion-panel-content>
+                          <h4>Testziel</h4>
+            Die Aufgabe dient für...
+            <h4>Testaufgabe</h4>
+            Die Ver­suchs­person muss das..
+        </v-expansion-panel-content>
+                  </v-expansion-panel>
+
+                  <v-expansion-panel>
+
+        <v-expansion-panel-header> <img src="./../../public/img/lauf.jpg" alt="" style="height: 50%; width: 45%" srcset=""> <h4> 6-Minuten-Lauf</h4> </v-expansion-panel-header>
+        <v-expansion-panel-content>
+                          <h4>Testziel</h4>
+            Die Aufgabe dient für...
+            <h4>Testaufgabe</h4>
+            Die Ver­suchs­person muss das..
+        </v-expansion-panel-content>
+                  </v-expansion-panel>
+    </v-expansion-panels>
+
+  </v-app>
+</div>
+
+
+
+
+
+
+
+
+
+
     <div class="container">
       <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
