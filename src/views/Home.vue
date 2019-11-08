@@ -127,9 +127,10 @@
       <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
                 <div class="my-2">
-          <v-btn href="./../../public/img/lauf.jpg" color="orange" class="white--text" block rounded  v-on="on"><img src="../../public/img/lauf.jpg">Balancieren</v-btn>
+          <v-btn href="./../../public/img/lauf.jpg" color="orange" class="white--text" block rounded  v-on="on">Balancieren</v-btn>
              </div>
         </template>
+        
 
         <v-card>
           <v-card-title class="headline white" primary-title>Hin. u. her Springen</v-card-title>
