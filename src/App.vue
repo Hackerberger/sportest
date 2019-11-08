@@ -1,6 +1,6 @@
 <template>
   <v-app style="background:black" dark>
-    <v-app-bar app style="background: white">
+    <v-app-bar app style="background: black">
       <v-btn
         icon
         v-if="$route.name !== 'home' && $route.name !== 'login' && $route.name !== 'statistics'"

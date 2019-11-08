@@ -22,7 +22,7 @@ export default {
         {
           label: "Punkte",
           backgroundColor: "white",
-          data: [103, 80, 70, 120, 88]
+          data: [103, 80, 88, 120, 70]
         }
       ]
     });

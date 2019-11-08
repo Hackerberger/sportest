@@ -1,9 +1,9 @@
 <template>
   <v-container grid-list-xs>
-    <span class="white--text" id="welcome">Willkommen {{googleProfile.Name}}!</span>
+    <span class="white--text" id="welcome">Willkommen Timo Naderer!</span>
     <span>
       <v-avatar size="36px">
-        <img :src="googleProfile.ImageUrl">
+        <img src="./../../public/naderer.png">
       </v-avatar>
     </span>
     <br>
@@ -24,10 +24,10 @@
 
 
 
-<div>
+<!-- <div>
   <v-app>
-    <v-expansion-panels dark>
-      <v-expansion-panel dark>
+    <v-expansion-panels dark> -->
+      <!-- <v-expansion-panel dark>
         <v-expansion-panel-header color="#800000" class="white--text"> <h4> Balancieren </h4> </v-expansion-panel-header>
         <v-expansion-panel-content >
                      <h4>Testziel</h4>
@@ -109,10 +109,10 @@
             Die Ver­suchs­person muss das..
         </v-expansion-panel-content>
                   </v-expansion-panel>
-    </v-expansion-panels>
+    </v-expansion-panels> -->
 
-  </v-app>
-</div>
+  <!-- </v-app>
+</div> -->
 
 
 
@@ -132,7 +132,7 @@
         </template>
 
         <v-card>
-          <v-card-title class="headline white" primary-title>Balancieren</v-card-title>
+          <v-card-title class="headline white" primary-title>Hin. u. her Springen</v-card-title>
 
           <v-card-text>
             <h3>Testziel</h3>
@@ -155,12 +155,12 @@
             <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
            <div class="my-2">
-          <v-btn block rounded color="#800000" class="white--text" v-on="on">Seitliches Hin- u. herspringen</v-btn>
+          <v-btn block rounded color="#800000" class="white--text" v-on="on">Hin- u. herspringen</v-btn>
           </div>
         </template>
 
         <v-card>
-          <v-card-title class="headline white" primary-title>Balancieren</v-card-title>
+          <v-card-title class="headline white" primary-title>Hin. u. Her Springen</v-card-title>
 
           <v-card-text>
             <h3>Testziel</h3>
