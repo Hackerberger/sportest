@@ -127,7 +127,7 @@
       <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
                 <div class="my-2">
-          <v-btn href="./../../public/img/lauf.jpg" color="#800000" class="white--text" block rounded  v-on="on">Balancieren</v-btn>
+          <v-btn href="./../../public/img/lauf.jpg" color="orange" class="white--text" block rounded  v-on="on"><img src="../../public/img/lauf.jpg">Balancieren</v-btn>
              </div>
         </template>
 
@@ -155,7 +155,7 @@
             <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
            <div class="my-2">
-          <v-btn block rounded color="#800000" class="white--text" v-on="on">Hin- u. herspringen</v-btn>
+          <v-btn block rounded color="orange" class="white--text" v-on="on">Hin- u. herspringen</v-btn>
           </div>
         </template>
 
@@ -186,7 +186,7 @@
             <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
            <div class="my-2">
-          <v-btn block rounded color="#800000" class="white--text" v-on="on">Rumpfbeuge</v-btn>
+          <v-btn block rounded color="orange" class="white--text" v-on="on">Rumpfbeuge</v-btn>
           </div>
         </template>
 
@@ -214,7 +214,7 @@
       <!-- Liegestütze -->
             <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
-          <v-btn block rounded color="#800000" class="white--text" v-on="on">Liegestütze</v-btn>
+          <v-btn block rounded color="orange" class="white--text" v-on="on">Liegestütze</v-btn>
         </template>
 
         <v-card>
@@ -242,7 +242,7 @@
             <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
            <div class="my-2">
-          <v-btn block rounded color="#800000" class="white--text" v-on="on">Situps</v-btn>
+          <v-btn block rounded color="orange" class="white--text" v-on="on">Situps</v-btn>
           </div>
         </template>
 
@@ -269,7 +269,7 @@
             <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
            <div class="my-2">
-          <v-btn block rounded color="#800000" class="white--text" v-on="on">Standweitsprung</v-btn>
+          <v-btn block rounded color="orange" class="white--text" v-on="on">Standweitsprung</v-btn>
           </div>
         </template>
 
@@ -295,7 +295,7 @@
           <!-- 20m-Sprint -->
             <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
-          <v-btn block rounded color="#800000" class="white--text" v-on="on">20m-Sprint</v-btn>
+          <v-btn block rounded color="orange" class="white--text" v-on="on">20m-Sprint</v-btn>
         </template>
 
         <v-card>
@@ -322,7 +322,7 @@
             <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
            <div class="my-2">
-          <v-btn block rounded color="#800000" class="white--text" v-on="on">6-Minuten-Lauf</v-btn>
+          <v-btn block rounded color="orange" class="white--text" v-on="on">6-Minuten-Lauf</v-btn>
           </div>
         </template>
 
