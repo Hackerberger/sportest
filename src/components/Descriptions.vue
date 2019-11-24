@@ -4,11 +4,19 @@
       <v-expansion-panel v-for="d in descriptions" :key="d.name">
         <v-expansion-panel-header>
           <template v-slot:actions>
-            <v-icon color="white">$expand</v-icon>
+            <v-icon color="black">$expand</v-icon>
           </template>
           <h4>{{ d.name }}</h4>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
+          <v-container class="text-center" v-if="!(d.video == null)">
+            <video
+              src="../assets/videos/Situps.mp4"
+              loop
+              autoplay
+              width="300px"
+            ></video>
+          </v-container>
           <h4>Testziel</h4>
           {{ d.goal }}
           <h4>Testaufgabe</h4>
@@ -50,6 +58,7 @@ export default {
           name: 'Situps',
           goal: 'Die Aufgabe dient für...',
           desc: 'Die Ver­suchs­person muss das..',
+          video: '../assets/videos/Situps.mp4',
         },
         {
           name: 'Standweitsprung',
@@ -57,10 +66,10 @@ export default {
           desc: 'Die Ver­suchs­person muss das..',
         },
         {
-            name: '20m Sprint',
-            goal: 'Die Aufgabe dient für...',
-            desc: 'Die Ver­suchs­person muss das..'
-        }
+          name: '20m Sprint',
+          goal: 'Die Aufgabe dient für...',
+          desc: 'Die Ver­suchs­person muss das..',
+        },
       ],
     };
   },
@@ -69,10 +78,10 @@ export default {
 
 <style lang="scss" scoped>
 .v-expansion-panel {
-  background-color: black !important;
-  color: white !important;
+  background-color: orange !important;
+  color: black !important;
   margin: 5px;
   border-radius: 5px;
-  border: solid white 1px;
+  //border: solid white 1px;
 }
 </style>
