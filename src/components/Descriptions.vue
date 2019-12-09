@@ -11,7 +11,7 @@
         <v-expansion-panel-content>
           <v-container class="text-center" v-if="!(d.video == null)">
             <video
-              src="../assets/videos/Situps.mp4"
+              src="../assets/videos/balance.mp4"
               loop
               autoplay
               width="300px"
@@ -37,7 +37,9 @@ export default {
           goal:
             'Die Aufgabe dient der Überprüfung der Koordination bei Präzisionsaufgaben.',
           desc:
-            'Die Ver­suchs­person muss hier rückwärts über einen 6 cm, 4,5 cm und 3cm breiten Balken balan­cieren. Der Test­versuch beginnt stets mit beiden Füßen vom Startbrett aus. Gezählt wird jeweils die Anzahl der Schritte, bis es zum Bodenkontakt kommt. Vor dem Test wird jeweils ein Probeversuch vorwärts und rückwärts über die gesamte Balkenlänge durchgeführt. Somit wird als Vorübung pro Balken einmal vorwärts und einmal rückwärts, an­schließend zur Lei­stungs­messung je zweimal rück­wärts balanciert. Insge­samt werden damit zwei gültige Versuche pro Bal­ken ge­wer­tet.',
+            'Die Ver­suchs­person muss hier über einen 6 cm, 4,5 cm und 3cm breiten Balken balan­cieren. Der Test­versuch beginnt stets mit beiden Füßen vom Startbrett aus. Gezählt wird jeweils die Anzahl der Schritte, bis es zum Bodenkontakt kommt. Vor dem Test wird jeweils ein Probeversuch vorwärts und rückwärts über die gesamte Balkenlänge durchgeführt. Somit wird als Vorübung pro Balken einmal vorwärts und einmal rückwärts, an­schließend zur Lei­stungs­messung je zweimal rück­wärts balanciert. Insge­samt werden damit zwei gültige Versuche pro Bal­ken ge­wer­tet.',
+          video: '../assets/videos/balancieren.mp4',
+        
         },
         {
           name: 'Seitliches Hin- U. Herspringen',
@@ -45,7 +47,7 @@ export default {
           desc: 'Die Ver­suchs­person muss das..',
         },
         {
-          name: 'RUmpfbeuge',
+          name: 'Rumpfbeuge',
           goal: 'Die Aufgabe dient für...',
           desc: 'Die Ver­suchs­person muss das..',
         },
