@@ -1,6 +1,6 @@
 <template>
   <v-app style="background:black" dark>
-    <v-app-bar app style="background: black">
+    <v-app-bar app style="background-image: linear-gradient(to top, black 0%, #333333 51%, #646464 100%);">
       <v-btn
         icon
         v-if="$route.name !== 'home' && $route.name !== 'login' && $route.name !== 'statistics'"
@@ -39,19 +39,19 @@
 
         <v-btn @click="$router.push({ name:'home'})" color="black" value="home">
           <span class="orange--text">Home</span>
-          <v-icon class="orange--text">mdi-home</v-icon>
+          <v-icon color="#FF6600">mdi-home</v-icon>
         </v-btn>
 
         <v-btn @click="$router.push({ name:'statistics'})" color="black" value="statistic">
           <span class="orange--text">Statistic</span>
-          <v-icon class="orange--text">mdi-chart-bar</v-icon>
+          <v-icon color="#FF6600">mdi-chart-bar</v-icon>
         </v-btn>
       </v-bottom-navigation>
 
       <v-btn
         fab
         dark
-        color="orange"
+        color="white"
         @click="$router.push({ name:'test'})"
         absolute
         :style="{left: '50%', bottom:'5%', transform:'translateX(-50%)' }"
@@ -60,7 +60,7 @@
         align-center
         right
       >
-        <v-icon dark class="white--text">mdi-plus</v-icon>
+        <v-icon dark large color="#FF0000">mdi-plus</v-icon>
       </v-btn>
     </v-container>
   </v-app>
@@ -86,6 +86,6 @@ img {
 }
 
 #Nav {
-  border-top: orange 1.5px solid !important;
+  border-top: #FF6600 1.5px solid !important;
 }
 </style>

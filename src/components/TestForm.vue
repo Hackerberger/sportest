@@ -90,6 +90,8 @@
               <h3 class="white--text">Balancieren rückwärts:</h3>
               <v-layout wrap>
                 <v-container fluid>
+    <p class="white--text">Balance Points: {{testDaten.erg_bal}}</p>
+
                   <v-card v-for="n in 1" :key="n" class="ma-3 pa-6" outlined tile>
                     <span class="white--text">6cm-Balken:</span>
                     <v-slider
@@ -367,11 +369,10 @@
           <v-icon>done</v-icon>
     </v-btn>-->
 
-    <v-btn @click="balanceObject()" color="white" value="statistics">
+    <v-btn @click="balanceObject()" color="#FF6600" class="white--text" value="statistics">
       <v-icon>Send</v-icon>
     </v-btn>
 
-    <p class="white--text">Balance Points: {{testDaten.erg_bal}}</p>
     <!-- <v-btn @click="$router.push({ name:'home'})" color="teal" value="home">
           <v-icon>clear</v-icon>
     </v-btn>-->
@@ -400,6 +401,7 @@ export default {
         stand_2: null,
         sprint: null,
         lauf: null,
+        menu: null,
         gewicht: null,
         groeße: null,
         erg_bal: null
