@@ -47,7 +47,7 @@ export default {
           desc: 'Die Ver­suchs­person muss das..',
         },
         {
-          name: 'RUmpfbeuge',
+          name: 'Rumpfbeuge',
           goal: 'Die Aufgabe dient für...',
           desc: 'Die Ver­suchs­person muss das..',
         },
@@ -80,7 +80,7 @@ export default {
 
 <style lang="scss" scoped>
 .v-expansion-panel {
-  background-color: orange !important;
+  background-color: #FF6600 !important;
   color: black !important;
   margin: 5px;
   border-radius: 5px;

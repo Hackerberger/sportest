@@ -10,7 +10,7 @@
 
     <br />
     <span class="white--text">
-      Hallo {{ googleProfile.GivenName }}, sportest ermöglicht dir die Messung
+      Hallo {{ googleProfile.Name }}, sportest ermöglicht dir die Messung
       und Bewertung deiner motorischen Fähigkeiten.
     </span>
     <br />
