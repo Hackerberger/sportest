@@ -10,11 +10,11 @@
             </v-container>
           </v-card-title>
           <v-card-actions>
-            <v-btn class="#4b7dbb--text" flat>Details</v-btn>
+            <v-btn class="#4b7dbb--text" text>Details</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
-      <br>
+      <br />
 
       <v-flex>
         <v-card color="#FF6600" class="white--text">
@@ -25,37 +25,34 @@
             </v-container>
           </v-card-title>
           <v-card-actions>
-            <v-btn flat>Details</v-btn>
+            <v-btn text>Details</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
-      <br>
+      <br />
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import Chart1 from "../components/Chart1";
-import Chart2 from "../components/Chart2";
-
+import Chart1 from '../components/Chart1';
+import Chart2 from '../components/Chart2';
 
 export default {
   components: { Chart1, Chart2 },
   data() {
     return {};
   },
-  created(){
-          this.$getItem("testDaten")
-        .then(value => {
-          console.log(value);
-        })
-        .catch(err => {
-          console.log("Error!" + err);
-        });
-  }
+  created() {
+    this.$getItem('testDaten')
+      .then(value => {
+        console.log(value);
+      })
+      .catch(err => {
+        console.log('Error!' + err);
+      });
+  },
 };
 </script>
 
-<style>
-</style>
-
+<style></style>

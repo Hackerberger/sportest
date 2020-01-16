@@ -3,17 +3,15 @@
     <v-layout row wrap>
       <v-bottom-nav :value="true" fixed color="#00295D"></v-bottom-nav>
 
-      <v-carousel interval="60000" hide-delimiters hide-controls>
+      <v-carousel interval="60000" hide-delimiters show-arrows="false">
         <v-carousel-item>
           <v-menu
             ref="menu"
             v-model="menu"
             :close-on-content-click="false"
             :nudge-right="40"
-            lazy
             transition="scale-transition"
             offset-y
-            full-width
             min-width="490px"
           >
             <template v-slot:activator="{ on }">
@@ -30,7 +28,6 @@
               v-model="date_birth"
               :max="new Date().toISOString().substr(0, 10)"
               min="1950-01-01"
-              @change="save"
             ></v-date-picker>
           </v-menu>
 
@@ -39,15 +36,13 @@
             v-model="menu2"
             :close-on-content-click="false"
             :nudge-right="40"
-            lazy
             transition="scale-transition"
             offset-y
-            full-width
             min-width="290px"
           >
             <template v-slot:activator="{ on }">
               <v-text-field
-                v-model="date2"
+                v-model="date_test"
                 label="Testdatum"
                 prepend-icon="mdi-calendar-month"
                 readonly
@@ -56,10 +51,9 @@
             </template>
             <v-date-picker
               ref="picker"
-              v-model="date2"
+              v-model="date_birth"
               :max="new Date().toISOString().substr(0, 10)"
               min="1950-01-01"
-              @change="save"
             ></v-date-picker>
           </v-menu>
 
@@ -467,6 +461,7 @@ export default {
     return {
       testDaten: {
         date_birth: null,
+        date_test: null,
         balance6_1: 0,
         balance6_2: 0,
         balance4_5_1: 0,
