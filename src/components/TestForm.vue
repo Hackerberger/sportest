@@ -20,7 +20,7 @@
               <v-text-field
                 v-model="date_birth"
                 label="Birthday date"
-                prepend-icon="event"
+                prepend-icon="mdi-calendar-month"
                 readonly
                 v-on="on"
               ></v-text-field>
@@ -49,7 +49,7 @@
               <v-text-field
                 v-model="date2"
                 label="Testdatum"
-                prepend-icon="event"
+                prepend-icon="mdi-calendar-month"
                 readonly
                 v-on="on"
               ></v-text-field>
@@ -73,13 +73,23 @@
 
           <v-layout row>
             <v-flex xs3 ml-4>
-              <v-text-field type="number" label="Gewicht" suffix="kg" v-model="testDaten.gewicht"></v-text-field>
+              <v-text-field
+                type="number"
+                label="Gewicht"
+                suffix="kg"
+                v-model="testDaten.gewicht"
+              ></v-text-field>
             </v-flex>
           </v-layout>
 
           <v-layout row>
             <v-flex xs3 ml-4>
-              <v-text-field type="number" label="Größe" suffix="cm" v-model="testDaten.groeße"></v-text-field>
+              <v-text-field
+                type="number"
+                label="Größe"
+                suffix="cm"
+                v-model="testDaten.groeße"
+              ></v-text-field>
             </v-flex>
           </v-layout>
         </v-carousel-item>
@@ -90,9 +100,17 @@
               <h3 class="white--text">Balancieren rückwärts:</h3>
               <v-layout wrap>
                 <v-container fluid>
-    <p class="white--text">Balance Points: {{testDaten.erg_bal}}</p>
+                  <p class="white--text">
+                    Balance Points: {{ testDaten.erg_bal }}
+                  </p>
 
-                  <v-card v-for="n in 1" :key="n" class="ma-3 pa-6" outlined tile>
+                  <v-card
+                    v-for="n in 1"
+                    :key="n"
+                    class="ma-3 pa-6"
+                    outlined
+                    tile
+                  >
                     <span class="white--text">6cm-Balken:</span>
                     <v-slider
                       v-model="testDaten.balance6_1"
@@ -143,7 +161,13 @@
                     </v-slider>
                   </v-card>
 
-                  <v-card v-for="n in 1" :key="n" class="ma-3 pa-6" outlined tile>
+                  <v-card
+                    v-for="n in 1"
+                    :key="n"
+                    class="ma-3 pa-6"
+                    outlined
+                    tile
+                  >
                     <span class="white--text">4,5cm-Balken:</span>
                     <v-slider
                       v-model="testDaten.balance4_5_1"
@@ -188,7 +212,13 @@
                     </v-slider>
                   </v-card>
 
-                  <v-card v-for="n in 1" :key="n" class="ma-3 pa-6" outlined tile>
+                  <v-card
+                    v-for="n in 1"
+                    :key="n"
+                    class="ma-3 pa-6"
+                    outlined
+                    tile
+                  >
                     <span class="white--text">3cm-Balken:</span>
 
                     <v-slider
@@ -261,10 +291,18 @@
               <h3 class="white--text">Seitliches Hin- u.Herspringen:</h3>
               <v-layout wrap>
                 <v-flex sm1>
-                  <v-text-field label="Durchgang 1" single-line v-model="testDaten.seit_1"></v-text-field>
+                  <v-text-field
+                    label="Durchgang 1"
+                    single-line
+                    v-model="testDaten.seit_1"
+                  ></v-text-field>
                 </v-flex>
                 <v-flex sm1>
-                  <v-text-field label="Durchgang 2" single-line v-model="testDaten.seit_2"></v-text-field>
+                  <v-text-field
+                    label="Durchgang 2"
+                    single-line
+                    v-model="testDaten.seit_2"
+                  ></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -275,10 +313,18 @@
               <h3 class="white--text">Rumpfbeuge:</h3>
               <v-layout row wrap>
                 <v-flex sm1>
-                  <v-text-field label="Durchgang 1" single-line v-model="testDaten.rumpf_1"></v-text-field>
+                  <v-text-field
+                    label="Durchgang 1"
+                    single-line
+                    v-model="testDaten.rumpf_1"
+                  ></v-text-field>
                 </v-flex>
                 <v-flex sm1>
-                  <v-text-field label="Durchgang 2" single-line v-model="testDaten.rumpf_2"></v-text-field>
+                  <v-text-field
+                    label="Durchgang 2"
+                    single-line
+                    v-model="testDaten.rumpf_2"
+                  ></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -289,7 +335,11 @@
               <h3 class="white--text">Liegestütze:</h3>
               <v-layout row wrap>
                 <v-flex sm1>
-                  <v-text-field label="Versuch 1" single-line v-model="testDaten.liege"></v-text-field>
+                  <v-text-field
+                    label="Versuch 1"
+                    single-line
+                    v-model="testDaten.liege"
+                  ></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -300,7 +350,11 @@
               <h3 class="white--text">Situps:</h3>
               <v-layout row wrap>
                 <v-flex sm1>
-                  <v-text-field label="Versuch 1" single-line v-model="testDaten.situps"></v-text-field>
+                  <v-text-field
+                    label="Versuch 1"
+                    single-line
+                    v-model="testDaten.situps"
+                  ></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -346,7 +400,11 @@
               <h3 class="white--text">20m-Sprint:</h3>
               <v-layout wrap>
                 <v-flex sm1>
-                  <v-text-field label="Zeit" suffix="sek" single-line></v-text-field>
+                  <v-text-field
+                    label="Zeit"
+                    suffix="sek"
+                    single-line
+                  ></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -357,7 +415,11 @@
               <h3 class="white--text">6-Minuten-Lauf:</h3>
               <v-layout wrap>
                 <v-flex sm1>
-                  <v-text-field label="Zeit" suffix="sek" single-line></v-text-field>
+                  <v-text-field
+                    label="Zeit"
+                    suffix="sek"
+                    single-line
+                  ></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -369,9 +431,29 @@
           <v-icon>done</v-icon>
     </v-btn>-->
 
-    <v-btn @click="balanceObject()" color="#FF6600" class="white--text" value="statistics">
+    <v-btn
+        fab
+        dark
+        color="white"
+        @click="$router.push({ name:'statistics'})"
+        absolute
+        :style="{left: '50%', bottom:'5%', transform:'translateX(-50%)' }"
+        bottom
+        fixed
+        align-center
+        right
+      >
+        <v-icon dark large color="#FF0000">mdi-check</v-icon>
+      </v-btn>
+
+    <!-- <v-btn
+      @click="balanceObject()"
+      color="#FF6600"
+      class="white--text"
+      value="statistics"
+    >
       <v-icon>Send</v-icon>
-    </v-btn>
+    </v-btn> -->
 
     <!-- <v-btn @click="$router.push({ name:'home'})" color="teal" value="home">
           <v-icon>clear</v-icon>
@@ -404,33 +486,33 @@ export default {
         menu: null,
         gewicht: null,
         groeße: null,
-        erg_bal: null
-      }
+        erg_bal: null,
+      },
     };
   },
   methods: {
     addTest() {
-      this.$setItem("testDaten", this.testDaten)
+      this.$setItem('testDaten', this.testDaten)
         .then(value => {
-          this.$router.push({ name: "statistics" });
-          console.log("Test saved!" + value);
+          this.$router.push({ name: 'statistics' });
+          console.log('Test saved!' + value);
         })
         .catch(err => {
-          console.log("Error!" + err);
+          console.log('Error!' + err);
         });
     },
     balanceObject() {
       var testobject = {
         age: 16,
-        gender: "w",
+        gender: 'w',
         balance: [
           this.testDaten.balance6_1,
           this.testDaten.balance6_2,
           this.testDaten.balance4_5_1,
           this.testDaten.balance4_5_2,
           8,
-          8
-        ]
+          8,
+        ],
       };
       this.Balance(testobject);
     },
@@ -462,14 +544,13 @@ export default {
         // }
       }
 
-      console.log("Balance-Points: " + bpoints);
+      console.log('Balance-Points: ' + bpoints);
       this.testDaten.erg_bal = bpoints;
 
       return bpoints;
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
