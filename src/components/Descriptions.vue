@@ -14,7 +14,7 @@
               :src="publicPath + d.video"
               loop
               autoplay
-              width="300px"
+              width="100%"
             ></video>
           </v-container>
           <h4>Testziel</h4>

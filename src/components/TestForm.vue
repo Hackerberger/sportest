@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-bottom-nav :value="true" fixed color="#00295D"></v-bottom-nav>
 
-      <v-carousel interval="60000" hide-delimiters show-arrows="false">
+      <v-carousel interval="60000" hide-delimiters :show-arrows="false" continuous="true">
         <v-carousel-item>
           <v-menu
             ref="menu"
