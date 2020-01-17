@@ -39,7 +39,7 @@ export default {
             'Die Aufgabe dient der Überprüfung der Koordination bei Präzisionsaufgaben.',
           desc:
             'Die Ver­suchs­person muss hier rückwärts über einen 6 cm, 4,5 cm und 3cm breiten Balken balan­cieren. Der Test­versuch beginnt stets mit beiden Füßen vom Startbrett aus. Gezählt wird jeweils die Anzahl der Schritte, bis es zum Bodenkontakt kommt. Vor dem Test wird jeweils ein Probeversuch vorwärts und rückwärts über die gesamte Balkenlänge durchgeführt. Somit wird als Vorübung pro Balken einmal vorwärts und einmal rückwärts, an­schließend zur Lei­stungs­messung je zweimal rück­wärts balanciert. Insge­samt werden damit zwei gültige Versuche pro Bal­ken ge­wer­tet.',
-            video: 'videos/Situps.mp4'
+            video: 'videos/balance.mp4'
         },
         {
           name: 'Seitliches Hin- U. Herspringen',

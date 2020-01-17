@@ -2,7 +2,7 @@
 import { Bar } from "vue-chartjs";
 
 //Default font color
-Chart.defaults.global.defaultFontColor = "white";
+Chart.defaults.global.defaultFontColor = "black";
 
 export default {
   extends: Bar,
@@ -14,14 +14,14 @@ export default {
         {
           type: "line",
           label: "Durchschnitt",
-          borderColor: "white",
+          borderColor: "black",
           fill:"false",
           average: 50,
           data: [100,100,100,100,100]
         },
         {
           label: "Punkte",
-          backgroundColor: "white",
+          backgroundColor: "black",
           data: [103, 80, 88, 120, 70]
         }
       ]

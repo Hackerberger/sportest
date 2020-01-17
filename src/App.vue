@@ -1,6 +1,7 @@
 <template>
   <v-app style="background:black" dark>
-    <v-app-bar app style="background-image: linear-gradient(to top, black 0%, #333333 51%, #646464 100%);">
+    <v-app-bar app color="#161616">
+      <!-- background-image: linear-gradient(to top, black 0%, #333333 51%, #646464 100%); -->
       <v-btn
         icon
         v-if="$route.name !== 'home' && $route.name !== 'login' && $route.name !== 'statistics'"

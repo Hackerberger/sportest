@@ -90,10 +90,10 @@
 
         <v-form>
           <v-carousel-item>
-            <v-container>
+            
               <h3 class="white--text">Balancieren rückwärts:</h3>
-              <v-layout wrap>
-                <v-container fluid>
+             
+                <v-container>
                   <p class="white--text">
                     Balance Points: {{ testDaten.erg_bal }}
                   </p>
@@ -106,14 +106,15 @@
                     tile
                   >
                     <span class="white--text">6cm-Balken:</span>
+            
                     <v-slider
                       v-model="testDaten.balance6_1"
-                      thumb-label
+                      
                       label="1.Durchgang"
                       class="align-center"
                       min="0"
                       max="8"
-                      hide-details
+                      
                     >
                       <template v-slot:append>
                         <v-text-field
@@ -160,7 +161,7 @@
                     :key="n"
                     class="ma-3 pa-6"
                     outlined
-                    tile
+                    
                   >
                     <span class="white--text">4,5cm-Balken:</span>
                     <v-slider
@@ -206,7 +207,7 @@
                     </v-slider>
                   </v-card>
 
-                  <v-card
+                  <!-- <v-card
                     v-for="n in 1"
                     :key="n"
                     class="ma-3 pa-6"
@@ -256,7 +257,7 @@
                         ></v-text-field>
                       </template>
                     </v-slider>
-                  </v-card>
+                  </v-card> -->
                 </v-container>
 
                 <!-- <v-flex sm2>
@@ -276,8 +277,8 @@
                     v-model="testDaten.balance3_2"
                   ></v-text-field>
                 </v-flex>-->
-              </v-layout>
-            </v-container>
+             
+           
           </v-carousel-item>
 
           <v-carousel-item>
