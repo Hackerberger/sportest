@@ -2,7 +2,7 @@
   <v-container>
     <v-layout column justify-space-between fill-height>
       <v-flex>
-        <v-card color="#FF6600">
+        <v-card color="#FF6600" class="black--text">
           <v-card-title primary-title>
             <h3 class="headline">Test 2019</h3>
             <v-container>
@@ -17,7 +17,7 @@
       <br />
 
       <v-flex>
-        <v-card color="#FF6600">
+        <v-card color="#FF6600" class="black--text">
           <v-card-title primary-title>
             <h3 class="headline">Test 2018</h3>
             <v-container>
