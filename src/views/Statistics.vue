@@ -13,6 +13,7 @@
             <v-btn class="#4b7dbb--text" text>Details</v-btn>
           </v-card-actions>
         </v-card>
+        
       </v-flex>
       <br />
 
@@ -51,6 +52,12 @@ export default {
       .catch(err => {
         console.log('Error!' + err);
       });
+  },
+  methods: {
+    getAllData() {
+      var db = new PouchDB('http://localhost:5984/kittens');
+
+    }
   },
 };
 </script>
