@@ -31,7 +31,7 @@
             ></v-date-picker>
           </v-menu>
 
-          <v-menu
+          <!-- <v-menu
             ref="menu"
             v-model="menu2"
             :close-on-content-click="false"
@@ -55,7 +55,7 @@
               :max="new Date().toISOString().substr(0, 10)"
               min="1950-01-01"
             ></v-date-picker>
-          </v-menu>
+          </v-menu> -->
 
           <v-container fluid>
             <p>{{ radios || 'Geschlecht' }}</p>
@@ -437,6 +437,7 @@
         fixed
         align-center
         right
+        disabled="true"
       >
         <v-icon dark large color="#FF0000">mdi-check</v-icon>
       </v-btn>
