@@ -7,7 +7,7 @@
           @success="onSignInSuccess"
           @error="onSignInError"
         >
-          <v-btn id="googleButton" color="#161616" large>
+          <v-btn id="googleButton" to="home" color="#161616" large>
             <img id="img-button" src="../../public/img/Google/google_logo.png">
             <span>Log In mit Google</span>
           </v-btn>
@@ -45,22 +45,22 @@ export default {
   methods: {
     async onSignInSuccess(googleUser) {
       //googleUser für alle Components verfügbar machen
-      this.$parent.globalData = googleUser;
+      // this.$parent.globalData = googleUser;
 
       // `googleUser` is the GoogleUser object that represents the just-signed-in user.
       // See https://developers.google.com/identity/sign-in/web/reference#users
-      const profile = googleUser.getBasicProfile();
+      // const profile = googleUser.getBasicProfile();
 
       //this.$emit("googleUserData", profile);
       //this.googleData = googleUser.getBasicProfile();
-      console.log("ID: " + profile.getId());
-      console.log("Full Name: " + profile.getName());
-      console.log("Given Name: " + profile.getGivenName());
-      console.log("Family Name: " + profile.getFamilyName());
-      console.log("Image URL: " + profile.getImageUrl());
-      console.log("Email: " + profile.getEmail());
+      // console.log("ID: " + profile.getId());
+      // console.log("Full Name: " + profile.getName());
+      // console.log("Given Name: " + profile.getGivenName());
+      // console.log("Family Name: " + profile.getFamilyName());
+      // console.log("Image URL: " + profile.getImageUrl());
+      // console.log("Email: " + profile.getEmail());
 
-      if (this.installPossible) this.install();
+      // if (this.installPossible) this.install();
 
       this.$router.push({ name: "home" });
     },
