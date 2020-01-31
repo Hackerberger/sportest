@@ -6,9 +6,9 @@
       <v-carousel interval="60000" hide-delimiters :show-arrows="false" continuous="true">
         <v-carousel-item>
           <v-overflow-btn
-          dark="true"
+          background-color="black"
+          border-color="white"
           color="black"
-          class="my-2"
           :items="klassen"
           label="Klasse"
           target="#dropdown-example"
@@ -104,10 +104,11 @@
              
                 <v-container>
                   <p class="white--text">
-                    Balance Points: {{ testDaten.erg_bal }}
+                    Gleichgewicht Points: {{ testDaten.erg_bal }}
                   </p>
 
                   <v-card
+                  color="black"
                     v-for="n in 1"
                     :key="n"
                     class="ma-3 pa-6"
@@ -166,6 +167,7 @@
                   </v-card>
 
                   <v-card
+                  color="black"
                     v-for="n in 1"
                     :key="n"
                     class="ma-3 pa-6"
@@ -394,7 +396,7 @@
               <v-layout wrap>
                 <v-flex sm1>
                   <v-text-field
-                    label="Zeit"
+                    label="Zeit in sek"
                     suffix="sek"
                     single-line
                   ></v-text-field>
@@ -409,7 +411,7 @@
               <v-layout wrap>
                 <v-flex sm1>
                   <v-text-field
-                    label="Zeit"
+                    label="Meter"
                     suffix="sek"
                     single-line
                   ></v-text-field>
@@ -477,8 +479,8 @@ export default {
         situps: null,
         stand_1: null,
         stand_2: null,
-        sprint: null,
-        lauf: null,
+        sprint: null + "sek",
+        lauf: null +"m",
         menu: null,
         gewicht: null,
         groeße: null,

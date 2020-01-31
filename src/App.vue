@@ -10,7 +10,15 @@
       <v-container fluid>
         <v-layout justify-center>
           <img
+          v-if="$route.name == 'home' || $route.name == 'login' || $route.name == 'statistics'"
             @click="$router.push({ name:'home'})"
+            class="logo"
+            small
+            src="./../public/img/Sportest_Logo.png"
+          />
+           <img
+          v-if="$route.name == 'home_l' || $route.name == 'statistics_l'"
+            @click="$router.push({ name:'home_l'})"
             class="logo"
             small
             src="./../public/img/Sportest_Logo.png"
@@ -94,20 +102,6 @@
         </v-btn>
       </v-bottom-navigation>
 
-      <v-btn
-        fab
-        dark
-        color="white"
-        @click="$router.push({ name:'test_l'})"
-        absolute
-        :style="{left: '50%', bottom:'5%', transform:'translateX(-50%)' }"
-        bottom
-        fixed
-        align-center
-        right
-      >
-        <v-icon dark large color="#FF0000">mdi-plus</v-icon>
-      </v-btn>
     </v-container>
   </v-app>
 </template>

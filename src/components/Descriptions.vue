@@ -71,13 +71,13 @@ export default {
         {
           //20-m Sprint
           name: "Aktionsschnelligkeit",
-          goal: "Die Aufgabe dient für...",
+          goal: "Die Übung dient der Aktionsschnelligkeit in Sprints",
           desc: "Die Ver­suchs­person muss das.."
         },
         {
           //6-Minuten-Lauf
           name: "Ausdauer",
-          goal: "Die Aufgabe dient für...",
+          goal: "Die Übung überprüft die Ausdauer.",
           desc: "Die Ver­suchs­person muss das.."
         }
       ]

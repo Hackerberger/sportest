@@ -31,13 +31,6 @@ export default new Router({
         import(/* webpackChunkName: "test" */ './components/TestForm.vue'),
     },
     {
-      path: '/test_l',
-      name: 'test_l',
-      props: true,
-      component: () =>
-        import(/* webpackChunkName: "test" */ './components/TestForm_Lehrer.vue'),
-    },
-    {
       path: '/statistics',
       name: 'statistics',
       props: true,
