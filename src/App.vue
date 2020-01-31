@@ -17,6 +17,13 @@
             src="./../public/img/Sportest_Logo.png"
           />
            <img
+          v-if="$route.name == 'test'"
+            @click="$router.push({ name:'home'})"
+            class="logo"
+            small
+            src="./../public/img/Sportest_Logo.png"
+          />
+           <img
           v-if="$route.name == 'home_l' || $route.name == 'statistics_l'"
             @click="$router.push({ name:'home_l'})"
             class="logo"
