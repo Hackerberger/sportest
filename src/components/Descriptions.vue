@@ -32,16 +32,16 @@ export default {
           //Balancieren
           name: "Gleichgewicht",
           goal:
-            "Die Aufgabe dient der Überprüfung der Koordination bei Präzisionsaufgaben.",
+            "Diese Übung hilft die Koordination bei Präzisionsaufgaben zu überprüfen.",
           desc:
-            "Die Ver­suchs­person muss hier über einen 6 cm & 4,5 cm breiten Balken balan­cieren. Der Test­versuch beginnt stets mit beiden Füßen vom Startbrett aus. Gezählt wird jeweils die Anzahl der Schritte, bis es zum Bodenkontakt kommt. Vor dem Test wird jeweils ein Probeversuch vorwärts und rückwärts über die gesamte Balkenlänge durchgeführt. Somit wird als Vorübung pro Balken einmal vorwärts und einmal rückwärts, an­schließend zur Lei­stungs­messung je zweimal rück­wärts balanciert. Insge­samt werden damit zwei gültige Versuche pro Bal­ken ge­wer­tet.",
+            "Der Schüler balanciert hier über einen 6 cm, 4,5 cm und 3 cm breiten Balken. Der Test­versuch beginnt stets mit beiden Füßen vom Startbrett aus. Gezählt wird jeweils die Anzahl der Schritte, bis es zum Bodenkontakt kommt. Vor dem Test darf jeweils ein Probeversuch durchgeführt werden. Danach beginnen die Durchführungen der Übungen, welche in die App eingetragen werden. Insge­samt werden damit zwei gültige Versuche pro Bal­ken ge­wer­tet.",
           video: "videos/balance.mp4"
         },
         {
           // Seitliches Hin- U. Herspringen
           name: "Koordination",
-          goal: "Die Aufgabe dient für...",
-          desc: "Die Ver­suchs­person muss das.."
+          goal: "Diese Übung überprüft die Koordination unter Zeitdruck bei Sprüngen",
+          desc: "Der Schüler springt hier, mit beiden Beinen gleichzeitig so schnell wie möglich, innerhalb von 15 Sekunden, seitlich über die Mittellinie einer Teppichmatte  hin- und her. Die Testperson startet mit geschlossenen Füßen in einer Hälfte des Feldes. Mit dem Startsignal springt die Testperson ohne Zwischenhüpfer immer von einer Feldhälfte in die Andere, ohne dabei die Mittellinie zu berühren und ohne die Teppichmatte zu verlassen. Ein/e Mitschüler/in signalisiert nach 15 Sekunden das Ende der Übung."
         },
         {
           // Rumpfbeuge

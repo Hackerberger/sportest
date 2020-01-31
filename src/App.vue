@@ -25,8 +25,8 @@
       <router-view></router-view>
     </v-content>
 
-    <!--  Navbar unten  -->
-    <v-container v-if="$route.name == 'home' || $route.name == 'statistics'">
+    <!--  Navbar unten Schüler  -->
+  <v-container v-if="$route.name == 'home' || $route.name == 'statistics'">
       <v-bottom-navigation
         block
         :value="true"
@@ -54,6 +54,51 @@
         dark
         color="white"
         @click="$router.push({ name:'test'})"
+        absolute
+        :style="{left: '50%', bottom:'5%', transform:'translateX(-50%)' }"
+        bottom
+        fixed
+        align-center
+        right
+      >
+        <v-icon dark large color="#FF0000">mdi-plus</v-icon>
+      </v-btn>
+    </v-container>
+
+
+
+
+
+
+<!-- Navbar unten Lehrer -->
+    <v-container v-if="$route.name == 'home_l' || $route.name == 'statistics_l'">
+      <v-bottom-navigation
+        block
+        :value="true"
+        id="Nav"
+        fixed
+        background-color="black !important"
+        grow
+      >
+        <!-- <v-divider color="green !important"
+        ></v-divider>-->
+
+        <v-btn @click="$router.push({ name:'home_l'})" color="black" value="home">
+          <span class="orange--text">Home</span>
+          <v-icon color="#FF6600">mdi-home</v-icon>
+        </v-btn>
+
+        <v-btn @click="$router.push({ name:'statistics_l'})" color="black" value="statistic">
+          <span class="orange--text">Statistic</span>
+          <v-icon color="#FF6600">mdi-chart-bar</v-icon>
+        </v-btn>
+      </v-bottom-navigation>
+
+      <v-btn
+        fab
+        dark
+        color="white"
+        @click="$router.push({ name:'test_l'})"
         absolute
         :style="{left: '50%', bottom:'5%', transform:'translateX(-50%)' }"
         bottom

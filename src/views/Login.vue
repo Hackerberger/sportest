@@ -7,7 +7,7 @@
           @success="onSignInSuccess"
           @error="onSignInError"
         >
-          <v-btn id="googleButton" to="home" color="#161616" large>
+          <v-btn id="googleButton" to="home_l" color="#161616" large>
             <img id="img-button" src="../../public/img/Google/google_logo.png">
             <span>Log In mit Google</span>
           </v-btn>
