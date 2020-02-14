@@ -437,7 +437,7 @@
         fixed
         align-center
         right
-        disabled="true"
+        :disabled="testDaten.groeße == null"
       >
         <v-icon dark large color="#FF0000">mdi-check</v-icon>
       </v-btn>
