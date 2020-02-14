@@ -32,7 +32,7 @@
           />
 
 
-             <v-btn id="logout" color="#161616" class="white--text"
+             <v-btn id="logout" color="#161616" class="white--text" fab
       rounded @click="Logout()"
       ><v-icon>mdi-account-remove</v-icon></v-btn>
         </v-layout>
@@ -143,7 +143,7 @@ img {
 
 #logout {
   position: absolute;
-  top: 1;
+  top: 0;
   right: 0;
 }
 </style>
