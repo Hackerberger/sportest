@@ -1,6 +1,28 @@
 <template>
   <v-container>
     <v-layout column justify-space-between fill-height>
+ <v-overflow-btn
+          background-color="#FF6600"
+          color="black"
+          editable
+          class="text--white my-2"
+          :items="klassen"
+          label="Klasse"
+          target="#dropdown-example"
+        ></v-overflow-btn>
+
+
+ <v-overflow-btn
+          background-color="#FF6600"
+          color="black"
+          editable
+          class="text--white my-2"
+          :items="schueler"
+          label="Schüler"
+          target="#dropdown-example"
+        ></v-overflow-btn>
+
+
       <v-flex>
         <v-card color="#FF6600" class="black--text">
           <v-card-title primary-title>
@@ -42,7 +64,10 @@ import Chart2 from '../components/Chart2';
 export default {
   components: { Chart1, Chart2 },
   data() {
-    return {};
+    return {
+      klassen: ['5AHITN', '5BHITM', '5CHITM'],
+      schueler: ['Schüler x', "schüler y", "schüler z"]
+    };
   },
   created() {
     this.$getItem('testDaten')

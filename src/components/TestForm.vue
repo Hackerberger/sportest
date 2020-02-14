@@ -3,8 +3,17 @@
     <v-layout row wrap>
       <v-bottom-nav :value="true" fixed color="#00295D"></v-bottom-nav>
 
-      <v-carousel interval="60000" hide-delimiters :show-arrows="false" continuous="true">
+      <v-carousel interval="60000" hide-delimiters :show-arrows="true" continuous="true">
         <v-carousel-item>
+          <v-overflow-btn
+          background-color="black"
+          border-color="white"
+          color="black"
+          :items="klassen"
+          label="Klasse"
+          target="#dropdown-example"
+        ></v-overflow-btn>
+
           <v-menu
             ref="menu"
             v-model="menu"
@@ -91,14 +100,15 @@
         <v-form>
           <v-carousel-item>
             
-              <h3 class="white--text">Balancieren rückwärts:</h3>
+              <h3 class="white--text">Gleichgewicht</h3>
              
                 <v-container>
                   <p class="white--text">
-                    Balance Points: {{ testDaten.erg_bal }}
+                    Gleichgewicht Points: {{ testDaten.erg_bal }}
                   </p>
 
                   <v-card
+                  color="black"
                     v-for="n in 1"
                     :key="n"
                     class="ma-3 pa-6"
@@ -157,6 +167,7 @@
                   </v-card>
 
                   <v-card
+                  color="black"
                     v-for="n in 1"
                     :key="n"
                     class="ma-3 pa-6"
@@ -283,7 +294,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Seitliches Hin- u.Herspringen:</h3>
+              <h3 class="white--text">Koordination</h3>
               <v-layout wrap>
                 <v-flex sm1>
                   <v-text-field
@@ -305,7 +316,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Rumpfbeuge:</h3>
+              <h3 class="white--text">Rumpfbeweglichkeit</h3>
               <v-layout row wrap>
                 <v-flex sm1>
                   <v-text-field
@@ -327,7 +338,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Liegestütze:</h3>
+              <h3 class="white--text">Oberkörperkraft</h3>
               <v-layout row wrap>
                 <v-flex sm1>
                   <v-text-field
@@ -342,7 +353,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Situps:</h3>
+              <h3 class="white--text">Rumpfkraft</h3>
               <v-layout row wrap>
                 <v-flex sm1>
                   <v-text-field
@@ -357,7 +368,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Standweitsprung:</h3>
+              <h3 class="white--text">Schnellkraft</h3>
               <v-layout row wrap>
                 <v-flex sm1>
                   <v-text-field
@@ -381,22 +392,11 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Liegestütze:</h3>
-              <v-layout row wrap>
-                <v-flex sm1>
-                  <v-text-field label="Versuch 1" single-line></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-carousel-item>
-
-          <v-carousel-item>
-            <v-container>
-              <h3 class="white--text">20m-Sprint:</h3>
+              <h3 class="white--text">Aktionsschnelligkeit</h3>
               <v-layout wrap>
                 <v-flex sm1>
                   <v-text-field
-                    label="Zeit"
+                    label="Zeit in sek"
                     suffix="sek"
                     single-line
                   ></v-text-field>
@@ -407,11 +407,11 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">6-Minuten-Lauf:</h3>
+              <h3 class="white--text">Ausdauer</h3>
               <v-layout wrap>
                 <v-flex sm1>
                   <v-text-field
-                    label="Zeit"
+                    label="Meter"
                     suffix="sek"
                     single-line
                   ></v-text-field>
@@ -461,7 +461,8 @@
 export default {
   data() {
     return {
-      testDaten: {
+      klassen: ['5AHITN', '5BHITM', '5CHITM'],
+      testDaten: { 
         date_birth: null,
         date_test: null,
         balance6_1: 0,
@@ -478,8 +479,8 @@ export default {
         situps: null,
         stand_1: null,
         stand_2: null,
-        sprint: null,
-        lauf: null,
+        sprint: null + "sek",
+        lauf: null +"m",
         menu: null,
         gewicht: null,
         groeße: null,

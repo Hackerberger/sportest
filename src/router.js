@@ -18,6 +18,12 @@ export default new Router({
         import(/* webpackChunkName: "home" */ './views/Home.vue'),
     },
     {
+      path: '/home_l',
+      name: 'home_l',
+      component: () =>
+        import(/* webpackChunkName: "home_l" */ './views/Home_lehrer.vue'),
+    },
+    {
       path: '/test',
       name: 'test',
       props: true,
@@ -30,6 +36,13 @@ export default new Router({
       props: true,
       component: () =>
         import(/* webpackChunkName: "statistics" */ './views/Statistics.vue'),
+    },
+    {
+      path: '/statistics_l',
+      name: 'statistics_l',
+      props: true,
+      component: () =>
+        import(/* webpackChunkName: "statistics_lehrer" */ './views/Statistics_lehrer.vue'),
     }
   ],
 });
