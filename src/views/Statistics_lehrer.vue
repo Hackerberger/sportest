@@ -4,6 +4,7 @@
  <v-overflow-btn
           background-color="#FF6600"
           color="black"
+          rounded
           editable
           class="text--white my-2"
           :items="klassen"
@@ -15,6 +16,7 @@
  <v-overflow-btn
           background-color="#FF6600"
           color="black"
+          rounded
           editable
           class="text--white my-2"
           :items="schueler"
