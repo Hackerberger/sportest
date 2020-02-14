@@ -363,20 +363,20 @@
     </v-btn>-->
 
     <v-btn
-      fab
-      dark
-      color="white"
-      @click="$router.push({ name:'statistics'})"
-      absolute
-      :style="{left: '50%', bottom:'5%', transform:'translateX(-50%)' }"
-      bottom
-      fixed
-      align-center
-      right
-      disabled="true"
-    >
-      <v-icon dark large color="#FF0000">mdi-check</v-icon>
-    </v-btn>
+        fab
+        dark
+        color="white"
+        @click="$router.push({ name:'statistics'})"
+        absolute
+        :style="{left: '50%', bottom:'5%', transform:'translateX(-50%)' }"
+        bottom
+        fixed
+        align-center
+        right
+        :disabled="testDaten.groeße == null"
+      >
+        <v-icon dark large color="#FF0000">mdi-check</v-icon>
+      </v-btn>
 
     <!-- <v-btn
       @click="gleichgewichtObject()"
@@ -455,7 +455,7 @@ export default {
 
 
 
-    
+
     gleichgewichtObject() {
       var testobject = {
         age: 16,
