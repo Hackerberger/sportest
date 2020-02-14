@@ -10,6 +10,7 @@
   "dependencies": {
     "chart.js": "^2.8.0",
     "core-js": "^2.6.5",
+    "pouchdb": "^7.1.1",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
     "vue-chartjs": "^3.4.2",
