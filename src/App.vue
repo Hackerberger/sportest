@@ -36,7 +36,7 @@
           />
 
 
-             <v-btn id="logout" color="#161616" class="white--text" fab
+             <v-btn id="logout" color="#161616" class="primary--text" fab depressed
       rounded @click="Logout()"
       ><v-icon>mdi-account-remove</v-icon></v-btn>
         </v-layout>
@@ -67,8 +67,8 @@
           color="black"
           value="home"
         >
-          <span class="orange--text">Home</span>
-          <v-icon color="#FF6600">mdi-home</v-icon>
+          <span class="primary--text">Home</span>
+          <v-icon color="primary">mdi-home</v-icon>
         </v-btn>
 
         <v-btn
@@ -76,8 +76,8 @@
           color="black"
           value="statistic"
         >
-          <span class="orange--text">Statistic</span>
-          <v-icon color="#FF6600">mdi-chart-bar</v-icon>
+          <span class="primary--text">Statistic</span>
+          <v-icon color="primary">mdi-chart-bar</v-icon>
         </v-btn>
       </v-bottom-navigation>
 
@@ -117,8 +117,8 @@
           color="black"
           value="home"
         >
-          <span class="orange--text">Home</span>
-          <v-icon color="#FF6600">mdi-home</v-icon>
+          <span class="primary--text">Home</span>
+          <v-icon color="primary">mdi-home</v-icon>
         </v-btn>
 
         <v-btn
@@ -126,8 +126,8 @@
           color="black"
           value="statistic"
         >
-          <span class="orange--text">Statistic</span>
-          <v-icon color="#FF6600">mdi-chart-bar</v-icon>
+          <span class="primary--text">Statistic</span>
+          <v-icon color="primary">mdi-chart-bar</v-icon>
         </v-btn>
       </v-bottom-navigation>
     </v-container>
@@ -153,7 +153,7 @@ img {
 }
 
 #Nav {
-  border-top: #ff6600 1.5px solid !important;
+  border-top: #FF6600 1.5px solid !important;
 }
 
 #logout {

@@ -88,7 +88,7 @@ export default {
 
 <style lang="scss" scoped>
 .v-expansion-panel {
-  background-color: #ff6600 !important;
+  background-color: #FF6600 !important;
   color: black !important;
   margin: 5px;
   border-radius: 5px;

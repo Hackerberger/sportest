@@ -2,7 +2,7 @@
   <v-container>
     <v-layout column justify-space-between fill-height>
  <v-overflow-btn
-          background-color="#FF6600"
+          background-color="primary"
           color="black"
           rounded
           editable
@@ -14,7 +14,7 @@
 
 
  <v-overflow-btn
-          background-color="#FF6600"
+          background-color="primary"
           color="black"
           rounded
           editable
