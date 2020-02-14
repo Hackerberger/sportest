@@ -1,25 +1,29 @@
 <template>
   <v-container>
     <v-layout column justify-space-between fill-height>
-      <v-overflow-btn
-        background-color="#FF6600"
-        color="black"
-        editable
-        class="text--white my-2"
-        :items="klassen"
-        label="Klasse"
-        target="#dropdown-example"
-      ></v-overflow-btn>
+ <v-overflow-btn
+          background-color="#FF6600"
+          color="black"
+          rounded
+          editable
+          class="text--white my-2"
+          :items="klassen"
+          label="Klasse"
+          target="#dropdown-example"
+        ></v-overflow-btn>
 
-      <v-overflow-btn
-        background-color="#FF6600"
-        color="black"
-        editable
-        class="text--white my-2"
-        :items="schueler"
-        label="Schüler"
-        target="#dropdown-example"
-      ></v-overflow-btn>
+
+ <v-overflow-btn
+          background-color="#FF6600"
+          color="black"
+          rounded
+          editable
+          class="text--white my-2"
+          :items="schueler"
+          label="Schüler"
+          target="#dropdown-example"
+        ></v-overflow-btn>
+
 
       <v-flex>
         <ChartCard />

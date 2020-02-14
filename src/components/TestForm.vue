@@ -6,13 +6,13 @@
       <v-carousel interval="60000" hide-delimiters :show-arrows="true" continuous="true">
         <v-carousel-item>
           <v-overflow-btn
-          background-color="black"
-          border-color="white"
-          color="black"
-          :items="klassen"
-          label="Klasse"
-          target="#dropdown-example"
-        ></v-overflow-btn>
+            background-color="black"
+            border-color="white"
+            color="black"
+            :items="klassen"
+            label="Klasse"
+            target="#dropdown-example"
+          ></v-overflow-btn>
 
           <v-menu
             ref="menu"
@@ -64,7 +64,7 @@
               :max="new Date().toISOString().substr(0, 10)"
               min="1950-01-01"
             ></v-date-picker>
-          </v-menu> -->
+          </v-menu>-->
 
           <v-container fluid>
             <p>{{ radios || 'Geschlecht' }}</p>
@@ -76,208 +76,173 @@
 
           <v-layout row>
             <v-flex xs3 ml-4>
-              <v-text-field
-                type="number"
-                label="Gewicht"
-                suffix="kg"
-                v-model="testDaten.gewicht"
-              ></v-text-field>
+              <v-text-field type="number" label="Gewicht" suffix="kg" v-model="testDaten.gewicht"></v-text-field>
             </v-flex>
           </v-layout>
 
           <v-layout row>
             <v-flex xs3 ml-4>
-              <v-text-field
-                type="number"
-                label="Größe"
-                suffix="cm"
-                v-model="testDaten.groeße"
-              ></v-text-field>
+              <v-text-field type="number" label="Größe" suffix="cm" v-model="testDaten.groeße"></v-text-field>
             </v-flex>
           </v-layout>
         </v-carousel-item>
 
         <v-form>
           <v-carousel-item>
-            
-              <h3 class="white--text">Gleichgewicht</h3>
-             
-                <v-container>
-                  <p class="white--text">
-                    Gleichgewicht Points: {{ testDaten.erg_bal }}
-                  </p>
+            <h3 class="white--text">Gleichgewicht</h3>
 
-                  <v-card
-                  color="black"
-                    v-for="n in 1"
-                    :key="n"
-                    class="ma-3 pa-6"
-                    outlined
-                    tile
+            <v-container>
+              <p class="white--text">Gleichgewicht Points: {{ testDaten.erg_bal }}</p>
+
+              <v-card color="black" v-for="n in 1" :key="n" class="ma-3 pa-6" outlined tile>
+                <span class="white--text">6cm-Balken:</span>
+
+                <v-slider
+                  v-model="testDaten.gleichgewicht6_1"
+                  label="1.Durchgang"
+                  class="align-center"
+                  min="0"
+                  max="8"
+                >
+                  <template v-slot:append>
+                    <v-text-field
+                      v-model="testDaten.gleichgewicht6_1"
+                      class="mt-0 pt-0 mb-4"
+                      hide-details
+                      single-line
+                      type="number"
+                      style="width: 30px"
+                    ></v-text-field>
+                  </template>
+                  <v-btn
+                    @click="Gleichgewicht(testDaten.gleichgewicht6_1)"
+                    color="white"
+                    value="statistics"
                   >
-                    <span class="white--text">6cm-Balken:</span>
-            
-                    <v-slider
-                      v-model="testDaten.balance6_1"
-                      
-                      label="1.Durchgang"
-                      class="align-center"
-                      min="0"
-                      max="8"
-                      
-                    >
-                      <template v-slot:append>
-                        <v-text-field
-                          v-model="testDaten.balance6_1"
-                          class="mt-0 pt-0 mb-4"
-                          hide-details
-                          single-line
-                          type="number"
-                          style="width: 30px"
-                        ></v-text-field>
-                      </template>
-                      <v-btn
-                        @click="Balance(testDaten.balance6_1)"
-                        color="white"
-                        value="statistics"
-                      >
-                        <v-icon>Balance 6cm</v-icon>
-                      </v-btn>
-                    </v-slider>
-                    <v-slider
-                      v-model="testDaten.balance6_2"
-                      thumb-label
-                      label="2.Durchgang"
-                      class="align-center"
-                      min="0"
-                      max="8"
+                    <v-icon>Gleichgewicht 6cm</v-icon>
+                  </v-btn>
+                </v-slider>
+                <v-slider
+                  v-model="testDaten.gleichgewicht6_2"
+                  thumb-label
+                  label="2.Durchgang"
+                  class="align-center"
+                  min="0"
+                  max="8"
+                  hide-details
+                >
+                  <template v-slot:append>
+                    <v-text-field
+                      v-model="testDaten.gleichgewicht6_2"
+                      class="mt-0 pt-0 mb-4"
                       hide-details
-                    >
-                      <template v-slot:append>
-                        <v-text-field
-                          v-model="testDaten.balance6_2"
-                          class="mt-0 pt-0 mb-4"
-                          hide-details
-                          single-line
-                          type="number"
-                          style="width: 30px"
-                        ></v-text-field>
-                      </template>
-                    </v-slider>
-                  </v-card>
+                      single-line
+                      type="number"
+                      style="width: 30px"
+                    ></v-text-field>
+                  </template>
+                </v-slider>
+              </v-card>
 
-                  <v-card
-                  color="black"
-                    v-for="n in 1"
-                    :key="n"
-                    class="ma-3 pa-6"
-                    outlined
-                    
-                  >
-                    <span class="white--text">4,5cm-Balken:</span>
-                    <v-slider
-                      v-model="testDaten.balance4_5_1"
-                      thumb-label
-                      label="1.Durchgang"
-                      class="align-center"
-                      min="0"
-                      max="8"
+              <v-card color="black" v-for="n in 1" :key="n" class="ma-3 pa-6" outlined>
+                <span class="white--text">4,5cm-Balken:</span>
+                <v-slider
+                  v-model="testDaten.gleichgewicht4_5_1"
+                  thumb-label
+                  label="1.Durchgang"
+                  class="align-center"
+                  min="0"
+                  max="8"
+                  hide-details
+                >
+                  <template v-slot:append>
+                    <v-text-field
+                      v-model="testDaten.gleichgewicht4_5_1"
+                      class="mt-0 pt-0 mb-4"
                       hide-details
-                    >
-                      <template v-slot:append>
-                        <v-text-field
-                          v-model="testDaten.balance4_5_1"
-                          class="mt-0 pt-0 mb-4"
-                          hide-details
-                          single-line
-                          type="number"
-                          style="width: 30px"
-                        ></v-text-field>
-                      </template>
-                    </v-slider>
+                      single-line
+                      type="number"
+                      style="width: 30px"
+                    ></v-text-field>
+                  </template>
+                </v-slider>
 
-                    <v-slider
-                      v-model="testDaten.balance4_5_2"
-                      thumb-label
-                      label="2.Durchgang"
-                      class="align-center"
-                      min="0"
-                      max="8"
+                <v-slider
+                  v-model="testDaten.gleichgewicht4_5_2"
+                  thumb-label
+                  label="2.Durchgang"
+                  class="align-center"
+                  min="0"
+                  max="8"
+                  hide-details
+                >
+                  <template v-slot:append>
+                    <v-text-field
+                      v-model="testDaten.gleichgewicht4_5_2"
+                      class="mt-0 pt-0 mb-4"
                       hide-details
-                    >
-                      <template v-slot:append>
-                        <v-text-field
-                          v-model="testDaten.balance4_5_2"
-                          class="mt-0 pt-0 mb-4"
-                          hide-details
-                          single-line
-                          type="number"
-                          style="width: 30px"
-                        ></v-text-field>
-                      </template>
-                    </v-slider>
-                  </v-card>
+                      single-line
+                      type="number"
+                      style="width: 30px"
+                    ></v-text-field>
+                  </template>
+                </v-slider>
+              </v-card>
 
-                  <!-- <v-card
-                    v-for="n in 1"
-                    :key="n"
-                    class="ma-3 pa-6"
-                    outlined
-                    tile
-                  >
-                    <span class="white--text">3cm-Balken:</span>
+              <v-card v-for="n in 1" :key="n" class="ma-3 pa-6" outlined tile>
+                <span class="white--text">3cm-Balken:</span>
 
-                    <v-slider
-                      v-model="testDaten.balance3_1"
-                      thumb-label
-                      label="1.Durchgang"
-                      class="align-center"
-                      min="0"
-                      max="8"
+                <v-slider
+                  v-model="testDaten.gleichgewicht3_1"
+                  thumb-label
+                  label="1.Durchgang"
+                  class="align-center"
+                  min="0"
+                  max="8"
+                  hide-details
+                >
+                  <template v-slot:append>
+                    <v-text-field
+                      v-model="testDaten.gleichgewicht3_1"
+                      class="mt-0 pt-0 mb-4"
                       hide-details
-                    >
-                      <template v-slot:append>
-                        <v-text-field
-                          v-model="testDaten.balance3_1"
-                          class="mt-0 pt-0 mb-4"
-                          hide-details
-                          single-line
-                          type="number"
-                          style="width: 30px"
-                        ></v-text-field>
-                      </template>
-                    </v-slider>
+                      single-line
+                      type="number"
+                      style="width: 30px"
+                    ></v-text-field>
+                  </template>
+                </v-slider>
 
-                    <v-slider
-                      v-model="testDaten.balance3_2"
-                      thumb-label
-                      label="2.Durchgang"
-                      class="align-center"
-                      min="0"
-                      max="8"
+                <v-slider
+                  v-model="testDaten.gleichgewicht3_2"
+                  thumb-label
+                  label="2.Durchgang"
+                  class="align-center"
+                  min="0"
+                  max="8"
+                  hide-details
+                >
+                  <template v-slot:append>
+                    <v-text-field
+                      v-model="testDaten.gleichgewicht3_2"
+                      class="mt-0 pt-0 mb-4"
                       hide-details
-                    >
-                      <template v-slot:append>
-                        <v-text-field
-                          v-model="testDaten.balance3_2"
-                          class="mt-0 pt-0 mb-4"
-                          hide-details
-                          single-line
-                          type="number"
-                          style="width: 30px"
-                        ></v-text-field>
-                      </template>
-                    </v-slider>
-                  </v-card> -->
-                </v-container>
+                      single-line
+                      type="number"
+                      style="width: 30px"
+                    ></v-text-field>
+                  </template>
+                </v-slider>
+              </v-card>
+            </v-container>
 
-                <!-- <v-flex sm2>
+            <!-- <v-flex sm2>
                   <span>3cm-Balken:</span>
                   <v-text-field
                     label="Durchgang 1"
                     suffix="Schritte"
                     single-line
-                    v-model="testDaten.balance3_1"
+                    v-model="testDaten.gleichgewicht3_1"
                   ></v-text-field>
                 </v-flex>
                 <v-flex sm2>
@@ -285,11 +250,9 @@
                     label="Durchgang 2"
                     suffix="Schritte"
                     single-line
-                    v-model="testDaten.balance3_2"
+                    v-model="testDaten.gleichgewicht3_2"
                   ></v-text-field>
-                </v-flex>-->
-             
-           
+            </v-flex>-->
           </v-carousel-item>
 
           <v-carousel-item>
@@ -297,18 +260,10 @@
               <h3 class="white--text">Koordination</h3>
               <v-layout wrap>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Durchgang 1"
-                    single-line
-                    v-model="testDaten.seit_1"
-                  ></v-text-field>
+                  <v-text-field label="Durchgang 1" single-line v-model="testDaten.koordination_1"></v-text-field>
                 </v-flex>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Durchgang 2"
-                    single-line
-                    v-model="testDaten.seit_2"
-                  ></v-text-field>
+                  <v-text-field label="Durchgang 2" single-line v-model="testDaten.koordination_2"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -319,18 +274,10 @@
               <h3 class="white--text">Rumpfbeweglichkeit</h3>
               <v-layout row wrap>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Durchgang 1"
-                    single-line
-                    v-model="testDaten.rumpf_1"
-                  ></v-text-field>
+                  <v-text-field label="Durchgang 1" single-line v-model="testDaten.rumpfbeuge_1"></v-text-field>
                 </v-flex>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Durchgang 2"
-                    single-line
-                    v-model="testDaten.rumpf_2"
-                  ></v-text-field>
+                  <v-text-field label="Durchgang 2" single-line v-model="testDaten.rumpfbeuge_2"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -341,11 +288,7 @@
               <h3 class="white--text">Oberkörperkraft</h3>
               <v-layout row wrap>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Versuch 1"
-                    single-line
-                    v-model="testDaten.liege"
-                  ></v-text-field>
+                  <v-text-field label="Versuch 1" single-line v-model="testDaten.oberkoerperkraft"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -356,11 +299,7 @@
               <h3 class="white--text">Rumpfkraft</h3>
               <v-layout row wrap>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Versuch 1"
-                    single-line
-                    v-model="testDaten.situps"
-                  ></v-text-field>
+                  <v-text-field label="Versuch 1" single-line v-model="testDaten.rumpfkraft"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -375,7 +314,7 @@
                     label="Versuch 1"
                     suffix="cm"
                     single-line
-                    v-model="testDaten.stand_1"
+                    v-model="testDaten.schnellkraft_1"
                   ></v-text-field>
                 </v-flex>
                 <v-flex sm1>
@@ -383,7 +322,7 @@
                     label="Versuch 2"
                     suffix="cm"
                     single-line
-                    v-model="testDaten.stand_2"
+                    v-model="testDaten.schnellkraft_2"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -399,6 +338,7 @@
                     label="Zeit in sek"
                     suffix="sek"
                     single-line
+                    v-model="testDaten.aktionsschnelligkeit"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -410,11 +350,7 @@
               <h3 class="white--text">Ausdauer</h3>
               <v-layout wrap>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Meter"
-                    suffix="sek"
-                    single-line
-                  ></v-text-field>
+                  <v-text-field label="Meter" suffix="sek" single-line v-model="testDaten.ausdauer"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -443,13 +379,13 @@
       </v-btn>
 
     <!-- <v-btn
-      @click="balanceObject()"
+      @click="gleichgewichtObject()"
       color="#FF6600"
       class="white--text"
       value="statistics"
     >
       <v-icon>Send</v-icon>
-    </v-btn> -->
+    </v-btn>-->
 
     <!-- <v-btn @click="$router.push({ name:'home'})" color="teal" value="home">
           <v-icon>clear</v-icon>
@@ -461,62 +397,83 @@
 export default {
   data() {
     return {
-      klassen: ['5AHITN', '5BHITM', '5CHITM'],
-      testDaten: { 
+      klassen: ["5AHITN", "5BHITM", "5CHITM"],
+      testDaten: {
         date_birth: null,
         date_test: null,
-        balance6_1: 0,
-        balance6_2: 0,
-        balance4_5_1: 0,
-        balance4_5_2: 0,
-        balance3_1: 0,
-        balance3_2: 0,
-        seit_1: null,
-        seit_2: null,
-        rumpf_1: null,
-        rumpf_2: null,
-        liege: null,
-        situps: null,
-        stand_1: null,
-        stand_2: null,
-        sprint: null + "sek",
-        lauf: null +"m",
-        menu: null,
+        gender: null,
         gewicht: null,
         groeße: null,
-        erg_bal: null,
+        gleichgewicht3_1: 0,
+        gleichgewicht3_2: 0,
+        gleichgewicht4_5_1: 0,
+        gleichgewicht4_5_2: 0,
+        gleichgewicht6_1: 0,
+        gleichgewicht6_2: 0,
+        //Hinundher
+        koordination_1: null,
+        koordination_2: null,
+        //Rumpfbeweglichkeit
+        rumpfbeuge_1: null,
+        rumpfbeuge_2: null,
+        //Liegestütze
+        oberkoerperkraft: null,
+        //Situps
+        rumpfkraft: null,
+        //Standweitsprung
+        schnellkraft_1: null,
+        schnellkraft_2: null,
+        aktionsschnelligkeit: null,
+        ausdauer: null
       },
+      ergebnisse: {
+        //Punkteergebnisse
+        erg_gleichgewicht: null,
+        erg_koordination: null,
+        erg_rumpfbeuge: null,
+        erg_oberkoerperkraft: null,
+        erg_rumpfkraft: null,
+        erg_schnellkraft: null,
+        erg_aktionsschnelligkeit: null,
+        erg_ausdauer: null
+      }
     };
   },
   methods: {
     addTest() {
-      this.$setItem('testDaten', this.testDaten)
+      this.$setItem("testDaten", this.testDaten)
         .then(value => {
-          this.$router.push({ name: 'statistics' });
-          console.log('Test saved!' + value);
+          this.$router.push({ name: "statistics" });
+          console.log("Test saved!" + value);
         })
         .catch(err => {
-          console.log('Error!' + err);
+          console.log("Error!" + err);
         });
     },
-    balanceObject() {
+
+
+
+
+
+
+    gleichgewichtObject() {
       var testobject = {
         age: 16,
-        gender: 'w',
-        balance: [
-          this.testDaten.balance6_1,
-          this.testDaten.balance6_2,
-          this.testDaten.balance4_5_1,
-          this.testDaten.balance4_5_2,
+        gender: "w",
+        gleichgewicht: [
+          this.testDaten.gleichgewicht6_1,
+          this.testDaten.gleichgewicht6_2,
+          this.testDaten.gleichgewicht4_5_1,
+          this.testDaten.gleichgewicht4_5_2,
           8,
-          8,
-        ],
+          8
+        ]
       };
-      this.Balance(testobject);
+      this.Gleichgewicht(testobject);
     },
-    Balance(bData) {
+    Gleichgewicht(bData) {
       let bpoints;
-      let steps = bData.balance.reduce((a, b) => a + b);
+      let steps = bData.gleichgewicht.reduce((a, b) => a + b);
 
       // if (bData.gender == 'w') {
       if (bData.age >= 17) {
@@ -542,12 +499,12 @@ export default {
         // }
       }
 
-      console.log('Balance-Points: ' + bpoints);
+      console.log("Gleichgewicht-Points: " + bpoints);
       this.testDaten.erg_bal = bpoints;
 
       return bpoints;
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -2,15 +2,11 @@
   <v-app style="background:black" dark>
     <v-app-bar app color="#161616">
       <!-- background-image: linear-gradient(to top, black 0%, #333333 51%, #646464 100%); -->
-      <v-btn
+      <!-- <v-btn
         icon
-        v-if="
-          $route.name !== 'home' &&
-            $route.name !== 'login' &&
-            $route.name !== 'statistics'
-        "
-        @click="$router.go(-1)"
-      ></v-btn>
+        v-if="$route.name !== 'home' && $route.name !== 'login' && $route.name !== 'statistics'"
+        @click="$router.go(-1) "
+      ></v-btn> -->
       <v-container fluid>
         <v-layout justify-center>
           <img
@@ -38,6 +34,11 @@
             small
             src="./../public/img/Sportest_Logo.png"
           />
+
+
+             <v-btn id="logout" color="#161616" class="white--text"
+      rounded @click="Logout()"
+      ><v-icon>mdi-account-remove</v-icon></v-btn>
         </v-layout>
       </v-container>
 
@@ -153,5 +154,11 @@ img {
 
 #Nav {
   border-top: #ff6600 1.5px solid !important;
+}
+
+#logout {
+  position: absolute;
+  top: 1;
+  right: 0;
 }
 </style>
