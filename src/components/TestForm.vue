@@ -189,7 +189,7 @@
                 </v-slider>
               </v-card>
 
-              <v-card v-for="n in 1" :key="n" class="ma-3 pa-6" outlined tile>
+              <v-card color="black" v-for="n in 1" :key="n" class="ma-3 pa-6" outlined tile>
                 <span class="white--text">3cm-Balken:</span>
 
                 <v-slider
@@ -361,22 +361,42 @@
     <!-- <v-btn @click="addTest()" color="#00295D" value="statistics">
           <v-icon>done</v-icon>
     </v-btn>-->
-
     <v-btn
-        fab
-        dark
-        color="white"
-        @click="$router.push({ name:'statistics'})"
-        absolute
-        :style="{left: '50%', bottom:'5%', transform:'translateX(-50%)' }"
-        bottom
-        fixed
-        align-center
-        right
-        :disabled="testDaten.groeße == null"
-      >
-        <v-icon dark large color="#FF0000">mdi-check</v-icon>
-      </v-btn>
+      fab
+      dark
+      color="white"
+      @click="dialog=true"
+      absolute
+      :style="{left: '50%', bottom:'5%', transform:'translateX(-50%)' }"
+      bottom
+      fixed
+      align-center
+      right
+      :disabled="testDaten.groeße == null"
+    >
+      <v-icon dark large color="#FF0000">mdi-check</v-icon>
+    </v-btn>
+
+    <div color="black" class="text-center">
+      <v-dialog v-model="dialog" width="500">
+        <v-card color="black">
+          <!-- <v-card-title color="black" class="headline grey lighten-2" primary-title>Test abschicken?</v-card-title> -->
+
+          <v-card-text class="primary--text">Möchtest du den Test beenden? </v-card-text>
+
+          <v-divider></v-divider>
+
+          <v-card-actions id="act">
+            <v-btn color="primary" text @click="$router.push({ name: 'statistics' })">
+              <v-icon dark color="primary">mdi-check</v-icon>
+            </v-btn>
+            <v-btn color="primary" large text @click="dialog = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
 
     <!-- <v-btn
       @click="gleichgewichtObject()"
@@ -397,6 +417,7 @@
 export default {
   data() {
     return {
+      dialog: false,
       klassen: ["5AHITN", "5BHITM", "5CHITM"],
       testDaten: {
         date_birth: null,
@@ -451,11 +472,6 @@ export default {
         });
     },
 
-
-
-
-
-
     gleichgewichtObject() {
       var testobject = {
         age: 16,
@@ -508,4 +524,7 @@ export default {
 };
 </script>
 
-<style></style>
+<style> #act {
+  margin: 0 auto;
+}
+</style>
