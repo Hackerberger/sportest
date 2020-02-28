@@ -382,7 +382,7 @@
         <v-card color="black">
           <!-- <v-card-title color="black" class="headline grey lighten-2" primary-title>Test abschicken?</v-card-title> -->
 
-          <v-card-text class="primary--text">Möchtest du den Test beenden? </v-card-text>
+          <v-card-text class="primary--text">Möchtest du den Test beenden?</v-card-text>
 
           <v-divider></v-divider>
 
@@ -425,6 +425,7 @@ export default {
         gender: null,
         gewicht: null,
         groeße: null,
+        //Gleichgewicht
         gleichgewicht3_1: 0,
         gleichgewicht3_2: 0,
         gleichgewicht4_5_1: 0,
@@ -444,7 +445,10 @@ export default {
         //Standweitsprung
         schnellkraft_1: null,
         schnellkraft_2: null,
+        //Sprint
         aktionsschnelligkeit: null,
+
+        //Ausdauer
         ausdauer: null
       },
       ergebnisse: {
@@ -524,7 +528,8 @@ export default {
 };
 </script>
 
-<style> #act {
+<style>
+#act {
   margin: 0 auto;
 }
 </style>
