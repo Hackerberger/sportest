@@ -9,15 +9,15 @@
 </template>
 
 <script>
-import ChartCard from '../components/ChartCard';
+import ChartCard from "../components/ChartCard";
 
-import PouchDB from 'pouchdb';
+import PouchDB from "pouchdb";
 
 export default {
   components: { ChartCard },
   data() {
     return {
-      tests: [],
+      tests: []
     };
   },
   created() {
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     getAllData() {
-      var db = new PouchDB('http://localhost:3000/db/sportest');
+      var db = new PouchDB("http://localhost:3000/db/sportest");
 
       db.info().then(function(info) {
         console.log(info);
@@ -69,9 +69,9 @@ export default {
 
       db.allDocs({
         include_docs: true,
-        attachments: true,
+        attachments: true
       })
-        .then((result)=> {
+        .then(result => {
           result.rows.forEach(element => {
             console.log(element);
             this.tests.push(element);
@@ -80,8 +80,8 @@ export default {
         .catch(function(err) {
           console.log(err);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

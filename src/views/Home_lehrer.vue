@@ -1,6 +1,8 @@
 <template>
   <v-container grid-list-xs>
-    <span class="white--text" id="welcome">Willkommen Professor Michael Aschberger!</span>
+    <span class="white--text" id="welcome"
+      >Willkommen Professor Michael Aschberger!</span
+    >
     <span>
       <v-avatar size="36px">
         <img src="./../../public/aschberger.jpg" />
@@ -11,15 +13,14 @@
     <br />
     <span class="white--text">
       <!-- {{ googleProfile.Name }} -->
-      Hallo, sportest ermöglicht Ihren Schüler/innen die Messung
-      und Bewertung ihrer motorischen Fähigkeiten. [Lehrer-Ansicht]
+      Hallo, sportest ermöglicht Ihren Schüler/innen die Messung und Bewertung
+      ihrer motorischen Fähigkeiten. [Lehrer-Ansicht]
     </span>
     <br />
     <br />
     <span class="white--text">Anleitungen zu den Übungen:</span>
 
     <Description class="ma-5"></Description>
-
   </v-container>
 </template>
 

@@ -3,12 +3,17 @@
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Sportest</span>
-        <span
-          class="font-weight-light"
-        >Diplomarbeit von Lukas Hechenberger, Timo Naderer, Nurgüzel Keles und Phillip Georgiev</span>
+        <span class="font-weight-light"
+          >Diplomarbeit von Lukas Hechenberger, Timo Naderer, Nurgüzel Keles und
+          Phillip Georgiev</span
+        >
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank">
+      <v-btn
+        text
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+      >
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>

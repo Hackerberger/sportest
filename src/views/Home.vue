@@ -11,20 +11,19 @@
     <br />
     <span class="white--text">
       <!-- {{ googleProfile.Name }} -->
-      Hallo Timo, sportest ermöglicht dir die Messung
-      und Bewertung deiner motorischen Fähigkeiten.
+      Hallo Timo, sportest ermöglicht dir die Messung und Bewertung deiner
+      motorischen Fähigkeiten.
     </span>
     <br />
     <br />
     <span class="white--text">Anleitungen zu den Übungen:</span>
 
     <Description class="ma-5"></Description>
-
   </v-container>
 </template>
 
 <script>
-import Description from '../components/Descriptions.vue'
+import Description from "../components/Descriptions.vue";
 
 export default {
   components: { Description },
@@ -73,7 +72,7 @@ export default {
           console.log("woot! we saved " + value);
         })
         .catch(err => {
-          console.log("he's dead, jim!");
+          console.log("he's dead, jim!" + err);
         });
     }
   }

@@ -35,10 +35,17 @@
             src="./../public/img/Sportest_Logo.png"
           />
 
-
-             <v-btn id="logout" color="#161616" class="primary--text" fab depressed
-      rounded @click="Logout()"
-      ><v-icon>mdi-account-remove</v-icon></v-btn>
+          <v-btn
+            v-if="$route.name == 'home'"
+            id="logout"
+            color="#161616"
+            class="primary--text"
+            fab
+            depressed
+            rounded
+            @click="Logout()"
+            ><v-icon>mdi-account-remove</v-icon></v-btn
+          >
         </v-layout>
       </v-container>
 
@@ -136,13 +143,26 @@
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   components: {},
   data() {
     return {
-      globalData: {},
+      globalData: {}
     };
   },
+  methods: {
+    Logout() {
+      this.$router.push({ name: "login" });
+
+      //gapi.auth2.getAuthInstance().signOut();
+      //OR (both are same)
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function() {
+        console.log("User signed out.");
+      });
+      alert("User signed out.");
+    }
+  }
 };
 </script>
 
@@ -153,7 +173,7 @@ img {
 }
 
 #Nav {
-  border-top: #FF6600 1.5px solid !important;
+  border-top: #ff6600 1.5px solid !important;
 }
 
 #logout {

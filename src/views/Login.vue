@@ -3,28 +3,27 @@
     <v-layout align-center column fill-height>
       <v-flex align-center justify-center column fill-height>
         <button v-google-signin-button="clientId" class="google-signin-button">
-           <img id="img-button" src="../../public/img/Google/google_logo.png">
-           <v-divider></v-divider>
-          <span>Google-Login</span>  
-            </button>
+          <img id="img-button" src="../../public/img/Google/google_logo.png" />
+          <v-divider></v-divider>
+          <span>Google-Login</span>
+        </button>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
- 
+
 <script>
-
-
-import GoogleSignInButton from 'vue-google-signin-button-directive'
+import GoogleSignInButton from "vue-google-signin-button-directive";
 export default {
   directives: {
     GoogleSignInButton
   },
   data: () => ({
-    clientId: '419461260696-531a21v1lv63e72ckd0rts3j72bl2tf5.apps.googleusercontent.com'
+    clientId:
+      "419461260696-531a21v1lv63e72ckd0rts3j72bl2tf5.apps.googleusercontent.com"
   }),
   methods: {
-    OnGoogleAuthSuccess (googleUser) {
+    OnGoogleAuthSuccess(googleUser) {
       this.$parent.globalData = googleUser;
 
       // `googleUser` is the GoogleUser object that represents the just-signed-in user.
@@ -66,14 +65,13 @@ export default {
         }
       }
     },
-    OnGoogleAuthFail (error) {
-      console.log(`Anmeldung fehlgeschlagen: ${error}`)
+    OnGoogleAuthFail(error) {
+      console.log(`Anmeldung fehlgeschlagen: ${error}`);
     }
   }
-}
+};
+</script>
 
-</script> 
- 
 <style>
 .google-signin-button {
   display: inline-block;
@@ -89,7 +87,6 @@ body {
 }
 #img-button {
   margin-top: 5px;
-
 }
 #googleButton {
   height: 50px;
@@ -97,19 +94,10 @@ body {
 }
 
 #g-log-text {
-  margin-bottom: 50%; 
+  margin-bottom: 50%;
 }
 
-
-
-
-
-
-
-
-
-
-    /* <!-- <g-signin-button
+/* <!-- <g-signin-button
           :params="googleSignInParams"
           @success="onSignInSuccess"
           @error="onSignInError"
@@ -190,28 +178,4 @@ body {
 //     },
 //   }
 // }; */
-</style> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</style>

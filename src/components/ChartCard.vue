@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import Chart from '../components/Chart';
+import Chart from "../components/Chart";
 
 export default {
   components: { Chart },
   data() {
     return {};
-  },
+  }
 };
 </script>
 
