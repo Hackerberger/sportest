@@ -1,13 +1,16 @@
 <template>
   <v-container fluid fill-height>
-    <v-layout align-center column fill-height>
-      <v-flex align-center justify-center column fill-height>
-        <button v-google-signin-button="clientId" class="google-signin-button">
-          <img id="img-button" src="../../public/img/Google/google_logo.png" />
-          <v-divider></v-divider>
-          <span>Google-Login</span>
+    <v-layout align-center justify-center column fill-height>
+        <button
+          v-google-signin-button="clientId"
+          class="google-signin-button"
+          color="primary"
+          justify-center
+          ma-5 
+        >
+          <v-icon left color="black">mdi-google</v-icon>Google-Login
+          <!-- <img id="img-button" src="../../public/img/Google/google_logo.png" /> -->
         </button>
-      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -74,11 +77,13 @@ export default {
 
 <style>
 .google-signin-button {
+  justify-content: center;
+  width: 80%;
+  height: 10%;
   display: inline-block;
-  padding: 4px 8px;
+  margin-bottom: 25%;
   border-radius: 3px;
-  background-color: white;
-  margin-top: 55%;
+  background-color: #ff6600;
   font-family: Roboto;
   color: black;
 }
