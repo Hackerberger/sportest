@@ -4,8 +4,8 @@
       <v-flex align-center justify-center column fill-height>
         <button v-google-signin-button="clientId" class="google-signin-button">
           <img id="img-button" src="../../public/img/Google/google_logo.png" />
-          <v-divider></v-divider>
-          <span>Google-Login</span>
+         <!--  <v-divider></v-divider>
+          <span>Google-Login</span> -->
         </button>
       </v-flex>
     </v-layout>
