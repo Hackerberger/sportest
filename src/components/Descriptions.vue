@@ -6,7 +6,7 @@
           <template v-slot:actions>
             <v-icon color="black">$expand</v-icon>
           </template>
-          <h4 style="font-family: spantaran">{{ d.name }}</h4>
+          <h4>{{ d.name }}</h4>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-container class="text-center" v-if="!(d.video == null)">
