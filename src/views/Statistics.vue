@@ -2,7 +2,7 @@
   <v-container>
     <v-layout column justify-space-between fill-height>
       <v-flex>
-        <ChartCard v-for="test in tests" :key="test._id" />
+        <ChartCard v-for="test in tests" :key="test._id" class="mb-5"/>
       </v-flex>
     </v-layout>
   </v-container>
