@@ -2,22 +2,24 @@
   <v-container>
     <v-layout column justify-space-between fill-height>
       <v-flex>
-        <ChartCard v-for="test in tests" :key="test._id" class="mb-5"/>
+        <ChartCard v-for="test in tests" :key="test._id" class="mb-5" />
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import ChartCard from "../components/ChartCard";
+import ChartCard from '../components/ChartCard';
 
-import PouchDB from "pouchdb";
+import PouchDB from 'pouchdb';
+import PouchDBAuthentication from 'pouchdb-authentication';
+PouchDB.plugin(PouchDBAuthentication);
 
 export default {
   components: { ChartCard },
   data() {
     return {
-      tests: []
+      tests: [],
     };
   },
   created() {
@@ -25,11 +27,34 @@ export default {
   },
   methods: {
     getAllData() {
-      var db = new PouchDB("http://localhost:3000/db/sportest");
+      var user = {
+        name: 'lehrertest',
+        password: 'lehrertest',
+      };
 
-      db.info().then(function(info) {
-        console.log(info);
+      var ajaxOpts = {
+        ajax: {
+          headers: {
+            Authorization:
+              'Basic ' + window.btoa(user.name + ':' + user.password),
+          },
+        },
+      };
+
+      var db = new PouchDB('http://127.0.0.1:5984/sportest', {
+        skip_setup: true,
       });
+
+      db.login(user.name, user.password, ajaxOpts)
+        .then(function() {
+          return db.allDocs();
+        })
+        .then(function(docs) {
+          console.log(docs);
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
 
       // var doc = {
       //   date_birth: '04-10-2000',
@@ -66,22 +91,8 @@ export default {
       //   .catch(function(error) {
       //     console.log(error);
       //   });
-
-      db.allDocs({
-        include_docs: true,
-        attachments: true
-      })
-        .then(result => {
-          result.rows.forEach(element => {
-            console.log(element);
-            this.tests.push(element);
-          });
-        })
-        .catch(function(err) {
-          console.log(err);
-        });
-    }
-  }
+    },
+  },
 };
 </script>
 
