@@ -141,7 +141,7 @@ export default {
       //OR (both are same)
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function() {
-        console.log("User signed out.");
+        console.log("Abmeldung erfolgreich!");
       });
       alert("Abmeldung erfolgreich!");
     }
