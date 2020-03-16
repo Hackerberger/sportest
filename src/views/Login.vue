@@ -1,16 +1,16 @@
 <template>
   <v-container fluid fill-height>
     <v-layout align-center justify-center column fill-height>
-        <button
-          v-google-signin-button="clientId"
-          class="google-signin-button"
-          color="primary"
-          justify-center
-          ma-5 
-        >
-          <v-icon left color="black">mdi-google</v-icon>Google-Login
-          <!-- <img id="img-button" src="../../public/img/Google/google_logo.png" /> -->
-        </button>
+      <button
+        v-google-signin-button="clientId"
+        class="google-signin-button"
+        color="primary"
+        justify-center
+        ma-5
+      >
+        <v-icon left color="black">mdi-google</v-icon>Google-Login
+        <!-- <img id="img-button" src="../../public/img/Google/google_logo.png" /> -->
+      </button>
     </v-layout>
   </v-container>
 </template>

@@ -9,17 +9,17 @@
 </template>
 
 <script>
-import ChartCard from '../components/ChartCard';
+import ChartCard from "../components/ChartCard";
 
-import PouchDB from 'pouchdb';
-import PouchDBAuthentication from 'pouchdb-authentication';
+import PouchDB from "pouchdb";
+import PouchDBAuthentication from "pouchdb-authentication";
 PouchDB.plugin(PouchDBAuthentication);
 
 export default {
   components: { ChartCard },
   data() {
     return {
-      tests: [],
+      tests: []
     };
   },
   created() {
@@ -28,21 +28,21 @@ export default {
   methods: {
     getAllData() {
       var user = {
-        name: 'lehrertest',
-        password: 'lehrertest',
+        name: "lehrertest",
+        password: "lehrertest"
       };
 
       var ajaxOpts = {
         ajax: {
           headers: {
             Authorization:
-              'Basic ' + window.btoa(user.name + ':' + user.password),
-          },
-        },
+              "Basic " + window.btoa(user.name + ":" + user.password)
+          }
+        }
       };
 
-      var db = new PouchDB('http://127.0.0.1:5984/sportest', {
-        skip_setup: true,
+      var db = new PouchDB("http://127.0.0.1:5984/sportest", {
+        skip_setup: true
       });
 
       db.login(user.name, user.password, ajaxOpts)
@@ -91,8 +91,8 @@ export default {
       //   .catch(function(error) {
       //     console.log(error);
       //   });
-    },
-  },
+    }
+  }
 };
 </script>
 
