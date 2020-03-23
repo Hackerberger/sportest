@@ -3,12 +3,7 @@
     <v-layout row wrap>
       <v-bottom-nav :value="true" fixed color="#00295D"></v-bottom-nav>
 
-      <v-carousel
-        interval="60000"
-        hide-delimiters
-        :show-arrows="true"
-        continuous="true"
-      >
+      <v-carousel interval="60000" hide-delimiters :show-arrows="true" continuous="true">
         <v-carousel-item>
           <v-overflow-btn
             background-color="black"
@@ -81,23 +76,13 @@
 
           <v-layout row>
             <v-flex xs3 ml-4>
-              <v-text-field
-                type="number"
-                label="Gewicht"
-                suffix="kg"
-                v-model="testDaten.gewicht"
-              ></v-text-field>
+              <v-text-field type="number" label="Gewicht" suffix="kg" v-model="testDaten.gewicht"></v-text-field>
             </v-flex>
           </v-layout>
 
           <v-layout row>
             <v-flex xs3 ml-4>
-              <v-text-field
-                type="number"
-                label="Größe"
-                suffix="cm"
-                v-model="testDaten.groeße"
-              ></v-text-field>
+              <v-text-field type="number" label="Größe" suffix="cm" v-model="testDaten.groeße"></v-text-field>
             </v-flex>
           </v-layout>
         </v-carousel-item>
@@ -107,18 +92,9 @@
             <h3 class="white--text">Gleichgewicht</h3>
 
             <v-container>
-              <p class="white--text">
-                Gleichgewicht Points: {{ testDaten.erg_bal }}
-              </p>
+              <p class="white--text">Gleichgewicht Points: {{ testDaten.erg_bal }}</p>
 
-              <v-card
-                color="black"
-                v-for="n in 1"
-                :key="n"
-                class="ma-3 pa-6"
-                outlined
-                tile
-              >
+              <v-card color="black" v-for="n in 1" :key="n" class="ma-3 pa-6" outlined tile>
                 <span class="white--text">6cm-Balken:</span>
 
                 <v-slider
@@ -168,13 +144,7 @@
                 </v-slider>
               </v-card>
 
-              <v-card
-                color="black"
-                v-for="n in 1"
-                :key="n"
-                class="ma-3 pa-6"
-                outlined
-              >
+              <v-card color="black" v-for="n in 1" :key="n" class="ma-3 pa-6" outlined>
                 <span class="white--text">4,5cm-Balken:</span>
                 <v-slider
                   v-model="testDaten.gleichgewicht4_5_1"
@@ -219,14 +189,7 @@
                 </v-slider>
               </v-card>
 
-              <v-card
-                color="black"
-                v-for="n in 1"
-                :key="n"
-                class="ma-3 pa-6"
-                outlined
-                tile
-              >
+              <v-card color="black" v-for="n in 1" :key="n" class="ma-3 pa-6" outlined tile>
                 <span class="white--text">3cm-Balken:</span>
 
                 <v-slider
@@ -297,18 +260,10 @@
               <h3 class="white--text">Koordination</h3>
               <v-layout wrap>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Durchgang 1"
-                    single-line
-                    v-model="testDaten.koordination_1"
-                  ></v-text-field>
+                  <v-text-field label="Durchgang 1" single-line v-model="testDaten.koordination_1"></v-text-field>
                 </v-flex>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Durchgang 2"
-                    single-line
-                    v-model="testDaten.koordination_2"
-                  ></v-text-field>
+                  <v-text-field label="Durchgang 2" single-line v-model="testDaten.koordination_2"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -319,18 +274,10 @@
               <h3 class="white--text">Rumpfbeweglichkeit</h3>
               <v-layout row wrap>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Durchgang 1"
-                    single-line
-                    v-model="testDaten.rumpfbeuge_1"
-                  ></v-text-field>
+                  <v-text-field label="Durchgang 1" single-line v-model="testDaten.rumpfbeuge_1"></v-text-field>
                 </v-flex>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Durchgang 2"
-                    single-line
-                    v-model="testDaten.rumpfbeuge_2"
-                  ></v-text-field>
+                  <v-text-field label="Durchgang 2" single-line v-model="testDaten.rumpfbeuge_2"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -341,11 +288,7 @@
               <h3 class="white--text">Oberkörperkraft</h3>
               <v-layout row wrap>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Versuch 1"
-                    single-line
-                    v-model="testDaten.oberkoerperkraft"
-                  ></v-text-field>
+                  <v-text-field label="Versuch 1" single-line v-model="testDaten.oberkoerperkraft"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -356,11 +299,7 @@
               <h3 class="white--text">Rumpfkraft</h3>
               <v-layout row wrap>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Versuch 1"
-                    single-line
-                    v-model="testDaten.rumpfkraft"
-                  ></v-text-field>
+                  <v-text-field label="Versuch 1" single-line v-model="testDaten.rumpfkraft"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -411,12 +350,7 @@
               <h3 class="white--text">Ausdauer</h3>
               <v-layout wrap>
                 <v-flex sm1>
-                  <v-text-field
-                    label="Meter"
-                    suffix="sek"
-                    single-line
-                    v-model="testDaten.ausdauer"
-                  ></v-text-field>
+                  <v-text-field label="Meter" suffix="sek" single-line v-model="testDaten.ausdauer"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -444,22 +378,19 @@
     </v-btn>
 
     <div color="black" class="text-center">
-      <v-dialog v-model="dialog" width="500">
+      <v-dialog class="mx-auto" scrollable="false" v-model="dialog" width="500">
         <v-card color="black">
           <!-- <v-card-title color="black" class="headline grey lighten-2" primary-title>Test abschicken?</v-card-title> -->
 
-          <v-card-text class="primary--text"
-            >Möchtest du den Test beenden?</v-card-text
-          >
+          <v-card-text style="margin-top: 3%" class="primary--text">
+            Möchtest du den Test beenden?
+            <!-- Soll die 'sportest' App der Home Seite hinzugefügt werden? -->
+          </v-card-text>
 
           <v-divider></v-divider>
 
           <v-card-actions id="act">
-            <v-btn
-              color="primary"
-              text
-              @click="$router.push({ name: 'statistics' })"
-            >
+            <v-btn color="primary" text @click="$router.push({ name: 'statistics' })">
               <v-icon dark color="primary">mdi-check</v-icon>
             </v-btn>
             <v-btn color="primary" large text @click="dialog = false">
