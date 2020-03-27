@@ -12,6 +12,8 @@
       <!-- <button
         v-google-signin-button="clientId"
         :params = clientId
+      <button
+        v-google-signin-button="clientId"
         class="google-signin-button"
         color="primary"
         justify-center
@@ -22,6 +24,7 @@
         
         <img id="img-button" src="../../public/img/Google/google_logo.png" />
       </button> -->
+        <!-- <img id="img-button" src="../../public/img/Google/google_logo.png" /> -->
     </v-layout>
   </v-container>
 </template>
