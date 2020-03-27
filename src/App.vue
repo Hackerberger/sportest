@@ -36,7 +36,7 @@
           />
 
           <v-btn
-            v-if="$route.name == 'home' "
+            v-if="$route.name == 'home'"
             id="logout"
             color="#161616"
             class="primary--text"
@@ -70,12 +70,20 @@
         <!-- <v-divider color="green !important"
         ></v-divider>-->
 
-        <v-btn @click="$router.push({ name: 'home' })" color="black" value="home">
+        <v-btn
+          @click="$router.push({ name: 'home' })"
+          color="black"
+          value="home"
+        >
           <span class="primary--text">Home</span>
           <v-icon color="primary">mdi-home</v-icon>
         </v-btn>
 
-        <v-btn @click="$router.push({ name: 'statistics' })" color="black" value="statistic">
+        <v-btn
+          @click="$router.push({ name: 'statistics' })"
+          color="black"
+          value="statistic"
+        >
           <span class="primary--text">Statistic</span>
           <v-icon color="primary">mdi-chart-bar</v-icon>
         </v-btn>
@@ -98,7 +106,9 @@
     </v-container>
 
     <!-- Navbar unten Lehrer -->
-    <v-container v-if="$route.name == 'home_l' || $route.name == 'statistics_l'">
+    <v-container
+      v-if="$route.name == 'home_l' || $route.name == 'statistics_l'"
+    >
       <v-bottom-navigation
         block
         :value="true"
@@ -110,12 +120,20 @@
         <!-- <v-divider color="green !important"
         ></v-divider>-->
 
-        <v-btn @click="$router.push({ name: 'home_l' })" color="black" value="home">
+        <v-btn
+          @click="$router.push({ name: 'home_l' })"
+          color="black"
+          value="home"
+        >
           <span class="primary--text">Home</span>
           <v-icon color="primary">mdi-home</v-icon>
         </v-btn>
 
-        <v-btn @click="$router.push({ name: 'statistics_l' })" color="black" value="statistic">
+        <v-btn
+          @click="$router.push({ name: 'statistics_l' })"
+          color="black"
+          value="statistic"
+        >
           <span class="primary--text">Statistic</span>
           <v-icon color="primary">mdi-chart-bar</v-icon>
         </v-btn>
@@ -138,7 +156,6 @@ export default {
       this.$router.push({ name: "login" });
 
       //gapi.auth2.getAuthInstance().signOut();
-      //OR (both are same)
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function() {
         console.log("Abmeldung erfolgreich!");
