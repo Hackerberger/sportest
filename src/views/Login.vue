@@ -56,6 +56,7 @@ export default {
       console.log("Family Name: " + profile.getFamilyName());
       console.log("Image URL: " + profile.getImageUrl());
       console.log("Email: " + profile.getEmail());
+      this.$router.push({ name: "home" });
     },
     onSignInError(error) {
       console.log("OH NO", error);
