@@ -1,7 +1,9 @@
 <template>
   <v-container fluid fill-height>
     <v-layout align-center justify-center column fill-height>
-      <g-signin-button
+      <v-container class="text-center">
+
+              <g-signin-button
         :params="googleSignInParams"
         @success="onSignInSuccess"
         @error="onSignInError"
@@ -9,6 +11,8 @@
       >
         <v-icon left color="black">mdi-google</v-icon>Google-Login
       </g-signin-button>
+      </v-container>
+
       <!-- <button
         v-google-signin-button="clientId"
         :params = clientId
@@ -98,10 +102,15 @@ export default {
 
 <style>
 .g-signin-button {
-  padding: 4px 8px;
+      margin:0 auto;
+    display:block;
+  margin-bottom: 40%;
+  width: 80%;
+  padding: 10px;
   background-color: #ff6600;
   color: black;
   box-shadow: 0 3px 0 #ff6600;
+  border-radius: 8px;
 }
 
 body {
@@ -116,7 +125,7 @@ body {
 } */
 
 #g-log-text {
-  margin-bottom: 50%;
+  margin-bottom: 10%;
 }
 
 /* <!-- <g-signin-button
