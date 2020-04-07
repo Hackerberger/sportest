@@ -539,6 +539,16 @@ export default {
   },
   methods: {
     addTest() {
+    //    var today = new Date();
+    // var age = today.getFullYear() - this.date_birth.getFullYear();
+    // var m = today.getMonth() - birthDate.getMonth();
+    // if (m < 0 || (m == 0 && today.getDate() < birthDate.getDate())) 
+    // {
+    //     age--;
+    // }
+    // console.log(age);
+    // return age;
+
       this.$setItem("testDaten", this.testDaten)
         .then(value => {
           this.$router.push({ name: "statistics" });

@@ -2,12 +2,10 @@
   <v-container fluid fill-height>
     <v-layout align-center justify-center column fill-height>
       <v-container class="text-center">
-
-              <g-signin-button
+      <g-signin-button
         :params="googleSignInParams"
         @success="onSignInSuccess"
         @error="onSignInError"
-
       >
         <v-icon left color="black">mdi-google</v-icon>Google-Login
       </g-signin-button>
@@ -34,12 +32,12 @@
 </template>
 
 <script>
-// import GoogleSignInButton from "vue-google-signin-button-directive";
+import GoogleSignInButton from "vue-google-signin-button-directive";
 
 export default {
-  // directives: {
-  //   GoogleSignInButton
-  // },
+  directives: {
+    GoogleSignInButton
+  },
   data() {
     return {
       googleSignInParams: {
