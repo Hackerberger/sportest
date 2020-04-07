@@ -2,15 +2,13 @@
   <v-container fluid fill-height>
     <v-layout align-center justify-center column fill-height>
       <v-container class="text-center">
-
-              <g-signin-button
-        :params="googleSignInParams"
-        @success="onSignInSuccess"
-        @error="onSignInError"
-
-      >
-        <v-icon left color="black">mdi-google</v-icon>Google-Login
-      </g-signin-button>
+        <g-signin-button
+          :params="googleSignInParams"
+          @success="onSignInSuccess"
+          @error="onSignInError"
+        >
+          <v-icon left color="black">mdi-google</v-icon>Google-Login
+        </g-signin-button>
       </v-container>
 
       <!-- <button
@@ -28,23 +26,24 @@
         
         <img id="img-button" src="../../public/img/Google/google_logo.png" />
       </button> -->
-        <!-- <img id="img-button" src="../../public/img/Google/google_logo.png" /> -->
+      <!-- <img id="img-button" src="../../public/img/Google/google_logo.png" /> -->
     </v-layout>
   </v-container>
 </template>
 
 <script>
- import GoogleSignInButton from "vue-google-signin-button-directive";
+import GoogleSignInButton from 'vue-google-signin-button-directive';
 
 export default {
-  // directives: {
-  //   GoogleSignInButton
-  // },
+  directives: {
+    GoogleSignInButton,
+  },
   data() {
     return {
       googleSignInParams: {
-        client_id: "419461260696-531a21v1lv63e72ckd0rts3j72bl2tf5.apps.googleusercontent.com"
-      }
+        client_id:
+          '419461260696-531a21v1lv63e72ckd0rts3j72bl2tf5.apps.googleusercontent.com',
+      },
     };
   },
   methods: {
@@ -52,58 +51,58 @@ export default {
       // See https://developers.google.com/identity/sign-in/web/reference#users
       const profile = googleUser.getBasicProfile();
 
-      this.$emit("googleUserData", profile);
+      this.$emit('googleUserData', profile);
       this.googleData = googleUser.getBasicProfile();
-      console.log("ID: " + profile.getId());
-      console.log("Full Name: " + profile.getName());
-      console.log("Given Name: " + profile.getGivenName());
-      console.log("Family Name: " + profile.getFamilyName());
-      console.log("Image URL: " + profile.getImageUrl());
-      console.log("Email: " + profile.getEmail());
-      this.$router.push({ name: "home" });
+      console.log('ID: ' + profile.getId());
+      console.log('Full Name: ' + profile.getName());
+      console.log('Given Name: ' + profile.getGivenName());
+      console.log('Family Name: ' + profile.getFamilyName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+      this.$router.push({ name: 'home' });
     },
     onSignInError(error) {
-      console.log("OH NO", error);
+      console.log('OH NO', error);
     },
     OnGoogleAuthSuccess(googleUser) {
       this.$parent.globalData = googleUser;
 
       if (this.installPossible) this.install();
-      this.$router.push({ name: "home" });
+      this.$router.push({ name: 'home' });
     },
     install() {
-      let res = this.$confirm("Do you want install Sportest?", {
-        title: "Install"
+      let res = this.$confirm('Do you want install Sportest?', {
+        title: 'Install',
       });
       if (res) {
         try {
           deferredPrompt.prompt();
           // Wait for the user to respond to the prompt
           deferredPrompt.userChoice.then(choiceResult => {
-            if (choiceResult.outcome === "accepted") {
-              console.log("User accepted the A2HS prompt");
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the A2HS prompt');
             } else {
-              console.log("User dismissed the A2HS prompt");
+              console.log('User dismissed the A2HS prompt');
             }
             deferredPrompt = null;
           });
         } catch (error) {
-          console.log("Installieren fehlgeschlagen");
+          console.log('Installieren fehlgeschlagen');
           console.log(error);
         }
       }
     },
     OnGoogleAuthFail(error) {
       console.log(`Anmeldung fehlgeschlagen: ${error}`);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style>
 .g-signin-button {
-      margin:0 auto;
-    display:block;
+  margin: 0 auto;
+  display: block;
   margin-bottom: 40%;
   width: 80%;
   padding: 10px;
