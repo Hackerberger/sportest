@@ -439,7 +439,7 @@ export default {
   data() {
     return {
       dialog: false,
-      klassen: ["5AHITN", "5BHITM", "5CHITM"],
+      klassen: ['5AHITN', '5BHITM', '5CHITM'],
       testDaten: {
         date_birth: null,
         radios: null,
@@ -472,7 +472,7 @@ export default {
         aktionsschnelligkeit: null,
 
         //Ausdauer
-        ausdauer: null
+        ausdauer: null,
       },
       ergebnisse: {
         //Punkteergebnisse
@@ -483,81 +483,108 @@ export default {
         erg_rumpfkraft: null,
         erg_schnellkraft: null,
         erg_aktionsschnelligkeit: null,
-        erg_ausdauer: null
-      }
+        erg_ausdauer: null,
+      },
     };
   },
+  created() {
+    this.calcPoints({
+      age: 18,
+      //Gleichgewicht
+      gleichgewicht3_1: 6,
+      gleichgewicht3_2: 6,
+      gleichgewicht4_5_1: 6,
+      gleichgewicht4_5_2: 6,
+      gleichgewicht6_1: 7,
+      gleichgewicht6_2: 8,
+      //Hinundher
+      koordination_1: 35,
+      koordination_2: 37,
+      //Rumpfbeweglichkeit
+      rumpfbeuge_1: -0.2,
+      rumpfbeuge_2: -5.3,
+      //Liegestütze
+      oberkoerperkraft: 18,
+      //Situps
+      rumpfkraft: 20,
+      //Standweitsprung
+      schnellkraft_1: 220,
+      schnellkraft_2: 207,
+      //Sprint
+      aktionsschnelligkeit: 2.79,
+
+      //Ausdauer
+      ausdauer: 1485,
+    });
+  },
   methods: {
-    addTest() {
-    //    var today = new Date();
-    // var age = today.getFullYear() - this.date_birth.getFullYear();
-    // var m = today.getMonth() - birthDate.getMonth();
-    // if (m < 0 || (m == 0 && today.getDate() < birthDate.getDate())) 
-    // {
-    //     age--;
-    // }
-    // console.log(age);
-    // return age;
-
-      this.$setItem("testDaten", this.testDaten)
-        .then(value => {
-          this.$router.push({ name: "statistics" });
-          console.log("Test saved!" + value);
-        })
-        .catch(err => {
-          console.log("Error!" + err);
-        });
-    },
-
-    gleichgewichtObject() {
-      var testobject = {
-        age: 16,
-        gender: "w",
-        gleichgewicht: [
-          this.testDaten.gleichgewicht6_1,
-          this.testDaten.gleichgewicht6_2,
-          this.testDaten.gleichgewicht4_5_1,
-          this.testDaten.gleichgewicht4_5_2,
-          8,
-          8
-        ]
+    addTest() {},
+    calcPoints(testobject) {
+      var normValues = {
+        aktionsschnelligkeit: {},
+        oberkoerperkraft: {},
+        rumpfkraft: {},
+        schnellkraft: {},
+        koordination: {},
+        gleichgewicht: {},
+        rumpfbeuge: {},
+        ausdauer: {},
       };
-      this.Gleichgewicht(testobject);
-    },
-    Gleichgewicht(bData) {
-      let bpoints;
-      let steps = bData.gleichgewicht.reduce((a, b) => a + b);
 
-      // if (bData.gender == 'w') {
-      if (bData.age >= 17) {
-        if (steps < 10) bpoints = 70;
-        else if (steps == 10) bpoints = 71;
-        else if (steps > 41) bpoints = steps + 65;
-        else if (steps > 31) bpoints = steps + 64;
-        else if (steps > 20) bpoints = steps + 63;
-        else if (steps > 10) bpoints = steps + 62;
-      } else if (bData.age == 16) {
-        if (steps < 9) bpoints = 70;
-        else if (steps > 39) bpoints = steps + 65;
-        else if (steps > 28) bpoints = steps + 64;
-        else if (steps > 17) bpoints = steps + 63;
-        else if (steps >= 9) bpoints = steps + 62;
-      } else if (bData.age >= 14) {
-        if (steps < 9) bpoints = 70;
-        else if (steps == 9) bpoints = 71;
-        else if (steps > 40) bpoints = steps + 66;
-        else if (steps > 30) bpoints = steps + 65;
-        else if (steps > 19) bpoints = steps + 64;
-        else if (steps > 9) bpoints = steps + 63;
-        // }
+      if (testobject.age > 16) {
+        //Alter 17 oder mehr
+        //20m Sprint
+
+        normValues.aktionsschnelligkeit.norm = 3.5;
+        normValues.aktionsschnelligkeit.sa = 0.28;
+
+        //LS Liegestütz
+        normValues.oberkoerperkraft.norm = 15.19;
+        normValues.oberkoerperkraft.sa = 3.44;
+
+        //SU Situps
+        normValues.rumpfkraft.norm = 26.32;
+        normValues.rumpfkraft.sa = 5.64;
+
+        //SW Standweitsprung
+        normValues.schnellkraft.norm = 208.69;
+        normValues.schnellkraft.sa = 27.13;
+
+        //SSH Seitlich Hin und Herspringen
+        normValues.koordination.norm = 37.35;
+        normValues.koordination.sa = 7.47;
+
+        //Balancieren rückwärts
+        normValues.gleichgewicht.norm = 34.53;
+        normValues.gleichgewicht.sa = 9.12;
+
+        //RB Rumpfbeuge
+        normValues.rumpfbeuge.norm = -2.09;
+        normValues.rumpfbeuge.sa = 9.11;
+
+        //6-min Lauf
+        normValues.ausdauer.norm = 1346;
+        normValues.ausdauer.sa = 187;
+      } else if (testobject.age == 16) {
+      } else if (testobject.age == 15) {
+      } else if (testobject.age < 15) {
       }
 
-      console.log("Gleichgewicht-Points: " + bpoints);
-      this.testDaten.erg_bal = bpoints;
+      let ergebnisse = {
+        //Punkteergebnisse
+        erg_gleichgewicht: null,
+        erg_koordination: null,
+        erg_rumpfbeuge: null,
+        erg_oberkoerperkraft: null,
+        erg_rumpfkraft: null,
+        erg_schnellkraft: null,
+        erg_aktionsschnelligkeit: null,
+        erg_ausdauer: null,
+      };
 
-      return bpoints;
-    }
-  }
+      console.log(normValues);
+    },
+  },
 };
 </script>
 
