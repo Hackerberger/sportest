@@ -9,43 +9,63 @@
 </template>
 
 <script>
-import ChartCard from "../components/ChartCard";
+import ChartCard from '../components/ChartCard';
+import axios from 'axios';
 
-import PouchDB from "pouchdb";
-import PouchDBAuthentication from "pouchdb-authentication";
+import PouchDB from 'pouchdb';
+import PouchDBAuthentication from 'pouchdb-authentication';
 PouchDB.plugin(PouchDBAuthentication);
 
 export default {
   components: { ChartCard },
   data() {
     return {
-      tests: []
+      tests: [],
+      username: '',
+      token: '',
+      dbname: '',
     };
   },
-  created() {
-    this.getAllData();
+  async created() {
+    await this.getToken();
+    await this.getAllData();
   },
   methods: {
+    async getToken() {
+      let res = await axios.post('https://sportest-auth-server.azurewebsites.net/auth/token', {
+        email: 'schuelertest@htlwienwest.at',
+      });
+      console.log(res.data);
+      this.username = res.data.username;
+      this.token = res.data.token;
+      this.dbname = res.data.dbname;
+      
+    },
     getAllData() {
-      var user = {
-        name: "lehrertest",
-        password: "lehrertest"
+      const remoteOptions = {
+        skip_setup: true,
+        fetch: (url, opts) => {
+          opts.headers.set('X-Auth-CouchDB-UserName', this.username);
+          opts.headers.set('X-Auth-CouchDB-Roles', '');
+          opts.headers.set('X-Auth-CouchDB-Token', this.token);
+
+          return PouchDB.fetch(url, opts);
+        },
       };
 
-      var ajaxOpts = {
-        ajax: {
-          headers: {
-            Authorization:
-              "Basic " + window.btoa(user.name + ":" + user.password)
-          }
-        }
-      };
-
-      var db = new PouchDB("http://127.0.0.1:5984/sportest", {
-        skip_setup: true
+      var db = new PouchDB(
+        'http://51.144.121.173:5984'+ this.dbname,
+        remoteOptions,
+      );
+      db.info().then(function(params) {
+        console.log(params);
       });
 
-      db.login(user.name, user.password, ajaxOpts)
+      db.allDocs().then(function(docs) {
+        console.log(docs);
+      });
+
+      /* db.login(user.name, user.password, ajaxOpts)
         .then(function() {
           return db.allDocs();
         })
@@ -54,7 +74,7 @@ export default {
         })
         .catch(function(error) {
           console.error(error);
-        });
+        }); */
 
       // var doc = {
       //   date_birth: '04-10-2000',
@@ -91,8 +111,8 @@ export default {
       //   .catch(function(error) {
       //     console.log(error);
       //   });
-    }
-  }
+    },
+  },
 };
 </script>
 
