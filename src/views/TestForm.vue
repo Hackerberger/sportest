@@ -1,13 +1,10 @@
 <template>
   <v-container grid-list-xs>
     <v-layout row wrap>
-      <v-bottom-nav :value="true" fixed color="#00295D"></v-bottom-nav>
-
       <v-carousel
         interval="60000"
         hide-delimiters
         :show-arrows="true"
-        continuous="true"
       >
         <v-carousel-item>
           <v-overflow-btn
@@ -21,7 +18,7 @@
 
           <v-menu
             ref="menu"
-            v-model="menu"
+            v-model="testDaten.menu"
             :close-on-content-click="false"
             :nudge-right="40"
             transition="scale-transition"
@@ -30,7 +27,7 @@
           >
             <template v-slot:activator="{ on }">
               <v-text-field
-                v-model="date_birth"
+                v-model="testDaten.date_birth"
                 label="Birthday date"
                 prepend-icon="mdi-calendar-month"
                 readonly
@@ -39,41 +36,15 @@
             </template>
             <v-date-picker
               ref="picker"
-              v-model="date_birth"
+              v-model="testDaten.date_birth"
               :max="new Date().toISOString().substr(0, 10)"
               min="1950-01-01"
             ></v-date-picker>
           </v-menu>
 
-          <!-- <v-menu
-            ref="menu"
-            v-model="menu2"
-            :close-on-content-click="false"
-            :nudge-right="40"
-            transition="scale-transition"
-            offset-y
-            min-width="290px"
-          >
-            <template v-slot:activator="{ on }">
-              <v-text-field
-                v-model="date_test"
-                label="Testdatum"
-                prepend-icon="mdi-calendar-month"
-                readonly
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-date-picker
-              ref="picker"
-              v-model="date_birth"
-              :max="new Date().toISOString().substr(0, 10)"
-              min="1950-01-01"
-            ></v-date-picker>
-          </v-menu>-->
-
           <v-container fluid>
-            <p>{{ radios || "Geschlecht" }}</p>
-            <v-radio-group v-model="radios" :mandatory="false">
+            <p>{{ testDaten.gender || "Geschlecht" }}</p>
+            <v-radio-group v-model="testDaten.gender" :mandatory="false">
               <v-radio label="Männlich" value="Männlich"></v-radio>
               <v-radio label="Weiblich" value="Weiblich"></v-radio>
             </v-radio-group>
@@ -113,8 +84,6 @@
 
               <v-card
                 color="black"
-                v-for="n in 1"
-                :key="n"
                 class="ma-3 pa-6"
                 outlined
                 tile
@@ -170,8 +139,6 @@
 
               <v-card
                 color="black"
-                v-for="n in 1"
-                :key="n"
                 class="ma-3 pa-6"
                 outlined
               >
@@ -221,8 +188,6 @@
 
               <v-card
                 color="black"
-                v-for="n in 1"
-                :key="n"
                 class="ma-3 pa-6"
                 outlined
                 tile
@@ -273,7 +238,7 @@
               </v-card>
             </v-container>
 
-            <!-- <v-flex sm2>
+            <v-flex sm2>
                   <span>3cm-Balken:</span>
                   <v-text-field
                     label="Durchgang 1"
@@ -289,7 +254,8 @@
                     single-line
                     v-model="testDaten.gleichgewicht3_2"
                   ></v-text-field>
-            </v-flex>-->
+            </v-flex>
+
           </v-carousel-item>
 
           <v-carousel-item>
@@ -424,9 +390,7 @@
         </v-form>
       </v-carousel>
     </v-layout>
-    <!-- <v-btn @click="addTest()" color="#00295D" value="statistics">
-          <v-icon>done</v-icon>
-    </v-btn>-->
+
     <v-btn
       fab
       dark
@@ -444,13 +408,10 @@
     </v-btn>
 
     <div color="black" class="text-center">
-      <v-dialog class="mx-auto" scrollable="false" v-model="dialog" width="500">
+      <v-dialog class="mx-auto" v-model="dialog" width="500">
         <v-card color="black">
-          <!-- <v-card-title color="black" class="headline grey lighten-2" primary-title>Test abschicken?</v-card-title> -->
-
           <v-card-text style="margin-top: 3%" class="primary--text">
             Möchtest du den Test beenden?
-            <!-- Soll die 'sportest' App der Home Seite hinzugefügt werden? -->
           </v-card-text>
 
           <v-divider></v-divider>
@@ -470,19 +431,6 @@
         </v-card>
       </v-dialog>
     </div>
-
-    <!-- <v-btn
-      @click="gleichgewichtObject()"
-      color="#FF6600"
-      class="white--text"
-      value="statistics"
-    >
-      <v-icon>Send</v-icon>
-    </v-btn>-->
-
-    <!-- <v-btn @click="$router.push({ name:'home'})" color="teal" value="home">
-          <v-icon>clear</v-icon>
-    </v-btn>-->
   </v-container>
 </template>
 
@@ -494,6 +442,8 @@ export default {
       klassen: ["5AHITN", "5BHITM", "5CHITM"],
       testDaten: {
         date_birth: null,
+        radios: null,
+        menu: null,
         date_test: null,
         gender: null,
         gewicht: null,
