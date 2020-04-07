@@ -156,7 +156,6 @@ export default {
       this.$router.push({ name: "login" });
 
       //gapi.auth2.getAuthInstance().signOut();
-      //OR (both are same)
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function() {
         console.log("Abmeldung erfolgreich!");

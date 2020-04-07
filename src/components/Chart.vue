@@ -5,6 +5,11 @@ import { Bar } from "vue-chartjs";
 Chart.defaults.global.defaultFontColor = "black";
 
 export default {
+  props: {
+    test: {
+      type: Object
+    },
+  },
   extends: Bar,
   mounted() {
     // Overwriting base render method with actual data.
@@ -20,20 +25,31 @@ export default {
         "Ausdauer"
       ],
       datasets: [
-        {
+        /* {
           type: "line",
           label: "Durchschnitt",
           borderColor: "black",
           fill: "false",
-          average: 50,
+          
           data: [100, 100, 100, 100, 100, 100, 100, 100, 100]
-        },
+        }, */
         {
           label: "Punkte",
           backgroundColor: "black",
-          data: [103, 110, 108, 120, 75, 90, 35, 80]
+          // average: 70,
+          data: [
+            this.test.gleichgewichtPunkte, 
+            this.test.koordinationPunkte,
+            this.test.rumpfbeugePunkte,
+            this.test.oberkoerperkraftPunkte,
+            this.test.rumpfkraftPunkte,
+            this.test.schnellkraftPunkte,
+            this.test.aktionsschnelligkeitPunkte,
+            this.test.ausdauerPunkte,
+            70
+            ]
         }
-      ]
+      ],
     });
   }
 };
