@@ -34,7 +34,7 @@
 </template>
 
 <script>
-// import GoogleSignInButton from "vue-google-signin-button-directive";
+ import GoogleSignInButton from "vue-google-signin-button-directive";
 
 export default {
   // directives: {
