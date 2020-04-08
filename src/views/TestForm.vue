@@ -42,12 +42,11 @@
               ref="picker"
               v-model="testDaten.date_birth"
               :max="new Date().toISOString().substr(0, 10)"
-              min="1950-01-01"
+              min="1998-01-01"
             ></v-date-picker>
           </v-menu>
 
-          <v-flex xs9 ml-11>
-            <div class="text-center elevation-2 pa-12 headline">
+          <div class="text-center pl-11">
           <v-container fluid>
             <p>{{ testDaten.gender || "Geschlecht" }}</p>
             <v-radio-group v-model="testDaten.gender" :mandatory="false">
@@ -57,7 +56,6 @@
           </v-container>
             </div>
 
-          </v-flex>
 
           <v-layout row>
             <v-flex xs5 ml-4>
@@ -246,6 +244,8 @@
                 >
                   <template v-slot:append>
                     <v-text-field
+                    outlined
+                  shaped
                       v-model="testDaten.gleichgewicht3_2"
                       class="mt-0 pt-0 mb-4"
                       hide-details
@@ -261,6 +261,8 @@
             <v-flex sm2>
                   <span>3cm-Balken:</span>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Durchgang 1"
                     suffix="Schritte"
                     single-line
@@ -269,6 +271,8 @@
                 </v-flex>
                 <v-flex sm2>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Durchgang 2"
                     suffix="Schritte"
                     single-line
@@ -280,19 +284,22 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Koordination</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Koordination</h3>
               <v-layout wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Durchgang 1"
                     single-line
+                    min-width="400px"
                     v-model="testDaten.koordination_1"
                   ></v-text-field>
-                </v-flex>
-                <v-flex sm1>
+
                   <v-text-field
+                  outlined
+                  shaped
                     label="Durchgang 2"
-                    single-line
                     v-model="testDaten.koordination_2"
                   ></v-text-field>
                 </v-flex>
@@ -302,17 +309,20 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Rumpfbeweglichkeit</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Rumpfbeweglichkeit</h3>
               <v-layout row wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Durchgang 1"
                     single-line
                     v-model="testDaten.rumpfbeuge_1"
                   ></v-text-field>
-                </v-flex>
-                <v-flex sm1>
+
                   <v-text-field
+                  outlined
+                  shaped
                     label="Durchgang 2"
                     single-line
                     v-model="testDaten.rumpfbeuge_2"
@@ -324,10 +334,12 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Oberkörperkraft</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Oberkörperkraft</h3>
               <v-layout row wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Versuch 1"
                     single-line
                     v-model="testDaten.oberkoerperkraft"
@@ -341,8 +353,10 @@
             <v-container>
               <h3 class="white--text">Rumpfkraft</h3>
               <v-layout row wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Versuch 1"
                     single-line
                     v-model="testDaten.rumpfkraft"
@@ -354,18 +368,22 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Schnellkraft</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Schnellkraft</h3>
               <v-layout row wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Versuch 1"
                     suffix="cm"
                     single-line
                     v-model="testDaten.schnellkraft_1"
                   ></v-text-field>
-                </v-flex>
-                <v-flex sm1>
+
+
                   <v-text-field
+                  outlined
+                  shaped
                     label="Versuch 2"
                     suffix="cm"
                     single-line
@@ -378,14 +396,25 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Aktionsschnelligkeit</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Aktionsschnelligkeit</h3>
               <v-layout wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
-                    label="Zeit in sek"
+                  outlined
+                  shaped
+                    label="Versuch 1"
                     suffix="sek"
                     single-line
-                    v-model="testDaten.aktionsschnelligkeit"
+                    v-model="testDaten.aktionsschnelligkeit_1"
+                  ></v-text-field>
+
+                  <v-text-field
+                  outlined
+                  shaped
+                    label="Versuch 2"
+                    suffix="sek"
+                    single-line
+                    v-model="testDaten.aktionsschnelligkeit_2"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -394,10 +423,12 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Ausdauer</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Ausdauer</h3>
               <v-layout wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Meter"
                     suffix="sek"
                     single-line
