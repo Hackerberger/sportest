@@ -513,7 +513,7 @@ export default {
   },
   created() {
     this.calcPoints({
-      age: 18,
+      age: 14,
       //Gleichgewicht
       gleichgewicht3_1: 6,
       gleichgewicht3_2: 6,
@@ -525,20 +525,21 @@ export default {
       koordination_1: 35,
       koordination_2: 37,
       //Rumpfbeweglichkeit
-      rumpfbeuge_1: -0.2,
-      rumpfbeuge_2: -5.3,
+      rumpfbeuge_1: -5,
+      rumpfbeuge_2: -2.09,
       //Liegestütze
       oberkoerperkraft: 18,
       //Situps
-      rumpfkraft: 20,
+      rumpfkraft: 18,
       //Standweitsprung
       schnellkraft_1: 220,
       schnellkraft_2: 207,
       //Sprint
-      aktionsschnelligkeit: 2.79,
+      aktionsschnelligkeit_1: 3,
+      aktionsschnelligkeit_2: 3,
 
       //Ausdauer
-      ausdauer: 1485,
+      ausdauer: 1103,
     });
   },
   methods: {
@@ -583,30 +584,173 @@ export default {
         normValues.gleichgewicht.sa = 9.12;
 
         //RB Rumpfbeuge
-        normValues.rumpfbeuge.norm = -2.09;
+        normValues.rumpfbeuge.norm = 2.6;
         normValues.rumpfbeuge.sa = 9.11;
 
         //6-min Lauf
         normValues.ausdauer.norm = 1346;
         normValues.ausdauer.sa = 187;
       } else if (testobject.age == 16) {
+        //Alter 16
+        //20m Sprint
+
+        normValues.aktionsschnelligkeit.norm = 3.61;
+        normValues.aktionsschnelligkeit.sa = 0.29;
+
+        //LS Liegestütz
+        normValues.oberkoerperkraft.norm = 14.65;
+        normValues.oberkoerperkraft.sa = 3.44;
+
+        //SU Situps
+        normValues.rumpfkraft.norm = 25.98;
+        normValues.rumpfkraft.sa = 5.64;
+
+        //SW Standweitsprung
+        normValues.schnellkraft.norm = 199.68;
+        normValues.schnellkraft.sa = 25.96;
+
+        //SSH Seitlich Hin und Herspringen
+        normValues.koordination.norm = 36.27;
+        normValues.koordination.sa = 7.25;
+
+        //Balancieren rückwärts
+        normValues.gleichgewicht.norm = 34.02;
+        normValues.gleichgewicht.sa = 9.12;
+
+        //RB Rumpfbeuge
+        normValues.rumpfbeuge.norm = 2.06;
+        normValues.rumpfbeuge.sa = 8.83;
+
+        //6-min Lauf
+        normValues.ausdauer.norm = 1302;
+        normValues.ausdauer.sa = 181;
       } else if (testobject.age == 15) {
+        //Alter 15
+
+        //20m Sprint
+        normValues.aktionsschnelligkeit.norm = 3.72;
+        normValues.aktionsschnelligkeit.sa = 0.3;
+
+        //LS Liegestütz
+        normValues.oberkoerperkraft.norm = 14.10;
+        normValues.oberkoerperkraft.sa = 3.44;
+
+        //SU Situps
+        normValues.rumpfkraft.norm = 25.47;
+        normValues.rumpfkraft.sa = 5.64;
+
+        //SW Standweitsprung
+        normValues.schnellkraft.norm = 190.68;
+        normValues.schnellkraft.sa = 24.79;
+
+        //SSH Seitlich Hin und Herspringen
+        normValues.koordination.norm = 35.19;
+        normValues.koordination.sa = 7.04;
+
+        //Balancieren rückwärts
+        normValues.gleichgewicht.norm = 33.51;
+        normValues.gleichgewicht.sa = 9.12;
+
+        //RB Rumpfbeuge
+        normValues.rumpfbeuge.norm = 2.06;
+        normValues.rumpfbeuge.sa = 8.54;
+
+        //6-min Lauf
+        normValues.ausdauer.norm = 1257;
+        normValues.ausdauer.sa = 175;
       } else if (testobject.age < 15) {
+        //Alter 14 oder weniger
+        //20m Sprint
+        normValues.aktionsschnelligkeit.norm = 3.84;
+        normValues.aktionsschnelligkeit.sa = 0.31;
+
+        //LS Liegestütz
+        normValues.oberkoerperkraft.norm = 13.56;
+        normValues.oberkoerperkraft.sa = 3.44;
+
+        //SU Situps
+        normValues.rumpfkraft.norm = 24.78;
+        normValues.rumpfkraft.sa = 5.64;
+
+        //SW Standweitsprung
+        normValues.schnellkraft.norm = 181.68;
+        normValues.schnellkraft.sa = 23.62;
+
+        //SSH Seitlich Hin und Herspringen
+        normValues.koordination.norm = 34.11;
+        normValues.koordination.sa = 6.82;
+
+        //Balancieren rückwärts
+        normValues.gleichgewicht.norm = 32.99;
+        normValues.gleichgewicht.sa = 9.12;
+
+        //RB Rumpfbeuge
+        normValues.rumpfbeuge.norm = 2.06;
+        normValues.rumpfbeuge.sa = 8.25;
+
+        //6-min Lauf
+        normValues.ausdauer.norm = 1213;
+        normValues.ausdauer.sa = 168;
       }
 
+      //Berechnung des Z-Werts
+      function zWert(w, n, s) {
+        return 100 + (10 * (w - n)) / s;
+      }
+
+      //Punkteergebnisse
       let ergebnisse = {
-        //Punkteergebnisse
-        erg_gleichgewicht: null,
-        erg_koordination: null,
-        erg_rumpfbeuge: null,
-        erg_oberkoerperkraft: null,
-        erg_rumpfkraft: null,
-        erg_schnellkraft: null,
-        erg_aktionsschnelligkeit: null,
-        erg_ausdauer: null,
+        erg_gleichgewicht: zWert(
+          testobject.gleichgewicht3_1 +
+            testobject.gleichgewicht3_2 +
+            testobject.gleichgewicht4_5_1 +
+            testobject.gleichgewicht4_5_2 +
+            testobject.gleichgewicht6_1 +
+            testobject.gleichgewicht6_2,
+          normValues.gleichgewicht.norm,
+          normValues.gleichgewicht.sa,
+        ),
+        erg_koordination: zWert(
+          (testobject.koordination_1 + testobject.koordination_2) / 2,
+          normValues.koordination.norm,
+          normValues.koordination.sa,
+        ),
+        erg_rumpfbeuge: zWert(
+          Math.min(testobject.rumpfbeuge_1, testobject.rumpfbeuge_2),
+          normValues.rumpfbeuge.norm,
+          -normValues.rumpfbeuge.sa,
+        ),
+        erg_oberkoerperkraft: zWert(
+          testobject.oberkoerperkraft,
+          normValues.oberkoerperkraft.norm,
+          normValues.oberkoerperkraft.sa,
+        ),
+        erg_rumpfkraft: zWert(
+          testobject.rumpfkraft,
+          normValues.rumpfkraft.norm,
+          normValues.rumpfkraft.sa,
+        ),
+        erg_schnellkraft: zWert(
+          Math.max(testobject.schnellkraft_1, testobject.schnellkraft_2),
+          normValues.schnellkraft.norm,
+          normValues.schnellkraft.sa,
+        ),
+        erg_aktionsschnelligkeit: zWert(
+          Math.min(
+            testobject.aktionsschnelligkeit_1,
+            testobject.aktionsschnelligkeit_2,
+          ),
+          normValues.aktionsschnelligkeit.norm,
+          -normValues.aktionsschnelligkeit.sa,
+        ),
+        erg_ausdauer: zWert(
+          testobject.ausdauer,
+          normValues.ausdauer.norm,
+          normValues.ausdauer.sa,
+        ),
       };
 
-      console.log(normValues);
+      console.log(ergebnisse);
     },
   },
 };
