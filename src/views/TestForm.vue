@@ -46,7 +46,8 @@
             ></v-date-picker>
           </v-menu>
 
-            <v-flex xs9 ml-11>
+          <v-flex xs9 ml-11>
+            <div class="text-center elevation-2 pa-12 headline">
           <v-container fluid>
             <p>{{ testDaten.gender || "Geschlecht" }}</p>
             <v-radio-group v-model="testDaten.gender" :mandatory="false">
@@ -54,6 +55,8 @@
               <v-radio label="Weiblich" value="Weiblich"></v-radio>
             </v-radio-group>
           </v-container>
+            </div>
+
           </v-flex>
 
           <v-layout row>
@@ -438,7 +441,7 @@
             <v-btn
               color="primary"
               text
-              @click="$router.push({ name: 'statistics' })"
+              @click="done"
             >
               <v-icon dark color="primary">mdi-check</v-icon>
             </v-btn>
@@ -543,7 +546,11 @@ export default {
     });
   },
   methods: {
-    addTest() {},
+    done() {
+      console.log(this.testDaten);
+      this.$router.push({ name: 'statistics' })
+
+    },
     calcPoints(testobject) {
       var normValues = {
         aktionsschnelligkeit: {},
