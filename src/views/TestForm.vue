@@ -93,27 +93,25 @@
 
         <v-form>
           <v-carousel-item>
-            <h3 class="white--text">Gleichgewicht</h3>
+          <v-container>
 
+            <h3 style="" class="white--text">Gleichgewicht</h3>
+            <v-layout wrap>
             <v-container>
-              <p class="white--text">
-                Gleichgewicht Points: {{ testDaten.erg_bal }}
-              </p>
-
-              <v-card
+             <v-card
                 color="black"
-                class="ma-3 pa-6"
+                class="pt-1"
                 outlined
-                tile
               >
                 <span class="white--text">6cm-Balken:</span>
-
                 <v-slider
                   v-model="testDaten.gleichgewicht6_1"
+                  thumb-label
                   label="1.Durchgang"
                   class="align-center"
                   min="0"
                   max="8"
+                  hide-details
                 >
                   <template v-slot:append>
                     <v-text-field
@@ -125,14 +123,8 @@
                       style="width: 30px"
                     ></v-text-field>
                   </template>
-                  <v-btn
-                    @click="Gleichgewicht(testDaten.gleichgewicht6_1)"
-                    color="white"
-                    value="statistics"
-                  >
-                    <v-icon>Gleichgewicht 6cm</v-icon>
-                  </v-btn>
                 </v-slider>
+
                 <v-slider
                   v-model="testDaten.gleichgewicht6_2"
                   thumb-label
@@ -155,9 +147,10 @@
                 </v-slider>
               </v-card>
 
+
               <v-card
                 color="black"
-                class="ma-3 pa-6"
+                class="pt-5"
                 outlined
               >
                 <span class="white--text">4,5cm-Balken:</span>
@@ -206,7 +199,7 @@
 
               <v-card
                 color="black"
-                class="ma-3 pa-6"
+                class="pt-4"
                 outlined
                 tile
               >
@@ -244,8 +237,6 @@
                 >
                   <template v-slot:append>
                     <v-text-field
-                    outlined
-                  shaped
                       v-model="testDaten.gleichgewicht3_2"
                       class="mt-0 pt-0 mb-4"
                       hide-details
@@ -257,28 +248,8 @@
                 </v-slider>
               </v-card>
             </v-container>
-
-            <v-flex sm2>
-                  <span>3cm-Balken:</span>
-                  <v-text-field
-                  outlined
-                  shaped
-                    label="Durchgang 1"
-                    suffix="Schritte"
-                    single-line
-                    v-model="testDaten.gleichgewicht3_1"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex sm2>
-                  <v-text-field
-                  outlined
-                  shaped
-                    label="Durchgang 2"
-                    suffix="Schritte"
-                    single-line
-                    v-model="testDaten.gleichgewicht3_2"
-                  ></v-text-field>
-            </v-flex>
+              </v-layout>
+          </v-container>
 
           </v-carousel-item>
 
@@ -351,7 +322,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Rumpfkraft</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Rumpfkraft</h3>
               <v-layout row wrap>
                 <v-flex xs5>
                   <v-text-field
