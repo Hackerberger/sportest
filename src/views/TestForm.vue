@@ -8,6 +8,8 @@
       >
         <v-carousel-item>
           <v-overflow-btn
+                        shaped
+              outlined
             background-color="black"
             border-color="white"
             color="black"
@@ -27,9 +29,11 @@
           >
             <template v-slot:activator="{ on }">
               <v-text-field
+              shaped
+              outlined
                 v-model="testDaten.date_birth"
                 label="Birthday date"
-                prepend-icon="mdi-calendar-month"
+                prepend-inner-icon="mdi-calendar-month"
                 readonly
                 v-on="on"
               ></v-text-field>
@@ -42,6 +46,7 @@
             ></v-date-picker>
           </v-menu>
 
+            <v-flex xs9 ml-11>
           <v-container fluid>
             <p>{{ testDaten.gender || "Geschlecht" }}</p>
             <v-radio-group v-model="testDaten.gender" :mandatory="false">
@@ -49,10 +54,16 @@
               <v-radio label="Weiblich" value="Weiblich"></v-radio>
             </v-radio-group>
           </v-container>
+          </v-flex>
 
           <v-layout row>
-            <v-flex xs3 ml-4>
+            <v-flex xs5 ml-4>
               <v-text-field
+              shaped
+              outlined
+              single-line
+              clearable
+               :rules="weight_rules"
                 type="number"
                 label="Gewicht"
                 suffix="kg"
@@ -61,9 +72,14 @@
             </v-flex>
           </v-layout>
 
+
           <v-layout row>
-            <v-flex xs3 ml-4>
+            <v-flex xs5 ml-4>
               <v-text-field
+              shaped
+              outlined
+               :rules="height_rules"
+              clearable
                 type="number"
                 label="Größe"
                 suffix="cm"
@@ -71,6 +87,7 @@
               ></v-text-field>
             </v-flex>
           </v-layout>
+
         </v-carousel-item>
 
         <v-form>
@@ -415,6 +432,7 @@
           </v-card-text>
 
           <v-divider></v-divider>
+          <v-container class="text-center">
 
           <v-card-actions id="act">
             <v-btn
@@ -428,6 +446,10 @@
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </v-card-actions>
+
+          </v-container>
+
+
         </v-card>
       </v-dialog>
     </div>
@@ -485,6 +507,8 @@ export default {
         erg_aktionsschnelligkeit: null,
         erg_ausdauer: null,
       },
+      weight_rules: [v => v >= 30 && v <= 300 || 'Gewicht nicht angenommen.'],
+      height_rules: [v => v >=  50 && v <= 250 || 'Größe nicht angenommen.'],
     };
   },
   created() {
@@ -590,6 +614,6 @@ export default {
 
 <style>
 #act {
-  margin: 0 auto;
+  margin: 15px;
 }
 </style>
