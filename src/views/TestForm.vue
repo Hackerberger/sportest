@@ -396,8 +396,9 @@
             <v-container>
               <h3 style="padding-bottom: 4%;" class="white--text">Ausdauer</h3>
               <v-layout row>
-                <v-flex xs5>                    
-                  <v-text-field
+                <v-flex xs5>   
+                  </v-flex>                 
+                  <!-- <v-text-field
                   outlined
                   shaped
                     label="Runden"
@@ -419,7 +420,23 @@
       right
     >
       <v-icon dark large color="black">mdi-plus</v-icon>
-    </v-btn>
+    </v-btn> -->
+
+    <v-text-field
+                      outlined
+                  shaped
+                    label="Runden"
+                    placeholder="Runden"
+                    v-model="testDaten.ausdauer"
+     style="margin-right: 35%; max-width: 460px"
+>
+             <template slot="append">
+                       <v-btn fab outlined style="margin-bottom: 25%" @click="addRound">
+                              <v-icon>mdi-plus</v-icon>
+                       </v-btn>
+              </template>
+</v-text-field>
+</v-flex>
 
               </v-layout>
 

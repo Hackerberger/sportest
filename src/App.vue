@@ -95,7 +95,7 @@
         color="white"
         @click="$router.push({ name: 'test' })"
         absolute
-        :style="{ left: '50%', bottom: '5%', transform: 'translateX(-50%)' }"
+        :style="{ left: '50%', bottom: '4%', transform: 'translateX(-50%)' }"
         bottom
         fixed
         align-center
