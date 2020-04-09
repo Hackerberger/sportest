@@ -6,7 +6,7 @@
         hide-delimiters
         :show-arrows="true"
       >
-        <v-carousel-item>
+        <v-carousel-item scrollable>
           <v-overflow-btn
                         shaped
               outlined
@@ -107,7 +107,7 @@
                 <v-slider
                   v-model="testDaten.gleichgewicht6_1"
                   thumb-label
-                  label="1.Durchgang"
+                  label="Versuch 1"
                   class="align-center"
                   min="0"
                   max="8"
@@ -128,7 +128,7 @@
                 <v-slider
                   v-model="testDaten.gleichgewicht6_2"
                   thumb-label
-                  label="2.Durchgang"
+                  label="Versuch 2"
                   class="align-center"
                   min="0"
                   max="8"
@@ -157,7 +157,7 @@
                 <v-slider
                   v-model="testDaten.gleichgewicht4_5_1"
                   thumb-label
-                  label="1.Durchgang"
+                  label="Versuch 1"
                   class="align-center"
                   min="0"
                   max="8"
@@ -178,7 +178,7 @@
                 <v-slider
                   v-model="testDaten.gleichgewicht4_5_2"
                   thumb-label
-                  label="2.Durchgang"
+                  label="Versuch 2"
                   class="align-center"
                   min="0"
                   max="8"
@@ -208,7 +208,7 @@
                 <v-slider
                   v-model="testDaten.gleichgewicht3_1"
                   thumb-label
-                  label="1.Durchgang"
+                  label="Versuch 1"
                   class="align-center"
                   min="0"
                   max="8"
@@ -229,7 +229,7 @@
                 <v-slider
                   v-model="testDaten.gleichgewicht3_2"
                   thumb-label
-                  label="2.Durchgang"
+                  label="Versuch 2"
                   class="align-center"
                   min="0"
                   max="8"
@@ -261,7 +261,7 @@
                   <v-text-field
                   outlined
                   shaped
-                    label="Durchgang 1"
+                    label="Versuch 1"
                     single-line
                     min-width="400px"
                     v-model="testDaten.koordination_1"
@@ -270,7 +270,7 @@
                   <v-text-field
                   outlined
                   shaped
-                    label="Durchgang 2"
+                    label="Versuch 2"
                     v-model="testDaten.koordination_2"
                   ></v-text-field>
                 </v-flex>
@@ -286,7 +286,7 @@
                   <v-text-field
                   outlined
                   shaped
-                    label="Durchgang 1"
+                    label="Versuch 1"
                     single-line
                     v-model="testDaten.rumpfbeuge_1"
                   ></v-text-field>
@@ -294,7 +294,7 @@
                   <v-text-field
                   outlined
                   shaped
-                    label="Durchgang 2"
+                    label="Versuch 2"
                     single-line
                     v-model="testDaten.rumpfbeuge_2"
                   ></v-text-field>
@@ -395,18 +395,35 @@
           <v-carousel-item>
             <v-container>
               <h3 style="padding-bottom: 4%;" class="white--text">Ausdauer</h3>
-              <v-layout wrap>
-                <v-flex xs5>
+              <v-layout row>
+                <v-flex xs5>                    
                   <v-text-field
                   outlined
                   shaped
-                    label="Meter"
-                    suffix="sek"
-                    single-line
+                    label="Runden"
+                    suffix="Runden"
                     v-model="testDaten.ausdauer"
                   ></v-text-field>
+
                 </v-flex>
+
+                <v-btn
+      fab
+      dark
+      color="white"
+      @click="addRound()"
+      :style="{ left: '55%', bottom: '75%', transform: 'translateX(-50%)' }"
+      bottom
+      fixed
+      align-center
+      right
+    >
+      <v-icon dark large color="black">mdi-plus</v-icon>
+    </v-btn>
+
               </v-layout>
+
+
             </v-container>
           </v-carousel-item>
         </v-form>
@@ -499,7 +516,7 @@ export default {
         aktionsschnelligkeit: null,
 
         //Ausdauer
-        ausdauer: null,
+        ausdauer: 0,
       },
       ergebnisse: {
         //Punkteergebnisse
@@ -512,7 +529,7 @@ export default {
         erg_aktionsschnelligkeit: null,
         erg_ausdauer: null,
       },
-      weight_rules: [v => v >= 30 && v <= 300 || 'Gewicht nicht angenommen.'],
+      weight_rules: [v => v >= 30 && v <= 300 && v.length == 0 || 'Gewicht nicht angenommen.'],
       height_rules: [v => v >=  50 && v <= 250 || 'Größe nicht angenommen.'],
     };
   },
@@ -548,10 +565,12 @@ export default {
     });
   },
   methods: {
+    addRound() {
+      this.testDaten.ausdauer = this.testDaten.ausdauer + 1;
+    },
     done() {
       console.log(this.testDaten);
       this.$router.push({ name: 'statistics' })
-
     },
     calcPoints(testobject) {
       var normValues = {
