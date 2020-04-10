@@ -18,6 +18,11 @@ PouchDB.plugin(PouchDBAuthentication);
 
 export default {
   components: { ChartCard },
+  props: {
+    globalData: {
+      type: Object,
+    },
+  },
   data() {
     return {
       tests: [],
@@ -26,8 +31,8 @@ export default {
       dbname: '',
       tests: [
         {
-          date_birth: "04-10-2000",
-          date_test: "21-02-2020",
+          date_birth: '04-10-2000',
+          date_test: '21-02-2020',
           gender: false,
           gewicht: 89,
           groeße: 129,
@@ -61,9 +66,9 @@ export default {
           aktionsschnelligkeitPunkte: 120.5,
           //6 min Lauf
           ausdauer: 6000,
-          ausdauerPunkte: 75
-        }
-      ]
+          ausdauerPunkte: 75,
+        },
+      ],
     };
   },
   async created() {
@@ -72,14 +77,17 @@ export default {
   },
   methods: {
     async getToken() {
-      let res = await axios.post('https://sportest-auth-server.azurewebsites.net/auth/token', {
-        email: 'schuelertest@htlwienwest.at',
-      });
+      let res = await axios.post(
+        'https://sportest-auth-server.azurewebsites.net/auth/token',
+        {
+          email: this.globalData.googleUser.getBasicProfile().getEmail(),
+          token: this.globalData.googleUser.getAuthResponse().id_token,
+        },
+      );
       console.log(res.data);
       this.username = res.data.username;
       this.token = res.data.token;
       this.dbname = res.data.dbname;
-      
     },
     getAllData() {
       const remoteOptions = {
@@ -94,7 +102,7 @@ export default {
       };
 
       var db = new PouchDB(
-        'http://51.144.121.173:5984'+ this.dbname,
+        'http://51.144.121.173:5984' + this.dbname,
         remoteOptions,
       );
       db.info().then(function(params) {

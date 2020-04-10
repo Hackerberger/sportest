@@ -36,7 +36,7 @@
           />
 
           <v-btn
-            v-if="$route.name == 'home'"
+            v-if="$route.name == 'home' || $route.name == 'statistics' || $route.name == 'home_l' || $route.name == 'statistics_l'"
             id="logout"
             color="#161616"
             class="primary--text"
@@ -54,7 +54,7 @@
     </v-app-bar>
 
     <v-content>
-      <router-view></router-view>
+      <router-view :globalData="globalData" @googleUserData="(data) => globalData.googleUser = data"></router-view>
     </v-content>
 
     <!--  Navbar unten Schüler  -->

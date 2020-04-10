@@ -2,13 +2,13 @@
   <v-container fluid fill-height>
     <v-layout align-center justify-center column fill-height>
       <v-container class="text-center">
-      <g-signin-button
-        :params="googleSignInParams"
-        @success="onSignInSuccess"
-        @error="onSignInError"
-      >
-        <v-icon left color="black">mdi-google</v-icon>Google-Login
-      </g-signin-button>
+        <g-signin-button
+          :params="googleSignInParams"
+          @success="onSignInSuccess"
+          @error="onSignInError"
+        >
+          <v-icon left color="black">mdi-google</v-icon>Google-Login
+        </g-signin-button>
       </v-container>
 
       <!-- <button
@@ -32,11 +32,11 @@
 </template>
 
 <script>
-import GoogleSignInButton from "vue-google-signin-button-directive";
+import GoogleSignInButton from 'vue-google-signin-button-directive';
 
 export default {
   directives: {
-    GoogleSignInButton
+    GoogleSignInButton,
   },
   data() {
     return {
@@ -49,27 +49,16 @@ export default {
   methods: {
     onSignInSuccess(googleUser) {
       // See https://developers.google.com/identity/sign-in/web/reference#users
-      const profile = googleUser.getBasicProfile();
+      this.$emit('googleUserData', googleUser);
 
-      this.$emit('googleUserData', profile);
-      this.googleData = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId());
-      console.log('Full Name: ' + profile.getName());
-      console.log('Given Name: ' + profile.getGivenName());
-      console.log('Family Name: ' + profile.getFamilyName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
+      //this.install();
+
       this.$router.push({ name: 'home' });
     },
     onSignInError(error) {
-      console.log('OH NO', error);
+      console.log('Anmeldung fehlgeschlagen', error);
     },
-    OnGoogleAuthSuccess(googleUser) {
-      this.$parent.globalData = googleUser;
 
-      if (this.installPossible) this.install();
-      this.$router.push({ name: 'home' });
-    },
     install() {
       let res = this.$confirm('Do you want install Sportest?', {
         title: 'Install',
@@ -91,9 +80,6 @@ export default {
           console.log(error);
         }
       }
-    },
-    OnGoogleAuthFail(error) {
-      console.log(`Anmeldung fehlgeschlagen: ${error}`);
     },
   },
 };
