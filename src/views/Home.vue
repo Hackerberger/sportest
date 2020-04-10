@@ -6,10 +6,9 @@
         <img src="./../../public/naderer.png" />
       </v-avatar>
     </span>
-    <br />
 
     <br />
-    <span class="white--text">
+    <span mt-11 class="white--text">
       <!-- {{ googleProfile.Name }} -->
       Hallo Timo, sportest ermöglicht dir die Messung und Bewertung deiner
       motorischen Fähigkeiten.
@@ -18,7 +17,7 @@
     <br />
     <span class="white--text">Anleitungen zu den Übungen:</span>
 
-    <Description class="ma-5"></Description>
+    <Description class="ma-5 mb-12"></Description>
   </v-container>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <v-card color="#FF6600" class="black--text">
     <v-card-title primary-title>
-      <h3 class="headline">Test 2020</h3>
+      <h3 class="headline">Test</h3>
       <v-container>
         <Chart :test="test"></Chart>
       </v-container>
@@ -14,21 +14,26 @@
       <br />
       <p></p>
       <p>
-        Gleichgewicht: {{ this.test.gleichgewichtPunkte }}
+       <b> Gleichgewicht: </b> <br/> 
+        3cm-Balken: {{ this.test.gleichgewicht3_1 }} / {{ this.test.gleichgewicht3_2 }}
+        <br/> 
+        4.5cm-Balken: {{ this.test.gleichgewicht4_5_1 }} / {{ this.test.gleichgewicht4_5_2 }}
+        <br/> 
+        6cm-Balken: {{ this.test.gleichgewicht6_1 }} / {{ this.test.gleichgewicht6_2 }}
         <br />
-        Koordination: {{ this.test.koordination_1 }} / {{ this.test.koordination_2 }}
+        <b> Koordination: </b> {{ this.test.koordination_1 }} / {{ this.test.koordination_2 }}
         <br />
-        Rumpfbeweglichkeit: {{ this.test.rumpfbeuge_1 }} / {{ this.test.rumpfbeuge_2 }}
+        <b> Rumpfbeweglichkeit: </b> {{ this.test.rumpfbeuge_1 }} / {{ this.test.rumpfbeuge_2 }}
         <br />
-        Oberkoerperkraft: {{ this.test.oberkoerperkraftPunkte }}
+        <b> Oberkörperkraft: </b> {{ this.test.oberkoerperkraft }}
         <br />
-        Rumpfkraft: {{ this.test.rumpfkraftPunkte }}
+        <b> Rumpfkraft: </b> {{ this.test.rumpfkraftPunkte }}
         <br />
-        Schnellkraft: {{ this.test.schnellkraftPunkte }}
+        <b> Schnellkraft: </b> {{ this.test.schnellkraftPunkte }}
         <br />
-        Aktionsschnelligkeit: {{ this.test.aktionsschnelligkeitPunkte }}
+        <b> Aktionsschnelligkeit: </b> {{ this.test.aktionsschnelligkeit }} sek
         <br />
-        Ausdauer: {{ this.test.ausdauerPunkte }}
+        <b> Ausdauer:  </b> {{ this.test.ausdauer }} Runden
       </p>
     </v-container>
   </v-card>

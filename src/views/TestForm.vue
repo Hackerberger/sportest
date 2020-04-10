@@ -6,8 +6,10 @@
         hide-delimiters
         :show-arrows="true"
       >
-        <v-carousel-item>
+        <v-carousel-item scrollable>
           <v-overflow-btn
+                        shaped
+              outlined
             background-color="black"
             border-color="white"
             color="black"
@@ -27,9 +29,11 @@
           >
             <template v-slot:activator="{ on }">
               <v-text-field
+              shaped
+              outlined
                 v-model="testDaten.date_birth"
                 label="Birthday date"
-                prepend-icon="mdi-calendar-month"
+                prepend-inner-icon="mdi-calendar-month"
                 readonly
                 v-on="on"
               ></v-text-field>
@@ -38,10 +42,11 @@
               ref="picker"
               v-model="testDaten.date_birth"
               :max="new Date().toISOString().substr(0, 10)"
-              min="1950-01-01"
+              min="1998-01-01"
             ></v-date-picker>
           </v-menu>
 
+          <div class="text-center pl-11">
           <v-container fluid>
             <p>{{ testDaten.gender || "Geschlecht" }}</p>
             <v-radio-group v-model="testDaten.gender" :mandatory="false">
@@ -49,10 +54,17 @@
               <v-radio label="Weiblich" value="Weiblich"></v-radio>
             </v-radio-group>
           </v-container>
+            </div>
+
 
           <v-layout row>
-            <v-flex xs3 ml-4>
+            <v-flex xs5 ml-4>
               <v-text-field
+              shaped
+              outlined
+              single-line
+              clearable
+               :rules="weight_rules"
                 type="number"
                 label="Gewicht"
                 suffix="kg"
@@ -61,9 +73,14 @@
             </v-flex>
           </v-layout>
 
+
           <v-layout row>
-            <v-flex xs3 ml-4>
+            <v-flex xs5 ml-4>
               <v-text-field
+              shaped
+              outlined
+               :rules="height_rules"
+              clearable
                 type="number"
                 label="Größe"
                 suffix="cm"
@@ -71,31 +88,30 @@
               ></v-text-field>
             </v-flex>
           </v-layout>
+
         </v-carousel-item>
 
         <v-form>
           <v-carousel-item>
-            <h3 class="white--text">Gleichgewicht</h3>
+          <v-container>
 
+            <h3 style="" class="white--text">Gleichgewicht</h3>
+            <v-layout wrap>
             <v-container>
-              <p class="white--text">
-                Gleichgewicht Points: {{ testDaten.erg_bal }}
-              </p>
-
-              <v-card
+             <v-card
                 color="black"
-                class="ma-3 pa-6"
+                class="pt-1"
                 outlined
-                tile
               >
                 <span class="white--text">6cm-Balken:</span>
-
                 <v-slider
                   v-model="testDaten.gleichgewicht6_1"
-                  label="1.Durchgang"
+                  thumb-label
+                  label="Versuch 1"
                   class="align-center"
                   min="0"
                   max="8"
+                  hide-details
                 >
                   <template v-slot:append>
                     <v-text-field
@@ -107,18 +123,12 @@
                       style="width: 30px"
                     ></v-text-field>
                   </template>
-                  <v-btn
-                    @click="Gleichgewicht(testDaten.gleichgewicht6_1)"
-                    color="white"
-                    value="statistics"
-                  >
-                    <v-icon>Gleichgewicht 6cm</v-icon>
-                  </v-btn>
                 </v-slider>
+
                 <v-slider
                   v-model="testDaten.gleichgewicht6_2"
                   thumb-label
-                  label="2.Durchgang"
+                  label="Versuch 2"
                   class="align-center"
                   min="0"
                   max="8"
@@ -137,16 +147,17 @@
                 </v-slider>
               </v-card>
 
+
               <v-card
                 color="black"
-                class="ma-3 pa-6"
+                class="pt-5"
                 outlined
               >
                 <span class="white--text">4,5cm-Balken:</span>
                 <v-slider
                   v-model="testDaten.gleichgewicht4_5_1"
                   thumb-label
-                  label="1.Durchgang"
+                  label="Versuch 1"
                   class="align-center"
                   min="0"
                   max="8"
@@ -167,7 +178,7 @@
                 <v-slider
                   v-model="testDaten.gleichgewicht4_5_2"
                   thumb-label
-                  label="2.Durchgang"
+                  label="Versuch 2"
                   class="align-center"
                   min="0"
                   max="8"
@@ -188,7 +199,7 @@
 
               <v-card
                 color="black"
-                class="ma-3 pa-6"
+                class="pt-4"
                 outlined
                 tile
               >
@@ -197,7 +208,7 @@
                 <v-slider
                   v-model="testDaten.gleichgewicht3_1"
                   thumb-label
-                  label="1.Durchgang"
+                  label="Versuch 1"
                   class="align-center"
                   min="0"
                   max="8"
@@ -218,7 +229,7 @@
                 <v-slider
                   v-model="testDaten.gleichgewicht3_2"
                   thumb-label
-                  label="2.Durchgang"
+                  label="Versuch 2"
                   class="align-center"
                   min="0"
                   max="8"
@@ -237,42 +248,29 @@
                 </v-slider>
               </v-card>
             </v-container>
-
-            <v-flex sm2>
-                  <span>3cm-Balken:</span>
-                  <v-text-field
-                    label="Durchgang 1"
-                    suffix="Schritte"
-                    single-line
-                    v-model="testDaten.gleichgewicht3_1"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex sm2>
-                  <v-text-field
-                    label="Durchgang 2"
-                    suffix="Schritte"
-                    single-line
-                    v-model="testDaten.gleichgewicht3_2"
-                  ></v-text-field>
-            </v-flex>
+              </v-layout>
+          </v-container>
 
           </v-carousel-item>
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Koordination</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Koordination</h3>
               <v-layout wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
-                    label="Durchgang 1"
+                  outlined
+                  shaped
+                    label="Versuch 1"
                     single-line
+                    min-width="400px"
                     v-model="testDaten.koordination_1"
                   ></v-text-field>
-                </v-flex>
-                <v-flex sm1>
+
                   <v-text-field
-                    label="Durchgang 2"
-                    single-line
+                  outlined
+                  shaped
+                    label="Versuch 2"
                     v-model="testDaten.koordination_2"
                   ></v-text-field>
                 </v-flex>
@@ -282,18 +280,21 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Rumpfbeweglichkeit</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Rumpfbeweglichkeit</h3>
               <v-layout row wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
-                    label="Durchgang 1"
+                  outlined
+                  shaped
+                    label="Versuch 1"
                     single-line
                     v-model="testDaten.rumpfbeuge_1"
                   ></v-text-field>
-                </v-flex>
-                <v-flex sm1>
+
                   <v-text-field
-                    label="Durchgang 2"
+                  outlined
+                  shaped
+                    label="Versuch 2"
                     single-line
                     v-model="testDaten.rumpfbeuge_2"
                   ></v-text-field>
@@ -304,10 +305,12 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Oberkörperkraft</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Oberkörperkraft</h3>
               <v-layout row wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Versuch 1"
                     single-line
                     v-model="testDaten.oberkoerperkraft"
@@ -319,10 +322,12 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Rumpfkraft</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Rumpfkraft</h3>
               <v-layout row wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Versuch 1"
                     single-line
                     v-model="testDaten.rumpfkraft"
@@ -334,18 +339,22 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Schnellkraft</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Schnellkraft</h3>
               <v-layout row wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
+                  outlined
+                  shaped
                     label="Versuch 1"
                     suffix="cm"
                     single-line
                     v-model="testDaten.schnellkraft_1"
                   ></v-text-field>
-                </v-flex>
-                <v-flex sm1>
+
+
                   <v-text-field
+                  outlined
+                  shaped
                     label="Versuch 2"
                     suffix="cm"
                     single-line
@@ -358,14 +367,25 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Aktionsschnelligkeit</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Aktionsschnelligkeit</h3>
               <v-layout wrap>
-                <v-flex sm1>
+                <v-flex xs5>
                   <v-text-field
-                    label="Zeit in sek"
+                  outlined
+                  shaped
+                    label="Versuch 1"
                     suffix="sek"
                     single-line
-                    v-model="testDaten.aktionsschnelligkeit"
+                    v-model="testDaten.aktionsschnelligkeit_1"
+                  ></v-text-field>
+
+                  <v-text-field
+                  outlined
+                  shaped
+                    label="Versuch 2"
+                    suffix="sek"
+                    single-line
+                    v-model="testDaten.aktionsschnelligkeit_2"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -374,17 +394,53 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 class="white--text">Ausdauer</h3>
-              <v-layout wrap>
-                <v-flex sm1>
-                  <v-text-field
-                    label="Meter"
-                    suffix="sek"
-                    single-line
+              <h3 style="padding-bottom: 4%;" class="white--text">Ausdauer</h3>
+              <v-layout row>
+                <v-flex xs5>   
+                  </v-flex>                 
+                  <!-- <v-text-field
+                  outlined
+                  shaped
+                    label="Runden"
+                    suffix="Runden"
                     v-model="testDaten.ausdauer"
                   ></v-text-field>
+
                 </v-flex>
+
+                <v-btn
+      fab
+      dark
+      color="white"
+      @click="addRound()"
+      :style="{ left: '55%', bottom: '75%', transform: 'translateX(-50%)' }"
+      bottom
+      fixed
+      align-center
+      right
+    >
+      <v-icon dark large color="black">mdi-plus</v-icon>
+    </v-btn> -->
+
+    <v-text-field
+                      outlined
+                  shaped
+                    label="Runden"
+                    placeholder="Runden"
+                    v-model="testDaten.ausdauer"
+     style="margin-right: 35%; max-width: 460px"
+>
+             <template slot="append">
+                       <v-btn fab outlined style="margin-bottom: 25%" @click="addRound">
+                              <v-icon>mdi-plus</v-icon>
+                       </v-btn>
+              </template>
+</v-text-field>
+</v-flex>
+
               </v-layout>
+
+
             </v-container>
           </v-carousel-item>
         </v-form>
@@ -415,12 +471,13 @@
           </v-card-text>
 
           <v-divider></v-divider>
+          <v-container class="text-center">
 
           <v-card-actions id="act">
             <v-btn
               color="primary"
               text
-              @click="$router.push({ name: 'statistics' })"
+              @click="done"
             >
               <v-icon dark color="primary">mdi-check</v-icon>
             </v-btn>
@@ -428,6 +485,10 @@
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </v-card-actions>
+
+          </v-container>
+
+
         </v-card>
       </v-dialog>
     </div>
@@ -472,7 +533,7 @@ export default {
         aktionsschnelligkeit: null,
 
         //Ausdauer
-        ausdauer: null,
+        ausdauer: 0,
       },
       ergebnisse: {
         //Punkteergebnisse
@@ -485,6 +546,8 @@ export default {
         erg_aktionsschnelligkeit: null,
         erg_ausdauer: null,
       },
+      weight_rules: [v => v >= 30 && v <= 300 && v.length == 0 || 'Gewicht nicht angenommen.'],
+      height_rules: [v => v >=  50 && v <= 250 || 'Größe nicht angenommen.'],
     };
   },
   created() {
@@ -519,7 +582,13 @@ export default {
     });
   },
   methods: {
-    addTest() {},
+    addRound() {
+      this.testDaten.ausdauer = this.testDaten.ausdauer + 1;
+    },
+    done() {
+      console.log(this.testDaten);
+      this.$router.push({ name: 'statistics' })
+    },
     calcPoints(testobject) {
       var normValues = {
         aktionsschnelligkeit: {},
@@ -734,6 +803,6 @@ export default {
 
 <style>
 #act {
-  margin: 0 auto;
+  margin: 15px;
 }
 </style>
