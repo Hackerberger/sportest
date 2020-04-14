@@ -36,14 +36,19 @@
           />
 
           <v-btn
-            v-if="$route.name == 'home' || $route.name == 'statistics' || $route.name == 'home_l' || $route.name == 'statistics_l'"
+            v-if="
+              $route.name == 'home' ||
+                $route.name == 'statistics' ||
+                $route.name == 'home_l' ||
+                $route.name == 'statistics_l'
+            "
             id="logout"
             color="#161616"
             class="primary--text"
             fab
             depressed
             rounded
-            @click="Logout()"
+            @click="logout()"
           >
             <v-icon>mdi-account-remove</v-icon>
           </v-btn>
@@ -54,7 +59,12 @@
     </v-app-bar>
 
     <v-content>
-      <router-view :globalData="globalData" @googleUserData="(data) => globalData.googleUser = data"></router-view>
+      <router-view
+        @userLogin="userLogin()"
+        :globalData="globalData"
+        @googleUserData="data => (globalData.googleUser = data)"
+        @testCreated="testCreated"
+      ></router-view>
     </v-content>
 
     <!--  Navbar unten Schüler  -->
@@ -143,24 +153,89 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+import PouchDB from 'pouchdb';
+import PouchDBAuthentication from 'pouchdb-authentication';
+PouchDB.plugin(PouchDBAuthentication);
+
 export default {
-  name: "App",
+  name: 'App',
   components: {},
   data() {
     return {
-      globalData: {}
+      globalData: {},
+      db: {},
+      username: '',
+      token: '',
+      dbname: ''
     };
   },
   methods: {
-    Logout() {
-      this.$router.push({ name: "login" });
+    logout() {
+      this.$router.push({ name: 'login' });
 
       //gapi.auth2.getAuthInstance().signOut();
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function() {
-        console.log("Abmeldung erfolgreich!");
+        console.log('Abmeldung erfolgreich!');
       });
-      alert("Abmeldung erfolgreich!");
+      alert('Abmeldung erfolgreich!');
+    },
+    async userLogin() {
+      await this.getToken();
+
+      await this.pouchDBSetup();
+      await this.getAllData();
+    },
+    async getToken() {
+      let res = await axios.post(
+        'https://sportest-auth-server.azurewebsites.net/auth/token',
+        {
+          email: this.globalData.googleUser.getBasicProfile().getEmail(),
+          token: this.globalData.googleUser.getAuthResponse().id_token
+        }
+      );
+      console.log(res.data);
+      this.username = res.data.username;
+      this.token = res.data.token;
+      this.dbname = res.data.dbname;
+    },
+    pouchDBSetup() {
+      const remoteOptions = {
+        skip_setup: true,
+        fetch: (url, opts) => {
+          opts.headers.set('X-Auth-CouchDB-UserName', this.username);
+          opts.headers.set('X-Auth-CouchDB-Roles', '');
+          opts.headers.set('X-Auth-CouchDB-Token', this.token);
+
+          return PouchDB.fetch(url, opts);
+        }
+      };
+
+      this.db = new PouchDB(
+        'http://51.144.121.173:5984' + this.dbname,
+        remoteOptions
+      );
+      this.db.info().then(function(params) {
+        console.log(params);
+      });
+    },
+    async getAllData() {
+      await this.db.allDocs({ include_docs: true }).then(docs => {
+        this.globalData.tests = [];
+        docs.rows.forEach(element => {
+          this.globalData.tests.push(element.doc);
+        });
+      });
+    },
+    testCreated(test) {
+      this.db.post(test).then(async () => {
+        await this.getAllData();
+        this.$router.push({ name: 'statistics' });
+      }).catch((error)=>{
+        console.log(error);
+      })
     }
   }
 };
