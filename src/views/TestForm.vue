@@ -514,10 +514,11 @@ export default {
         schnellkraft_1: null,
         schnellkraft_2: null,
         //Sprint
-        aktionsschnelligkeit: null,
+        aktionsschnelligkeit_1: null,
+        aktionsschnelligkeit_2: null,
 
         //Ausdauer
-        ausdauer: 0
+        ausdauer: 0,
       },
       ergebnisse: {
         //Punkteergebnisse
@@ -528,13 +529,13 @@ export default {
         erg_rumpfkraft: null,
         erg_schnellkraft: null,
         erg_aktionsschnelligkeit: null,
-        erg_ausdauer: null
+        erg_ausdauer: null,
       },
       weight_rules: [
         v =>
-          (v >= 30 && v <= 300 && v.length == 0) || 'Gewicht nicht angenommen.'
+          (v >= 30 && v <= 300 && v.length == 0) || 'Gewicht nicht angenommen.',
       ],
-      height_rules: [v => (v >= 50 && v <= 250) || 'Größe nicht angenommen.']
+      height_rules: [v => (v >= 50 && v <= 250) || 'Größe nicht angenommen.'],
     };
   },
   created() {},
@@ -544,10 +545,10 @@ export default {
     },
     done() {
       this.testDaten.age = this.calculateAge(this.testDaten.date_birth);
-      console.log(this.testDaten)
+      console.log(this.testDaten);
       let t = this.calcPoints(this.testDaten);
       console.log(t);
-      
+
       this.$emit('testCreated', t);
 
       /* {
@@ -589,7 +590,7 @@ export default {
         koordination: {},
         gleichgewicht: {},
         rumpfbeuge: {},
-        ausdauer: {}
+        ausdauer: {},
       };
 
       if (testobject.age > 16) {
@@ -744,55 +745,57 @@ export default {
             testobject.gleichgewicht6_1 +
             testobject.gleichgewicht6_2,
           normValues.gleichgewicht.norm,
-          normValues.gleichgewicht.sa
+          normValues.gleichgewicht.sa,
         ),
         erg_koordination: zWert(
-          (testobject.koordination_1 + testobject.koordination_2) / 2,
+          (parseInt(testobject.koordination_1) +
+            parseInt(testobject.koordination_2)) /
+            2,
           normValues.koordination.norm,
-          normValues.koordination.sa
+          normValues.koordination.sa,
         ),
         erg_rumpfbeuge: zWert(
           Math.min(testobject.rumpfbeuge_1, testobject.rumpfbeuge_2),
           normValues.rumpfbeuge.norm,
-          -normValues.rumpfbeuge.sa
+          -normValues.rumpfbeuge.sa,
         ),
         erg_oberkoerperkraft: zWert(
           testobject.oberkoerperkraft,
           normValues.oberkoerperkraft.norm,
-          normValues.oberkoerperkraft.sa
+          normValues.oberkoerperkraft.sa,
         ),
         erg_rumpfkraft: zWert(
           testobject.rumpfkraft,
           normValues.rumpfkraft.norm,
-          normValues.rumpfkraft.sa
+          normValues.rumpfkraft.sa,
         ),
         erg_schnellkraft: zWert(
           Math.max(testobject.schnellkraft_1, testobject.schnellkraft_2),
           normValues.schnellkraft.norm,
-          normValues.schnellkraft.sa
+          normValues.schnellkraft.sa,
         ),
         erg_aktionsschnelligkeit: zWert(
           Math.min(
             testobject.aktionsschnelligkeit_1,
-            testobject.aktionsschnelligkeit_2
+            testobject.aktionsschnelligkeit_2,
           ),
           normValues.aktionsschnelligkeit.norm,
-          -normValues.aktionsschnelligkeit.sa
+          -normValues.aktionsschnelligkeit.sa,
         ),
         erg_ausdauer: zWert(
-          testobject.ausdauer,
+          testobject.ausdauer * 54,
           normValues.ausdauer.norm,
-          normValues.ausdauer.sa
-        )
+          normValues.ausdauer.sa,
+        ),
       };
 
       return { ...testobject, ...ergebnisse };
     },
     calculateAge(birthd) {
-      let b = moment(birthd)
+      let b = moment(birthd);
       return moment().diff(b, 'years');
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -801,4 +804,3 @@ export default {
   margin: 15px;
 }
 </style>
-
