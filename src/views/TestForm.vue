@@ -236,13 +236,15 @@
                 Koordination
               </h3>
               <v-layout wrap>
-                <v-flex xs5>
+                <v-flex xs6>
                   <v-text-field
                     outlined
                     shaped
                     label="Versuch 1"
                     single-line
                     min-width="400px"
+                    suffix="Sprünge"
+                    type="number"
                     v-model="testDaten.koordination_1"
                   ></v-text-field>
 
@@ -250,6 +252,8 @@
                     outlined
                     shaped
                     label="Versuch 2"
+                    suffix="Sprünge"
+                    type="number"
                     v-model="testDaten.koordination_2"
                   ></v-text-field>
                 </v-flex>
@@ -268,6 +272,8 @@
                     outlined
                     shaped
                     label="Versuch 1"
+                    type="number"
+                    suffix="cm"
                     single-line
                     v-model="testDaten.rumpfbeuge_1"
                   ></v-text-field>
@@ -276,6 +282,8 @@
                     outlined
                     shaped
                     label="Versuch 2"
+                    type="number"
+                    suffix="cm"
                     single-line
                     v-model="testDaten.rumpfbeuge_2"
                   ></v-text-field>
@@ -290,11 +298,13 @@
                 Oberkörperkraft
               </h3>
               <v-layout row wrap>
-                <v-flex xs5>
+                <v-flex xs7>
                   <v-text-field
                     outlined
                     shaped
                     label="Versuch 1"
+                    type="number"
+                    suffix="Liegestütze"
                     single-line
                     v-model="testDaten.oberkoerperkraft"
                   ></v-text-field>
@@ -309,11 +319,13 @@
                 Rumpfkraft
               </h3>
               <v-layout row wrap>
-                <v-flex xs5>
+                <v-flex xs6>
                   <v-text-field
                     outlined
                     shaped
                     label="Versuch 1"
+                    type="number"
+                    suffix="Situps"
                     single-line
                     v-model="testDaten.rumpfkraft"
                   ></v-text-field>
@@ -325,7 +337,7 @@
           <v-carousel-item>
             <v-container>
               <h3 style="padding-bottom: 4%;" class="white--text">
-                Schnellkraft
+                Schnellkraft (Standweitsprung)
               </h3>
               <v-layout row wrap>
                 <v-flex xs5>
@@ -333,6 +345,7 @@
                     outlined
                     shaped
                     label="Versuch 1"
+                    type="number"
                     suffix="cm"
                     single-line
                     v-model="testDaten.schnellkraft_1"
@@ -342,6 +355,7 @@
                     outlined
                     shaped
                     label="Versuch 2"
+                    type="number"
                     suffix="cm"
                     single-line
                     v-model="testDaten.schnellkraft_2"
@@ -354,7 +368,7 @@
           <v-carousel-item>
             <v-container>
               <h3 style="padding-bottom: 4%;" class="white--text">
-                Aktionsschnelligkeit
+                Aktionsschnelligkeit (Sprint)
               </h3>
               <v-layout wrap>
                 <v-flex xs5>
@@ -362,6 +376,7 @@
                     outlined
                     shaped
                     label="Versuch 1"
+                    type="number"
                     suffix="sek"
                     single-line
                     v-model="testDaten.aktionsschnelligkeit_1"
@@ -371,6 +386,7 @@
                     outlined
                     shaped
                     label="Versuch 2"
+                    type="number"
                     suffix="sek"
                     single-line
                     v-model="testDaten.aktionsschnelligkeit_2"
@@ -384,7 +400,7 @@
             <v-container>
               <h3 style="padding-bottom: 4%;" class="white--text">Ausdauer</h3>
               <v-layout row>
-                <v-flex xs5>
+                <v-flex xs9>
                   <!-- <v-text-field
                   outlined
                   shaped
@@ -414,6 +430,7 @@
                     shaped
                     label="Runden"
                     placeholder="Runden"
+                    type="number"
                     v-model="testDaten.ausdauer"
                     style="margin-right: 35%; max-width: 460px"
                   >
@@ -447,7 +464,7 @@
       fixed
       align-center
       right
-      :disabled="testDaten.groeße == null"
+      :disabled="testDaten.ausdauer == 0"
     >
       <v-icon dark large color="#FF0000">mdi-check</v-icon>
     </v-btn>
@@ -533,7 +550,7 @@ export default {
       },
       weight_rules: [
         v =>
-          (v >= 30 && v <= 300 && v.length == 0) || 'Gewicht nicht angenommen.',
+          (v >= 30 && v <= 300) || 'Gewicht nicht angenommen.',
       ],
       height_rules: [v => (v >= 50 && v <= 250) || 'Größe nicht angenommen.'],
     };
