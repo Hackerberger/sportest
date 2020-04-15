@@ -544,8 +544,6 @@ export default {
       this.testDaten.ausdauer = this.testDaten.ausdauer + 1;
     },
     done() {
-      this.testDaten.age = this.calculateAge(this.testDaten.date_birth);
-      console.log(this.testDaten);
       let t = this.calcPoints(this.testDaten);
       console.log(t);
 
@@ -592,6 +590,10 @@ export default {
         rumpfbeuge: {},
         ausdauer: {},
       };
+
+      this.testDaten.age = this.calculateAge(this.testDaten.date_birth);
+      this.testDaten.date_test = new Date().toISOString().substr(0, 10);
+
 
       if (testobject.age > 16) {
         //Alter 17 oder mehr

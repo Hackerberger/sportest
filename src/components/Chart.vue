@@ -41,7 +41,7 @@ export default {
             this.test.erg_gleichgewicht,
             this.test.erg_koordination,
             this.test.erg_rumpfbeuge,
-            this.test.erg_oeberkoerperkraft,
+            this.test.erg_oberkoerperkraft,
             this.test.erg_rumpfkraft,
             this.test.erg_schnellkraft,
             this.test.erg_aktionsschnelligkeit,

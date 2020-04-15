@@ -1,7 +1,7 @@
 <template>
   <v-card color="#FF6600" class="black--text">
     <v-card-title primary-title>
-      <h3 class="headline">Test</h3>
+      <h3 class="headline">Test am {{ this.test.date_test}}</h3>
       <v-container>
         <Chart :test="test"></Chart>
       </v-container>
