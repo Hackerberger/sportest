@@ -28,7 +28,7 @@
                 shaped
                 outlined
                 v-model="testDaten.date_birth"
-                label="Birthday date"
+                label="Geburtstag"
                 prepend-inner-icon="mdi-calendar-month"
                 readonly
                 v-on="on"
@@ -477,6 +477,8 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
   data() {
     return {
@@ -484,6 +486,7 @@ export default {
       klassen: ['5AHITN', '5BHITM', '5CHITM'],
       testDaten: {
         date_birth: null,
+        age: null,
         radios: null,
         menu: null,
         date_test: null,
@@ -540,8 +543,14 @@ export default {
       this.testDaten.ausdauer = this.testDaten.ausdauer + 1;
     },
     done() {
-      console.log(this.testDaten);
-      let t = this.calcPoints({
+      this.testDaten.age = this.calculateAge(this.testDaten.date_birth);
+      console.log(this.testDaten)
+      let t = this.calcPoints(this.testDaten);
+      console.log(t);
+      
+      this.$emit('testCreated', t);
+
+      /* {
         age: 14,
         //Gleichgewicht
         gleichgewicht3_1: 6,
@@ -569,8 +578,7 @@ export default {
 
         //Ausdauer
         ausdauer: 1103
-      });
-      this.$emit('testCreated', t);
+      } */
     },
     calcPoints(testobject) {
       var normValues = {
@@ -779,6 +787,10 @@ export default {
       };
 
       return { ...testobject, ...ergebnisse };
+    },
+    calculateAge(birthd) {
+      let b = moment(birthd)
+      return moment().diff(b, 'years');
     }
   }
 };
@@ -789,3 +801,4 @@ export default {
   margin: 15px;
 }
 </style>
+
