@@ -46,7 +46,7 @@ export default {
             this.test.erg_schnellkraft,
             this.test.erg_aktionsschnelligkeit,
             this.test.erg_ausdauer,
-            70
+            
           ]
         }
       ]
