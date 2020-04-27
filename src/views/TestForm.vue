@@ -548,10 +548,7 @@ export default {
         erg_aktionsschnelligkeit: null,
         erg_ausdauer: null,
       },
-      weight_rules: [
-        v =>
-          (v >= 30 && v <= 300) || 'Gewicht nicht angenommen.',
-      ],
+      weight_rules: [v => (v >= 30 && v <= 300) || 'Gewicht nicht angenommen.'],
       height_rules: [v => (v >= 50 && v <= 250) || 'Größe nicht angenommen.'],
     };
   },
@@ -565,36 +562,45 @@ export default {
       console.log(t);
 
       this.$emit('testCreated', t);
+      let l = 
+      {
+        klasse: '5CHITM',
+        geschlecht: 'Männlich',
+        datum_geburt: '2000-10-04',
+        datum_test: '2020-04-17',
+        alter: 19,
+        
+        groeße: '178',
+        gewicht: '60',
 
-      /* {
-        age: 14,
-        //Gleichgewicht
-        gleichgewicht3_1: 6,
-        gleichgewicht3_2: 6,
+        aktionsschnelligkeit_1: 3.2,
+        aktionsschnelligkeit_2: '2.8',
+        ausdauer: 26,
+        gleichgewicht3_1: 7,
+        gleichgewicht3_2: 7,
         gleichgewicht4_5_1: 6,
-        gleichgewicht4_5_2: 6,
-        gleichgewicht6_1: 7,
+        gleichgewicht4_5_2: 7,
+        gleichgewicht6_1: 6,
         gleichgewicht6_2: 8,
-        //Hinundher
-        koordination_1: 35,
-        koordination_2: 37,
-        //Rumpfbeweglichkeit
-        rumpfbeuge_1: -5,
-        rumpfbeuge_2: -2.09,
-        //Liegestütze
-        oberkoerperkraft: 18,
-        //Situps
-        rumpfkraft: 18,
-        //Standweitsprung
-        schnellkraft_1: 220,
-        schnellkraft_2: 207,
-        //Sprint
-        aktionsschnelligkeit_1: 3,
-        aktionsschnelligkeit_2: 3,
+        koordination_1: '34',
+        koordination_2: '45',
+        oberkoerperkraft: '23',
+        rumpfbeuge_1: '-4.6',
+        rumpfbeuge_2: '-3.4',
+        rumpfkraft: '30',
+        schnellkraft_1: '214',
+        schnellkraft_2: '176',
 
-        //Ausdauer
-        ausdauer: 1103
-      } */
+        erg_aktionsschnelligkeit: 125,
+        erg_ausdauer: 103.10160427807486,
+        erg_gleichgewicht: 107.09429824561403,
+        erg_koordination: 102.87817938420348,
+        erg_oberkoerperkraft: 122.70348837209303,
+        erg_rumpfbeuge: 107.90340285400659,
+        erg_rumpfkraft: 106.52482269503545,
+        erg_schnellkraft: 101.95724290453373,
+      };
+
     },
     calcPoints(testobject) {
       var normValues = {
@@ -610,7 +616,6 @@ export default {
 
       this.testDaten.age = this.calculateAge(this.testDaten.date_birth);
       this.testDaten.date_test = new Date().toISOString().substr(0, 10);
-
 
       if (testobject.age > 16) {
         //Alter 17 oder mehr

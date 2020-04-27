@@ -230,9 +230,7 @@ export default {
       });
     },
     testCreated(test) {
-      console.log("test created")
       this.db.post(test).then(async () => {
-        await this.getAllData();
         this.$router.push({ name: 'statistics' });
       }).catch((error)=>{
         console.log(error);

@@ -3,7 +3,11 @@ import vuetify from "./plugins/vuetify";
 import App from "./App.vue";
 import router from "./router";
 import "./registerServiceWorker";
-import GSignInButton from "vue-google-signin-button";
+import GSignInButton from 'vue-google-signin-button';
+
+Vue.use(GSignInButton);
+
+
 
 Vue.config.productionTip = false;
 
@@ -12,12 +16,6 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount("#app");
-
-Vue.use(GSignInButton);
-
-//register LocalForagecomponent
-import VueLocalForage from "vue-localforage";
-Vue.use(VueLocalForage);
 
 //Popup Dialog component
 import VuetifyConfirm from "vuetify-confirm";

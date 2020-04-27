@@ -2,7 +2,7 @@
   <v-container fluid fill-height>
     <v-layout align-center justify-center column fill-height>
       <v-container class="text-center">
-        <g-signin-button
+        <g-signin-button name="g-signin-button"
           :params="googleSignInParams"
           @success="onSignInSuccess"
           @error="onSignInError"
@@ -24,6 +24,7 @@ export default {
       }
     };
   },
+
   methods: {
     onSignInSuccess(googleUser) {
       // See https://developers.google.com/identity/sign-in/web/reference#users
