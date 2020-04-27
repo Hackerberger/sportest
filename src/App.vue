@@ -8,7 +8,7 @@
         @click="$router.go(-1) "
       ></v-btn>-->
       <v-container fluid>
-        <v-layout justify-center>
+        <v-layout justify-center align-center>
           <img
             v-if="
               $route.name == 'home' ||
@@ -16,7 +16,7 @@
                 $route.name == 'statistics'
             "
             @click="$router.push({ name: 'home' })"
-            class="logo"
+            class="logo mt-1"
             small
             src="./../public/img/Sportest_Logo.png"
           />

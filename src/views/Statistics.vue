@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="mb-3">
     <v-layout column justify-space-between fill-height>
       <v-flex>
         <ChartCard
@@ -20,12 +20,12 @@ export default {
   components: { ChartCard },
   props: {
     globalData: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   data() {
     return {};
-  }
+  },
 };
 </script>
 
