@@ -25,14 +25,6 @@ export default {
         'Ausdauer'
       ],
       datasets: [
-        /* {
-          type: "line",
-          label: "Durchschnitt",
-          borderColor: "black",
-          fill: "false",
-          
-          data: [100, 100, 100, 100, 100, 100, 100, 100, 100]
-        }, */
         {
           label: 'Punkte',
           backgroundColor: 'black',

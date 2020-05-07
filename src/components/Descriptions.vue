@@ -110,6 +110,5 @@ export default {
   color: black !important;
   margin: 5px;
   border-radius: 5px;
-  //border: solid white 1px;
 }
 </style>

@@ -23,27 +23,27 @@
       <p>
         <b> Gleichgewicht: </b> <br />
         3cm-Balken: {{ this.test.gleichgewicht3_1 }} /
-        {{ this.test.gleichgewicht3_2 }}
+        {{ this.test.gleichgewicht3_2 }} Schritte
         <br />
         4.5cm-Balken: {{ this.test.gleichgewicht4_5_1 }} /
-        {{ this.test.gleichgewicht4_5_2 }}
+        {{ this.test.gleichgewicht4_5_2 }} Schritte
         <br />
         6cm-Balken: {{ this.test.gleichgewicht6_1 }} /
-        {{ this.test.gleichgewicht6_2 }}
+        {{ this.test.gleichgewicht6_2 }} Schritte
         <br />
         <b> Koordination: </b> {{ this.test.koordination_1 }} /
-        {{ this.test.koordination_2 }}
+        {{ this.test.koordination_2 }} Sprünge
         <br />
         <b> Rumpfbeweglichkeit: </b> {{ this.test.rumpfbeuge_1 }} /
-        {{ this.test.rumpfbeuge_2 }}
+        {{ this.test.rumpfbeuge_2 }} cm
         <br />
-        <b> Oberkörperkraft: </b> {{ this.test.oberkoerperkraft }}
+        <b> Oberkörperkraft: </b> {{ this.test.oberkoerperkraft }} Liegestütze
         <br />
-        <b> Rumpfkraft: </b> {{ this.test.erg_rumpfkraft }}
+        <b> Rumpfkraft: </b> {{ this.test.rumpfkraft }} Situps
         <br />
-        <b> Schnellkraft: </b> {{ this.test.erg_schnellkraft }}
+        <b> Schnellkraft: </b> {{ this.test.schnellkraft_1 }} / {{ this.test.schnellkraft_2 }} cm
         <br />
-        <b> Aktionsschnelligkeit: </b> {{ this.test.aktionsschnelligkeit }} sek
+        <b> Aktionsschnelligkeit: </b> {{ this.test.aktionsschnelligkeit_1 }} / {{ this.test.aktionsschnelligkeit_2 }} sek
         <br />
         <b> Ausdauer: </b> {{ this.test.ausdauer }} Runden
       </p>

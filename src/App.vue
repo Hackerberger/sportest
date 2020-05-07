@@ -1,32 +1,21 @@
 <template>
   <v-app style="background:black" dark>
     <v-app-bar app color="#161616">
-      <!-- background-image: linear-gradient(to top, black 0%, #333333 51%, #646464 100%); -->
-      <!-- <v-btn
-        icon
-        v-if="$route.name !== 'home' && $route.name !== 'login' && $route.name !== 'statistics'"
-        @click="$router.go(-1) "
-      ></v-btn>-->
       <v-container fluid>
         <v-layout justify-center align-center>
           <img
             v-if="
               $route.name == 'home' ||
                 $route.name == 'login' ||
-                $route.name == 'statistics'
+                $route.name == 'statistics' ||
+                $route.name == 'test'
             "
             @click="$router.push({ name: 'home' })"
             class="logo mt-1"
             small
             src="./../public/img/Sportest_Logo.png"
           />
-          <img
-            v-if="$route.name == 'test'"
-            @click="$router.push({ name: 'home' })"
-            class="logo"
-            small
-            src="./../public/img/Sportest_Logo.png"
-          />
+          
           <img
             v-if="$route.name == 'home_l' || $route.name == 'statistics_l'"
             @click="$router.push({ name: 'home_l' })"
@@ -127,8 +116,6 @@
         background-color="black !important"
         grow
       >
-        <!-- <v-divider color="green !important"
-        ></v-divider>-->
 
         <v-btn
           @click="$router.push({ name: 'home_l' })"
@@ -175,7 +162,6 @@ export default {
     logout() {
       this.$router.push({ name: 'login' });
 
-      //gapi.auth2.getAuthInstance().signOut();
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function() {
         console.log('Abmeldung erfolgreich!');

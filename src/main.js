@@ -5,12 +5,12 @@ import router from "./router";
 import "./registerServiceWorker";
 import GSignInButton from 'vue-google-signin-button';
 
+
+//Google Sign In Button
 Vue.use(GSignInButton);
 
-
-
+//Vue Konfiguration
 Vue.config.productionTip = false;
-
 new Vue({
   router,
   vuetify,
@@ -26,6 +26,8 @@ Vue.use(VuetifyConfirm, {
   color: "#4b7dbb",
   property: "$confirm"
 });
+
+
 
 //Charts
 import VueCharts from "vue-chartjs";
