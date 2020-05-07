@@ -401,30 +401,6 @@
               <h3 style="padding-bottom: 4%;" class="white--text">Ausdauer</h3>
               <v-layout row>
                 <v-flex xs9>
-                  <!-- <v-text-field
-                  outlined
-                  shaped
-                    label="Runden"
-                    suffix="Runden"
-                    v-model="testDaten.ausdauer"
-                  ></v-text-field>
-
-                </v-flex>
-
-                <v-btn
-      fab
-      dark
-      color="white"
-      @click="addRound()"
-      :style="{ left: '55%', bottom: '75%', transform: 'translateX(-50%)' }"
-      bottom
-      fixed
-      align-center
-      right
-    >
-      <v-icon dark large color="black">mdi-plus</v-icon>
-    </v-btn> -->
-
                   <v-text-field
                     outlined
                     shaped
@@ -562,14 +538,13 @@ export default {
       console.log(t);
 
       this.$emit('testCreated', t);
-      let l = 
-      {
+      let l = {
         klasse: '5CHITM',
         geschlecht: 'Männlich',
         datum_geburt: '2000-10-04',
         datum_test: '2020-04-17',
         alter: 19,
-        
+
         groeße: '178',
         gewicht: '60',
 
@@ -600,7 +575,6 @@ export default {
         erg_rumpfkraft: 106.52482269503545,
         erg_schnellkraft: 101.95724290453373,
       };
-
     },
     calcPoints(testobject) {
       var normValues = {
