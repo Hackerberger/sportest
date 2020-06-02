@@ -311,6 +311,7 @@
                     suffix="Liegestütze"
                     single-line
                     v-model="testDaten.oberkoerperkraft"
+                    :rules="oberkoerperkraft_rules"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -330,6 +331,7 @@
                     suffix="Situps"
                     single-line
                     v-model="testDaten.rumpfkraft"
+                    :rules="rumpfkraft_rules"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -349,6 +351,7 @@
                     suffix="cm"
                     single-line
                     v-model="testDaten.schnellkraft_1"
+                    :rules="schnellkraft_rules"
                   ></v-text-field>
 
                   <v-text-field
@@ -359,6 +362,7 @@
                     suffix="cm"
                     single-line
                     v-model="testDaten.schnellkraft_2"
+                    :rules="schnellkraft_rules"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -378,6 +382,7 @@
                     suffix="sek"
                     single-line
                     v-model="testDaten.aktionsschnelligkeit_1"
+                    :rules="aktionsschnelligkeit_rules"
                   ></v-text-field>
 
                   <v-text-field
@@ -388,6 +393,7 @@
                     suffix="sek"
                     single-line
                     v-model="testDaten.aktionsschnelligkeit_2"
+                    :rules="aktionsschnelligkeit_rules"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -493,13 +499,13 @@ export default {
         //Liegestütze
         oberkoerperkraft: 28,
         //Situps
-        rumpfkraft: null,
+        rumpfkraft: 99,
         //Standweitsprung
-        schnellkraft_1: null,
-        schnellkraft_2: null,
+        schnellkraft_1: 793,
+        schnellkraft_2: 345,
         //Sprint
-        aktionsschnelligkeit_1: null,
-        aktionsschnelligkeit_2: null,
+        aktionsschnelligkeit_1: 4.0,
+        aktionsschnelligkeit_2: 3.0,
 
         //Ausdauer
         ausdauer: 1
@@ -517,12 +523,25 @@ export default {
       },
       weight_rules: [v => (v >= 30 && v <= 300) || "Gewicht nicht angenommen."],
       height_rules: [v => (v >= 50 && v <= 250) || "Größe nicht angenommen."],
-      gw_rules: [v => (v >= 0 && v <= 8) || "irreguläre Gleichgewichtswerte"],
+      gw_rules: [v => (v >= 0 && v <= 8) || "irregulärer Gleichgewichtswert"],
       koordinations_rules: [
-        v => (v >= 0 && v <= 60) || "irreguläre Koordinationswerte"
+        v => (v >= 0 && v <= 60) || "irregulärer Koordinationswert"
       ],
       rumpfbeuge_rules: [
-        v => (v >= -50 && v <= 50) || "irreguläre Rumpfbeugewerte"
+        v => (v >= -50 && v <= 50) || "irregulärer Rumpfbeugewert"
+      ],
+      oberkoerperkraft_rules: [
+        v => (v >= 0 && v <= 99) || "irreguläre Liegestützanzahl"
+      ],
+      rumpfkraft_rules: [v => (v >= 0 && v <= 99) || "irreguläre Situpsanzahl"],
+      schnellkraft_rules: [
+        v => (v >= 0 && v <= 800) || "irregulärer Schnellkraftwert"
+      ],
+      aktionsschnelligkeit_rules: [
+        v => (v >= 2.0 && v <= 10.0) || "irreguläre Aktionsschnelligkeitszeit"
+      ],
+      ausdauer_rules: [
+        v => (v >= 1 && v <= 30) || "irreguläre Ausdauerrundenanzahl"
       ]
     };
   },
@@ -590,7 +609,45 @@ export default {
       )
         this.dialog = true;
       else {
-        alert("irreguläre Liegestützwerte");
+        alert("irreguläre Liegestützwerte (Oberkörperkraft)");
+        this.dialog = false;
+      }
+
+      if (this.testDaten.rumpfkraft >= 0 && this.testDaten.rumpfkraft <= 99)
+        this.dialog = true;
+      else {
+        alert("irreguläre Situpanzahl (Rumpfkraft)");
+        this.dialog = false;
+      }
+
+      if (
+        this.testDaten.schnellkraft_1 >= 0 &&
+        this.testDaten.schnellkraft_1 <= 800 &&
+        this.testDaten.schnellkraft_2 >= 0 &&
+        this.testDaten.schnellkraft_2 <= 800
+      )
+        this.dialog = true;
+      else {
+        alert("irregulärer Schnellkraftwert (Standweitsprung)");
+        this.dialog = false;
+      }
+
+      if (
+        this.testDaten.aktionsschnelligkeit_1 >= 2.0 &&
+        this.testDaten.aktionsschnelligkeit_1 <= 10.0 &&
+        this.testDaten.aktionsschnelligkeit_2 >= 2.0 &&
+        this.testDaten.aktionsschnelligkeit_2 <= 10.0
+      )
+        this.dialog = true;
+      else {
+        alert("irreguläre Aktionsschnelligkeitszeit (Sprint)");
+        this.dialog = false;
+      }
+
+      if (this.testDaten.ausdauer >= 1 && this.testDaten.ausdauer <= 30)
+        this.dialog = true;
+      else {
+        alert("irreguläre Ausdauerrundenanzahl (Ausdauerlauf)");
         this.dialog = false;
       }
     },
