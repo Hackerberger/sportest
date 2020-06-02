@@ -20,7 +20,7 @@ export default {
     return {
       googleSignInParams: {
         client_id:
-          '419461260696-531a21v1lv63e72ckd0rts3j72bl2tf5.apps.googleusercontent.com'
+          '545491340068-hb3lse39ve85bsgsoatc53luofqs6vb7.apps.googleusercontent.com'
       }
     };
   },
