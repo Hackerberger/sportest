@@ -118,6 +118,7 @@
       >
 
         <v-btn
+        id="home"
           @click="$router.push({ name: 'home_l' })"
           color="black"
           value="home"
