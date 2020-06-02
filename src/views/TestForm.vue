@@ -412,6 +412,7 @@
                     placeholder="Runden"
                     type="number"
                     v-model="testDaten.ausdauer"
+                    :rules="ausdauer_rules"
                     style="margin-right: 35%; max-width: 460px"
                   >
                     <template slot="append">
