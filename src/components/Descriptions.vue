@@ -34,8 +34,8 @@ export default {
       publicPath: process.env.BASE_URL,
       descriptions: [
         {
-          //Balancieren
-          name: "Gleichgewicht",
+          //Gleichgewicht
+          name: "Balancieren rückwärts",
           goal:
             "Das Ziel dieser Übung ist es den Gleichgewichtssinn zu überprüfen.",
           desc:
@@ -43,32 +43,32 @@ export default {
           video: "videos/balance.mp4"
         },
         {
-          // Seitliches Hin- U. Herspringen
-          name: "Koordination",
+          //Koordination
+          name: "Seitliches Hin- und Herspringen",
           goal:
             "Das Ziel dieser Übung ist es die Koordination bei Sprüngen zu überprüfen.",
           desc:
             "Man springt mit beiden Beinen nebeneinander so schnell wie möglich seitlich über eine Linie am Boden hin- und her. Die Sprünge gehen immer von einer Feldhälfte zur anderen, ohne dabei die Mittellinie zu berühren. Der Testversuch beträgt 15 Sekunden und diese werden mit der Stoppuhr von einem/r Mitschüler/in gestoppt. Es sind keine Zwischensprünge erlaubt!"
         },
         {
-          // Rumpfbeuge
-          name: "Rumpfbeweglichkeit",
+          //Rumpfbeweglichkeit
+          name: "Rumpfbeuge",
           goal:
             "Das Ziel dieser Übung ist es die Rumpfbeweglichkeit zu messen.",
           desc:
             "Man stellt sich ohne Schuhe auf eine Langbank. Als nächstes beugt sich nur der Oberkörper langsam nach vorne. Die Beine dürfen nicht abgewinkelt werden. Die Hände werden parallel so weit wie möglich entlang der Zentimeterskala geführt. Diese Position muss 2 Sekunden gehalten werden. Der Skalenwert, der am tiefsten Punkt bei den Fingerspitzen abgemessen wird, wird ins Testformular eingetragen. Jede/r hat 2 gültige Versuche."
         },
         {
-          // Liegestütze
-          name: "Oberkörperkraft",
+          //Oberkörperkraft
+          name: "Liegestütz",
           goal:
             "Das Ziel dieser Übung ist es die Kraftausdauer des Oberkörpers zu messen.",
           desc:
             "Man versucht innerhalb von 40 Sekunden so viele Liegestütze wie möglich zu machen. Am Anfang liegt man in Bauchlage und die Hände berühren sich hinter dem Rücken. Als nächstes wird der gestreckte Körper dabei von den Armen gestützt, wobei der Blick zum Boden hin gerichtet ist. Die Länge des Testversuches wird mit der Stoppuhr von einem/r Mitschüler/in gestoppt. Im Probeversuch dürfen zwei Liegestütze gemacht werden."
         },
         {
-          // Situps
-          name: "Rumpfkraft",
+          //Rumpfkraft
+          name: "Sit-ups",
           goal:
             "Das Ziel dieser Übung ist es die Kraftausdauer des Rumpfbereichs zu überprüfen.",
           desc:
@@ -76,24 +76,24 @@ export default {
           video: "videos/Situps.mp4"
         },
         {
-          // Standweitsprung
-          name: "Schnellkraft",
+          //Schnellkraft
+          name: "Standweitsprung",
           goal:
             "Das Ziel dieser Übung ist es die Schnellkraft bei Sprüngen zu überprüfen.",
           desc:
             "Man versucht mit einem Standweitsprung so weit wie möglich zu springen. Beim Abspringen müssen beide Füße parallel vor der Absprunglinie stehen. Die Landung muss ebenfalls mit den Beinen parallel zueinander erfolgen. Nach dem Sprung muss man in der gleichen Position wie bei der Landung stehen bleiben, bis ein/e Mitschüler/in den Abstand von der Absprunglinie bis zur Ferse abgemessen hat. Im Probeversuch dürfen zwei Sprünge absolviert werden."
         },
         {
-          //20-m Sprint
-          name: "Aktionsschnelligkeit",
+          //Aktionsschnelligkeit
+          name: "20-m Sprint",
           goal:
             "Das Ziel dieser Übung ist es die Aktionsschnelligkeit zu überprüfen.",
           desc:
             "Man versucht mit einem Sprint eine Strecke von 20m so schnell wie möglich zurückzulegen. Man steht in einer aufrechten Starthaltung vor der Startlinie. Die Zeit wird durch eine Zeitmess-Anlage automatisch gemessen."
         },
         {
-          //6-Minuten-Lauf
-          name: "Ausdauer",
+          //Ausdauer
+          name: "6-Min-Lauf",
           goal: "Das Ziel dieser Übung ist es die Ausdauer zu messen",
           desc:
             "Man läuft innerhalb von sechs Minuten so viele Runden wie möglich um ein Volleyballfeld. Es wird in Gruppen von ca. 10 Schüler/innen gelaufen. Ein Partner, meistens ein/e Mitschüler/in zählt die Runden des jeweils anderen. Gehen ist erlaubt, stehen bleiben jedoch nicht. Jede Minute gibt der/die Lehrer/in die noch zu laufende Zeit ein. In das Testformular wird die gelaufene Rundenzahl eingetragen."

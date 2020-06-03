@@ -87,13 +87,13 @@
         <v-form>
           <v-carousel-item>
             <v-container>
-              <h3 style class="white--text">Gleichgewicht</h3>
+              <h3 style class="white--text">Balancieren rückwärts</h3>
               <v-layout wrap>
                 <v-container>
                   <v-card color="black" class="pt-1" outlined>
                     <span class="white--text">6cm-Balken:</span>
                     <v-slider
-                      v-model="testDaten.gleichgewicht6_1"
+                      v-model="testDaten.Bal_D1_6"
                       thumb-label
                       label="Versuch 1"
                       class="align-center"
@@ -103,8 +103,8 @@
                     >
                       <template v-slot:append>
                         <v-text-field
-                          :rules="gw_rules"
-                          v-model="testDaten.gleichgewicht6_1"
+                          :rules="Bal_rules"
+                          v-model="testDaten.Bal_D1_6"
                           class="mt-0 pt-0 mb-4"
                           hide-details
                           single-line
@@ -115,7 +115,7 @@
                     </v-slider>
 
                     <v-slider
-                      v-model="testDaten.gleichgewicht6_2"
+                      v-model="testDaten.Bal_D2_6"
                       thumb-label
                       label="Versuch 2"
                       class="align-center"
@@ -125,8 +125,8 @@
                     >
                       <template v-slot:append>
                         <v-text-field
-                          :rules="gw_rules"
-                          v-model="testDaten.gleichgewicht6_2"
+                          :rules="Bal_rules"
+                          v-model="testDaten.Bal_D2_6"
                           class="mt-0 pt-0 mb-4"
                           hide-details
                           single-line
@@ -140,7 +140,7 @@
                   <v-card color="black" class="pt-5" outlined>
                     <span class="white--text">4,5cm-Balken:</span>
                     <v-slider
-                      v-model="testDaten.gleichgewicht4_5_1"
+                      v-model="testDaten.Bal_D1_4_5"
                       thumb-label
                       label="Versuch 1"
                       class="align-center"
@@ -150,8 +150,8 @@
                     >
                       <template v-slot:append>
                         <v-text-field
-                          :rules="gw_rules"
-                          v-model="testDaten.gleichgewicht4_5_1"
+                          :rules="Bal_rules"
+                          v-model="testDaten.Bal_D1_4_5"
                           class="mt-0 pt-0 mb-4"
                           hide-details
                           single-line
@@ -162,7 +162,7 @@
                     </v-slider>
 
                     <v-slider
-                      v-model="testDaten.gleichgewicht4_5_2"
+                      v-model="testDaten.Bal_D2_4_5"
                       thumb-label
                       label="Versuch 2"
                       class="align-center"
@@ -172,8 +172,8 @@
                     >
                       <template v-slot:append>
                         <v-text-field
-                          :rules="gw_rules"
-                          v-model="testDaten.gleichgewicht4_5_2"
+                          :rules="Bal_rules"
+                          v-model="testDaten.Bal_D2_4_5"
                           class="mt-0 pt-0 mb-4"
                           hide-details
                           single-line
@@ -188,7 +188,7 @@
                     <span class="white--text">3cm-Balken:</span>
 
                     <v-slider
-                      v-model="testDaten.gleichgewicht3_1"
+                      v-model="testDaten.Bal_D1_3"
                       thumb-label
                       label="Versuch 1"
                       class="align-center"
@@ -198,8 +198,8 @@
                     >
                       <template v-slot:append>
                         <v-text-field
-                          :rules="gw_rules"
-                          v-model="testDaten.gleichgewicht3_1"
+                          :rules="Bal_rules"
+                          v-model="testDaten.Bal_D1_3"
                           class="mt-0 pt-0 mb-4"
                           hide-details
                           single-line
@@ -210,7 +210,7 @@
                     </v-slider>
 
                     <v-slider
-                      v-model="testDaten.gleichgewicht3_2"
+                      v-model="testDaten.Bal_D2_3"
                       thumb-label
                       label="Versuch 2"
                       class="align-center"
@@ -220,8 +220,8 @@
                     >
                       <template v-slot:append>
                         <v-text-field
-                          :rules="gw_rules"
-                          v-model="testDaten.gleichgewicht3_2"
+                          :rules="Bal_rules"
+                          v-model="testDaten.Bal_D2_3"
                           class="mt-0 pt-0 mb-4"
                           hide-details
                           single-line
@@ -238,7 +238,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Koordination</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Seitliches Hin- und Herspringen</h3>
               <v-layout wrap>
                 <v-flex xs6>
                   <v-text-field
@@ -249,8 +249,8 @@
                     min-width="400px"
                     suffix="Sprünge"
                     type="number"
-                    v-model="testDaten.koordination_1"
-                    :rules="koordinations_rules"
+                    v-model="testDaten.SHH_D1"
+                    :rules="SHH_rules"
                   ></v-text-field>
 
                   <v-text-field
@@ -259,8 +259,8 @@
                     label="Versuch 2"
                     suffix="Sprünge"
                     type="number"
-                    v-model="testDaten.koordination_2"
-                    :rules="koordinations_rules"
+                    v-model="testDaten.SHH_D2"
+                    :rules="SHH_rules"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -269,7 +269,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Rumpfbeweglichkeit</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Rumpfbeuge</h3>
               <v-layout row wrap>
                 <v-flex xs5>
                   <v-text-field
@@ -279,8 +279,8 @@
                     type="number"
                     suffix="cm"
                     single-line
-                    v-model="testDaten.rumpfbeuge_1"
-                    :rules="rumpfbeuge_rules"
+                    v-model="testDaten.RB_D1"
+                    :rules="RB_rules"
                   ></v-text-field>
 
                   <v-text-field
@@ -290,8 +290,8 @@
                     type="number"
                     suffix="cm"
                     single-line
-                    v-model="testDaten.rumpfbeuge_2"
-                    :rules="rumpfbeuge_rules"
+                    v-model="testDaten.RB_D2"
+                    :rules="RB_rules"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -300,7 +300,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Oberkörperkraft</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Liegestütz</h3>
               <v-layout row wrap>
                 <v-flex xs7>
                   <v-text-field
@@ -310,8 +310,8 @@
                     type="number"
                     suffix="Liegestütze"
                     single-line
-                    v-model="testDaten.oberkoerperkraft"
-                    :rules="oberkoerperkraft_rules"
+                    v-model="testDaten.LS_Anzahl"
+                    :rules="LS_rules"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -320,7 +320,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Rumpfkraft</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Situps</h3>
               <v-layout row wrap>
                 <v-flex xs6>
                   <v-text-field
@@ -330,8 +330,8 @@
                     type="number"
                     suffix="Situps"
                     single-line
-                    v-model="testDaten.rumpfkraft"
-                    :rules="rumpfkraft_rules"
+                    v-model="testDaten.SU_Anzahl"
+                    :rules="SU_rules"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -340,7 +340,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Schnellkraft (Standweitsprung)</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Standweitsprung</h3>
               <v-layout row wrap>
                 <v-flex xs5>
                   <v-text-field
@@ -350,8 +350,8 @@
                     type="number"
                     suffix="cm"
                     single-line
-                    v-model="testDaten.schnellkraft_1"
-                    :rules="schnellkraft_rules"
+                    v-model="testDaten.SW_D1"
+                    :rules="SW_rules"
                   ></v-text-field>
 
                   <v-text-field
@@ -361,8 +361,8 @@
                     type="number"
                     suffix="cm"
                     single-line
-                    v-model="testDaten.schnellkraft_2"
-                    :rules="schnellkraft_rules"
+                    v-model="testDaten.SW_D2"
+                    :rules="SW_rules"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -371,7 +371,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Aktionsschnelligkeit (Sprint)</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">20m-Sprint</h3>
               <v-layout wrap>
                 <v-flex xs5>
                   <v-text-field
@@ -381,8 +381,8 @@
                     type="number"
                     suffix="sek"
                     single-line
-                    v-model="testDaten.aktionsschnelligkeit_1"
-                    :rules="aktionsschnelligkeit_rules"
+                    v-model="testDaten.sprint_D1"
+                    :rules="sprint_rules"
                   ></v-text-field>
 
                   <v-text-field
@@ -392,8 +392,8 @@
                     type="number"
                     suffix="sek"
                     single-line
-                    v-model="testDaten.aktionsschnelligkeit_2"
-                    :rules="aktionsschnelligkeit_rules"
+                    v-model="testDaten.sprint_D2"
+                    :rules="sprint_rules"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -402,7 +402,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Ausdauer</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">6-Min-Lauf</h3>
               <v-layout row>
                 <v-flex xs9>
                   <v-text-field
@@ -447,18 +447,22 @@
 
     <div color="black" class="text-center">
       <v-dialog class="mx-auto" v-model="dialog" width="500">
-        <v-card color="black">
-          <v-card-text style="margin-top: 3%" class="primary--text">Möchtest du den Test beenden?</v-card-text>
+        <v-card style="margin-top:4%;" class="text-center" color="black">
+          <v-card-text style="font-family: spantaran; font-size: 120%;" class="primary--text"> Möchtest du den Test beenden? </v-card-text>
+          <p class="primary-text">dssd</p>
 
-          <v-divider></v-divider>
-          <v-container class="text-center">
+          <v-container class="text-xs-center">
             <v-card-actions id="act">
-              <v-btn color="primary" text @click="done">
+              <v-layout row>
+                <v-flex justify-center>
+              <v-btn color="primary" xl text @click="done">
                 <v-icon dark color="primary">mdi-check</v-icon>
               </v-btn>
-              <v-btn color="primary" large text @click="dialog = false">
+              <v-btn color="primary" xl text @click="dialog = false">
                 <v-icon>mdi-close</v-icon>
               </v-btn>
+              </v-flex>
+              </v-layout>
             </v-card-actions>
           </v-container>
         </v-card>
@@ -485,62 +489,54 @@ export default {
         gewicht: 43,
         groeße: 123,
         //Gleichgewicht
-        gleichgewicht3_1: 0,
-        gleichgewicht3_2: 0,
-        gleichgewicht4_5_1: 0,
-        gleichgewicht4_5_2: 0,
-        gleichgewicht6_1: 0,
-        gleichgewicht6_2: 0,
+        Bal_D1_6: 0,
+        Bal_D2_6: 0,
+        Bal_D1_4_5: 0,
+        Bal_D2_4_5: 0,
+        Bal_D1_3: 0,
+        Bal_D2_3: 0,
         //Hinundher
-        koordination_1: 59,
-        koordination_2: 59,
+        SHH_D1: 59,
+        SHH_D2: 40,
         //Rumpfbeweglichkeit
-        rumpfbeuge_1: -43,
-        rumpfbeuge_2: 43,
+        RB_D1: -43,
+        RB_D2: 43,
         //Liegestütze
-        oberkoerperkraft: 28,
+        LS_Anzahl: 28,
         //Situps
-        rumpfkraft: 99,
+        SU_Anzahl: 99,
         //Standweitsprung
-        schnellkraft_1: 793,
-        schnellkraft_2: 345,
+        SW_D1: 793,
+        SW_D2: 345,
         //Sprint
-        aktionsschnelligkeit_1: 4.0,
-        aktionsschnelligkeit_2: 3.0,
+        sprint_D1: 4.0,
+        sprint_D2: 3.0,
 
         //Ausdauer
         ausdauer: 1
       },
       ergebnisse: {
         //Punkteergebnisse
-        erg_gleichgewicht: null,
-        erg_koordination: null,
-        erg_rumpfbeuge: null,
-        erg_oberkoerperkraft: null,
-        erg_rumpfkraft: null,
-        erg_schnellkraft: null,
-        erg_aktionsschnelligkeit: null,
+        erg_sprint: null,
+        erg_Bal: null,
+        erg_SHH: null,
+        erg_RB: null,
+        erg_LS: null,
+        erg_SUt: null,
+        erg_SW: null,
         erg_ausdauer: null
       },
       weight_rules: [v => (v >= 30 && v <= 300) || "Gewicht nicht angenommen."],
       height_rules: [v => (v >= 50 && v <= 250) || "Größe nicht angenommen."],
-      gw_rules: [v => (v >= 0 && v <= 8) || "irregulärer Gleichgewichtswert"],
-      koordinations_rules: [
-        v => (v >= 0 && v <= 60) || "irregulärer Koordinationswert"
+      Bal_rules: [v => (v >= 0 && v <= 8) || "irregulärer Balancierwert"],
+      SHH_rules: [v => (v >= 0 && v <= 60) || "irregulärer Koordinationswert"],
+      RB_rules: [v => (v >= -50 && v <= 50) || "irregulärer Rumpfbeugewert"],
+      LS_rules: [v => (v >= 0 && v <= 99) || "irreguläre Liegestützanzahl"],
+      SU_rules: [v => (v >= 0 && v <= 99) || "irreguläre Situpsanzahl"],
+      SW_rules: [
+        v => (v >= 0 && v <= 800) || "irregulärer Standweitsprungwert"
       ],
-      rumpfbeuge_rules: [
-        v => (v >= -50 && v <= 50) || "irregulärer Rumpfbeugewert"
-      ],
-      oberkoerperkraft_rules: [
-        v => (v >= 0 && v <= 99) || "irreguläre Liegestützanzahl"
-      ],
-      rumpfkraft_rules: [v => (v >= 0 && v <= 99) || "irreguläre Situpsanzahl"],
-      schnellkraft_rules: [
-        v => (v >= 0 && v <= 800) || "irregulärer Schnellkraftwert"
-      ],
-      aktionsschnelligkeit_rules: [
-        v => (v >= 2.0 && v <= 10.0) || "irreguläre Aktionsschnelligkeitszeit"
-      ],
+      sprint_rules: [v => (v >= 2.0 && v <= 10.0) || "irreguläre Sprintzeit"],
       ausdauer_rules: [
         v => (v >= 1 && v <= 30) || "irreguläre Ausdauerrundenanzahl"
       ]
@@ -552,103 +548,49 @@ export default {
       this.testDaten.ausdauer = this.testDaten.ausdauer + 1;
     },
     openD() {
-      if (this.testDaten.gewicht >= 30 && this.testDaten.gewicht <= 300)
-        this.dialog = true;
-      else {
-        alert("Gewichtseingabe fehlgeschlagen!");
-        this.dialog = false;
-      }
-
-      if (this.testDaten.groeße >= 50 && this.testDaten.groeße <= 250)
-        this.dialog = true;
-      else {
-        alert("Größeneingabe fehlgeschlagen!");
-        this.dialog = false;
-      }
-
-      //     if (
-      //       this.testDaten.gleichgewicht6_1 >= 0 &&
-      //       this.testDaten.gleichgewicht6_1 <= 8 &&
-      //       this.testDaten.gleichgewicht6_2 >= 0 &&
-      //       this.testDaten.gleichgewicht6_2 <= 8
-      //     ) {
-      //  alert("6cm Balken OPTIMAL!");
-      //     }
-
-      //     else {
-      //       alert("6cm Balken fehlgeschlagen!");
-      //       this.dialog = false;
-      //     }
-
       if (
-        this.testDaten.koordination_1 >= 0 &&
-        this.testDaten.koordination_1 <= 60 &&
-        this.testDaten.koordination_2 >= 0 &&
-        this.testDaten.koordination_2 <= 60
+        this.testDaten.gewicht >= 30 &&
+        this.testDaten.gewicht <= 300 &&
+        this.testDaten.groeße >= 50 &&
+        this.testDaten.groeße <= 250 &&
+        this.testDaten.sprint_D1 >= 2.0 &&
+        this.testDaten.sprint_D1 <= 10.0 &&
+        this.testDaten.sprint_D2 >= 2.0 &&
+        this.testDaten.sprint_D2 <= 10.0 &&
+        // this.testDaten.Bal_D1_6 >= 0 &&
+        // this.testDaten.Bal_D1_6 <= 8 &&
+        // this.testDaten.Bal_D2_6 >= 0 &&
+        // this.testDaten.Bal_D2_6 <= 8 &&
+        // this.testDaten.Bal_D1_4_5 >= 0 &&
+        // this.testDaten.Bal_D1_4_5 <= 8 &&
+        // this.testDaten.Bal_D2_4_5 >= 0 &&
+        // this.testDaten.Bal_D2_4_5 <= 8 &&
+        // this.testDaten.Bal_D1_3 >= 0 &&
+        // this.testDaten.Bal_D1_3 <= 8 &&
+        // this.testDaten.Bal_D2_3 >= 0 &&
+        // this.testDaten.Bal_D2_3 <= 8 &&
+        this.testDaten.SHH_D1 >= 0 &&
+        this.testDaten.SHH_D1 <= 60 &&
+        this.testDaten.SHH_D2 >= 0 &&
+        this.testDaten.SHH_D2 <= 60 &&
+        this.testDaten.RB_D1 >= -50 &&
+        this.testDaten.RB_D1 <= 50 &&
+        this.testDaten.RB_D2 >= -50 &&
+        this.testDaten.RB_D2 <= 50 &&
+        this.testDaten.LS_Anzahl >= 0 &&
+        this.testDaten.LS_Anzahl <= 99 &&
+        this.testDaten.SU_Anzahl >= 0 &&
+        this.testDaten.SU_Anzahl <= 99 &&
+        this.testDaten.SW_D1 >= 0 &&
+        this.testDaten.SW_D1 <= 800 &&
+        this.testDaten.SW_D2 >= 0 &&
+        this.testDaten.SW_D2 <= 800 &&
+        this.testDaten.ausdauer >= 1 &&
+        this.testDaten.ausdauer <= 30
       )
         this.dialog = true;
       else {
-        alert("irreguläre Koordinationswerte");
-        this.dialog = false;
-      }
-
-      if (
-        this.testDaten.rumpfbeuge_1 >= -50 &&
-        this.testDaten.rumpfbeuge_1 <= 50 &&
-        this.testDaten.rumpfbeuge_2 >= -50 &&
-        this.testDaten.rumpfbeuge_2 <= 50
-      )
-        this.dialog = true;
-      else {
-        alert("irreguläre Rumpfbeugewerte");
-        this.dialog = false;
-      }
-
-      if (
-        this.testDaten.oberkoerperkraft >= 0 &&
-        this.testDaten.oberkoerperkraft <= 99
-      )
-        this.dialog = true;
-      else {
-        alert("irreguläre Liegestützwerte (Oberkörperkraft)");
-        this.dialog = false;
-      }
-
-      if (this.testDaten.rumpfkraft >= 0 && this.testDaten.rumpfkraft <= 99)
-        this.dialog = true;
-      else {
-        alert("irreguläre Situpanzahl (Rumpfkraft)");
-        this.dialog = false;
-      }
-
-      if (
-        this.testDaten.schnellkraft_1 >= 0 &&
-        this.testDaten.schnellkraft_1 <= 800 &&
-        this.testDaten.schnellkraft_2 >= 0 &&
-        this.testDaten.schnellkraft_2 <= 800
-      )
-        this.dialog = true;
-      else {
-        alert("irregulärer Schnellkraftwert (Standweitsprung)");
-        this.dialog = false;
-      }
-
-      if (
-        this.testDaten.aktionsschnelligkeit_1 >= 2.0 &&
-        this.testDaten.aktionsschnelligkeit_1 <= 10.0 &&
-        this.testDaten.aktionsschnelligkeit_2 >= 2.0 &&
-        this.testDaten.aktionsschnelligkeit_2 <= 10.0
-      )
-        this.dialog = true;
-      else {
-        alert("irreguläre Aktionsschnelligkeitszeit (Sprint)");
-        this.dialog = false;
-      }
-
-      if (this.testDaten.ausdauer >= 1 && this.testDaten.ausdauer <= 30)
-        this.dialog = true;
-      else {
-        alert("irreguläre Ausdauerrundenanzahl (Ausdauerlauf)");
+        alert("Eine oder mehre Eingaben sind nicht korrekt!");
         this.dialog = false;
       }
     },
@@ -667,43 +609,43 @@ export default {
         groeße: "178",
         gewicht: "60",
 
-        aktionsschnelligkeit_1: 3.2,
-        aktionsschnelligkeit_2: "2.8",
+        sprint_D1: 3.2,
+        sprint_D2: "2.8",
+        Bal_D1_6: 7,
+        Bal_D2_6: 7,
+        Bal_D1_4_5: 6,
+        Bal_D2_4_5: 7,
+        Bal_D1_3: 6,
+        Bal_D2_3: 8,
+        SHH_D1: "34",
+        SHH_D2: "45",
+        RB_D1: "-4.6",
+        RB_D2: "-3.4",
+        LS_Anzahl: "23",
+        SU_Anzahl: "30",
+        SW_D1: "214",
+        SW_D2: "176",
         ausdauer: 26,
-        gleichgewicht3_1: 7,
-        gleichgewicht3_2: 7,
-        gleichgewicht4_5_1: 6,
-        gleichgewicht4_5_2: 7,
-        gleichgewicht6_1: 6,
-        gleichgewicht6_2: 8,
-        koordination_1: "34",
-        koordination_2: "45",
-        oberkoerperkraft: "23",
-        rumpfbeuge_1: "-4.6",
-        rumpfbeuge_2: "-3.4",
-        rumpfkraft: "30",
-        schnellkraft_1: "214",
-        schnellkraft_2: "176",
 
-        erg_aktionsschnelligkeit: 125,
-        erg_ausdauer: 103.10160427807486,
-        erg_gleichgewicht: 107.09429824561403,
-        erg_koordination: 102.87817938420348,
-        erg_oberkoerperkraft: 122.70348837209303,
-        erg_rumpfbeuge: 107.90340285400659,
-        erg_rumpfkraft: 106.52482269503545,
-        erg_schnellkraft: 101.95724290453373
+        erg_sprint: 125,
+        erg_Bal: 107.09429824561403,
+        erg_SHH: 102.87817938420348,
+        erg_RB: 107.90340285400659,
+        erg_LS: 122.70348837209303,
+        erg_SU: 106.52482269503545,
+        erg_SW: 101.95724290453373,
+        erg_ausdauer: 103.10160427807486
       };
     },
     calcPoints(testobject) {
       var normValues = {
-        aktionsschnelligkeit: {},
-        oberkoerperkraft: {},
-        rumpfkraft: {},
-        schnellkraft: {},
-        koordination: {},
-        gleichgewicht: {},
-        rumpfbeuge: {},
+        sprint: {},
+        Bal: {},
+        SHH: {},
+        RB: {},
+        LS: {},
+        SU: {},
+        SW: {},
         ausdauer: {}
       };
 
@@ -714,32 +656,32 @@ export default {
         //Alter 17 oder mehr
         //20m Sprint
 
-        normValues.aktionsschnelligkeit.norm = 3.5;
-        normValues.aktionsschnelligkeit.sa = 0.28;
+        normValues.sprint.norm = 3.5;
+        normValues.sprint.sa = 0.28;
 
         //LS Liegestütz
-        normValues.oberkoerperkraft.norm = 15.19;
-        normValues.oberkoerperkraft.sa = 3.44;
+        normValues.LS.norm = 15.19;
+        normValues.LS.sa = 3.44;
 
         //SU Situps
-        normValues.rumpfkraft.norm = 26.32;
-        normValues.rumpfkraft.sa = 5.64;
+        normValues.SU.norm = 26.32;
+        normValues.SU.sa = 5.64;
 
         //SW Standweitsprung
-        normValues.schnellkraft.norm = 208.69;
-        normValues.schnellkraft.sa = 27.13;
+        normValues.SW.norm = 208.69;
+        normValues.SW.sa = 27.13;
 
-        //SSH Seitlich Hin und Herspringen
-        normValues.koordination.norm = 37.35;
-        normValues.koordination.sa = 7.47;
+        //SHH Seitlich Hin und Herspringen
+        normValues.SHH.norm = 37.35;
+        normValues.SHH.sa = 7.47;
 
         //Balancieren rückwärts
-        normValues.gleichgewicht.norm = 34.53;
-        normValues.gleichgewicht.sa = 9.12;
+        normValues.Bal.norm = 34.53;
+        normValues.Bal.sa = 9.12;
 
         //RB Rumpfbeuge
-        normValues.rumpfbeuge.norm = 2.6;
-        normValues.rumpfbeuge.sa = 9.11;
+        normValues.RB.norm = 2.6;
+        normValues.RB.sa = 9.11;
 
         //6-min Lauf
         normValues.ausdauer.norm = 1346;
@@ -747,33 +689,32 @@ export default {
       } else if (testobject.age == 16) {
         //Alter 16
         //20m Sprint
-
-        normValues.aktionsschnelligkeit.norm = 3.61;
-        normValues.aktionsschnelligkeit.sa = 0.29;
+        normValues.sprint.norm = 3.61;
+        normValues.sprint.sa = 0.29;
 
         //LS Liegestütz
-        normValues.oberkoerperkraft.norm = 14.65;
-        normValues.oberkoerperkraft.sa = 3.44;
+        normValues.LS.norm = 14.65;
+        normValues.LS.sa = 3.44;
 
         //SU Situps
-        normValues.rumpfkraft.norm = 25.98;
-        normValues.rumpfkraft.sa = 5.64;
+        normValues.SU.norm = 25.98;
+        normValues.SU.sa = 5.64;
 
         //SW Standweitsprung
-        normValues.schnellkraft.norm = 199.68;
-        normValues.schnellkraft.sa = 25.96;
+        normValues.SW.norm = 199.68;
+        normValues.SW.sa = 25.96;
 
-        //SSH Seitlich Hin und Herspringen
-        normValues.koordination.norm = 36.27;
-        normValues.koordination.sa = 7.25;
+        //SHH Seitlich Hin und Herspringen
+        normValues.SHH.norm = 36.27;
+        normValues.SHH.sa = 7.25;
 
-        //Balancieren rückwärts
-        normValues.gleichgewicht.norm = 34.02;
-        normValues.gleichgewicht.sa = 9.12;
+        //Bal Balancieren rückwärts
+        normValues.Bal.norm = 34.02;
+        normValues.Bal.sa = 9.12;
 
         //RB Rumpfbeuge
-        normValues.rumpfbeuge.norm = 2.06;
-        normValues.rumpfbeuge.sa = 8.83;
+        normValues.RB.norm = 2.06;
+        normValues.RB.sa = 8.83;
 
         //6-min Lauf
         normValues.ausdauer.norm = 1302;
@@ -782,32 +723,32 @@ export default {
         //Alter 15
 
         //20m Sprint
-        normValues.aktionsschnelligkeit.norm = 3.72;
-        normValues.aktionsschnelligkeit.sa = 0.3;
+        normValues.sprint.norm = 3.72;
+        normValues.sprint.sa = 0.3;
 
         //LS Liegestütz
-        normValues.oberkoerperkraft.norm = 14.1;
-        normValues.oberkoerperkraft.sa = 3.44;
+        normValues.LS.norm = 14.1;
+        normValues.LS.sa = 3.44;
 
         //SU Situps
-        normValues.rumpfkraft.norm = 25.47;
-        normValues.rumpfkraft.sa = 5.64;
+        normValues.SU.norm = 25.47;
+        normValues.SU.sa = 5.64;
 
         //SW Standweitsprung
-        normValues.schnellkraft.norm = 190.68;
-        normValues.schnellkraft.sa = 24.79;
+        normValues.SW.norm = 190.68;
+        normValues.SW.sa = 24.79;
 
-        //SSH Seitlich Hin und Herspringen
-        normValues.koordination.norm = 35.19;
-        normValues.koordination.sa = 7.04;
+        //SHH Seitlich Hin und Herspringen
+        normValues.SHH.norm = 35.19;
+        normValues.SHH.sa = 7.04;
 
         //Balancieren rückwärts
-        normValues.gleichgewicht.norm = 33.51;
-        normValues.gleichgewicht.sa = 9.12;
+        normValues.Bal.norm = 33.51;
+        normValues.Bal.sa = 9.12;
 
         //RB Rumpfbeuge
-        normValues.rumpfbeuge.norm = 2.06;
-        normValues.rumpfbeuge.sa = 8.54;
+        normValues.RB.norm = 2.06;
+        normValues.RB.sa = 8.54;
 
         //6-min Lauf
         normValues.ausdauer.norm = 1257;
@@ -815,32 +756,32 @@ export default {
       } else if (testobject.age < 15) {
         //Alter 14 oder weniger
         //20m Sprint
-        normValues.aktionsschnelligkeit.norm = 3.84;
-        normValues.aktionsschnelligkeit.sa = 0.31;
+        normValues.sprint.norm = 3.84;
+        normValues.sprint.sa = 0.31;
 
         //LS Liegestütz
-        normValues.oberkoerperkraft.norm = 13.56;
-        normValues.oberkoerperkraft.sa = 3.44;
+        normValues.LS.norm = 13.56;
+        normValues.LS.sa = 3.44;
 
         //SU Situps
-        normValues.rumpfkraft.norm = 24.78;
-        normValues.rumpfkraft.sa = 5.64;
+        normValues.SU.norm = 24.78;
+        normValues.SU.sa = 5.64;
 
         //SW Standweitsprung
-        normValues.schnellkraft.norm = 181.68;
-        normValues.schnellkraft.sa = 23.62;
+        normValues.SW.norm = 181.68;
+        normValues.SW.sa = 23.62;
 
-        //SSH Seitlich Hin und Herspringen
-        normValues.koordination.norm = 34.11;
-        normValues.koordination.sa = 6.82;
+        //SHH Seitlich Hin und Herspringen
+        normValues.SHH.norm = 34.11;
+        normValues.SHH.sa = 6.82;
 
         //Balancieren rückwärts
-        normValues.gleichgewicht.norm = 32.99;
-        normValues.gleichgewicht.sa = 9.12;
+        normValues.Bal.norm = 32.99;
+        normValues.Bal.sa = 9.12;
 
         //RB Rumpfbeuge
-        normValues.rumpfbeuge.norm = 2.06;
-        normValues.rumpfbeuge.sa = 8.25;
+        normValues.RB.norm = 2.06;
+        normValues.RB.sa = 8.25;
 
         //6-min Lauf
         normValues.ausdauer.norm = 1213;
@@ -854,50 +795,45 @@ export default {
 
       //Punkteergebnisse
       let ergebnisse = {
-        erg_gleichgewicht: zWert(
-          testobject.gleichgewicht3_1 +
-            testobject.gleichgewicht3_2 +
-            testobject.gleichgewicht4_5_1 +
-            testobject.gleichgewicht4_5_2 +
-            testobject.gleichgewicht6_1 +
-            testobject.gleichgewicht6_2,
-          normValues.gleichgewicht.norm,
-          normValues.gleichgewicht.sa
+        erg_Bal: zWert(
+          testobject.Bal_D1_6 +
+            testobject.Bal_D2_6 +
+            testobject.Bal_D1_4_5 +
+            testobject.Bal_D2_4_5 +
+            testobject.Bal_D1_6 +
+            testobject.Bal_D2_6,
+          normValues.Bal.norm,
+          normValues.Bal.sa
         ),
-        erg_koordination: zWert(
-          (parseInt(testobject.koordination_1) +
-            parseInt(testobject.koordination_2)) /
-            2,
-          normValues.koordination.norm,
-          normValues.koordination.sa
+        erg_SHH: zWert(
+          (parseInt(testobject.SHH_D1) + parseInt(testobject.SHH_D2)) / 2,
+          normValues.SHH.norm,
+          normValues.SHH.sa
         ),
-        erg_rumpfbeuge: zWert(
-          Math.min(testobject.rumpfbeuge_1, testobject.rumpfbeuge_2),
-          normValues.rumpfbeuge.norm,
-          -normValues.rumpfbeuge.sa
+        erg_RB: zWert(
+          Math.min(testobject.RB_D1, testobject.RB_D2),
+          normValues.RB.norm,
+          -normValues.RB.sa
         ),
-        erg_oberkoerperkraft: zWert(
-          testobject.oberkoerperkraft,
-          normValues.oberkoerperkraft.norm,
-          normValues.oberkoerperkraft.sa
+        erg_LS: zWert(
+          testobject.LS_Anzahl,
+          normValues.LS.norm,
+          normValues.LS.sa
         ),
-        erg_rumpfkraft: zWert(
-          testobject.rumpfkraft,
-          normValues.rumpfkraft.norm,
-          normValues.rumpfkraft.sa
+        erg_SU: zWert(
+          testobject.SU_Anzahl,
+          normValues.SU.norm,
+          normValues.SU.sa
         ),
-        erg_schnellkraft: zWert(
-          Math.max(testobject.schnellkraft_1, testobject.schnellkraft_2),
-          normValues.schnellkraft.norm,
-          normValues.schnellkraft.sa
+        erg_SW: zWert(
+          Math.max(testobject.SW_D1, testobject.SW_D2),
+          normValues.SW.norm,
+          normValues.SW.sa
         ),
-        erg_aktionsschnelligkeit: zWert(
-          Math.min(
-            testobject.aktionsschnelligkeit_1,
-            testobject.aktionsschnelligkeit_2
-          ),
-          normValues.aktionsschnelligkeit.norm,
-          -normValues.aktionsschnelligkeit.sa
+        erg_sprint: zWert(
+          Math.min(testobject.sprint_D1, testobject.sprint_D2),
+          normValues.sprint.norm,
+          -normValues.sprint.sa
         ),
         erg_ausdauer: zWert(
           testobject.ausdauer * 54,
