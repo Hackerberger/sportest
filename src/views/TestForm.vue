@@ -453,7 +453,7 @@
         >
           <v-card-text></v-card-text>
           <p
-            style="font-family: spantaran; font-size: 110%;"
+            style="font-family: calibri; font-size: 110%;"
             class="primary--text"
           >Möchtest du den Test beenden?</p>
 
