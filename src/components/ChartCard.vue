@@ -1,7 +1,7 @@
 <template>
   <v-card color="#FF6600" class="black--text">
     <v-card-title primary-title>
-      <h3 class="headline">Test am {{ this.test.date_test}}</h3>
+      <h3 class="headline">Test am {{ this.test.date_test }}</h3>
       <v-container>
         <Chart :test="test"></Chart>
       </v-container>
@@ -41,9 +41,11 @@
         <br />
         <b> Rumpfkraft: </b> {{ this.test.rumpfkraft }} Situps
         <br />
-        <b> Schnellkraft: </b> {{ this.test.schnellkraft_1 }} / {{ this.test.schnellkraft_2 }} cm
+        <b> Schnellkraft: </b> {{ this.test.schnellkraft_1 }} /
+        {{ this.test.schnellkraft_2 }} cm
         <br />
-        <b> Aktionsschnelligkeit: </b> {{ this.test.aktionsschnelligkeit_1 }} / {{ this.test.aktionsschnelligkeit_2 }} sek
+        <b> Aktionsschnelligkeit: </b> {{ this.test.aktionsschnelligkeit_1 }} /
+        {{ this.test.aktionsschnelligkeit_2 }} sek
         <br />
         <b> Ausdauer: </b> {{ this.test.ausdauer }} Runden
       </p>
@@ -52,7 +54,7 @@
 </template>
 
 <script>
-import Chart from '../components/Chart';
+import Chart from "../components/Chart";
 
 export default {
   props: {

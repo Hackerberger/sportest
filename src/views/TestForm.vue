@@ -44,7 +44,7 @@
 
           <div class="text-center pl-11">
             <v-container fluid>
-              <p>{{ testDaten.gender || 'Geschlecht' }}</p>
+              <p>{{ testDaten.gender || "Geschlecht" }}</p>
               <v-radio-group v-model="testDaten.gender" :mandatory="false">
                 <v-radio label="Männlich" value="Männlich"></v-radio>
                 <v-radio label="Weiblich" value="Weiblich"></v-radio>
@@ -85,6 +85,37 @@
         </v-carousel-item>
 
         <v-form>
+          <v-carousel-item>
+            <v-container>
+              <h3 style="padding-bottom: 4%;" class="white--text">20m-Sprint</h3>
+              <v-layout wrap>
+                <v-flex xs5>
+                  <v-text-field
+                    outlined
+                    shaped
+                    label="Versuch 1"
+                    type="number"
+                    suffix="sek"
+                    single-line
+                    v-model="testDaten.sprint_D1"
+                    :rules="sprint_rules"
+                  ></v-text-field>
+
+                  <v-text-field
+                    outlined
+                    shaped
+                    label="Versuch 2"
+                    type="number"
+                    suffix="sek"
+                    single-line
+                    v-model="testDaten.sprint_D2"
+                    :rules="sprint_rules"
+                  ></v-text-field>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-carousel-item>
+
           <v-carousel-item>
             <v-container>
               <h3 style class="white--text">Balancieren rückwärts</h3>
@@ -320,7 +351,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Situps</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">Sit-ups</h3>
               <v-layout row wrap>
                 <v-flex xs6>
                   <v-text-field
@@ -371,38 +402,7 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">20m-Sprint</h3>
-              <v-layout wrap>
-                <v-flex xs5>
-                  <v-text-field
-                    outlined
-                    shaped
-                    label="Versuch 1"
-                    type="number"
-                    suffix="sek"
-                    single-line
-                    v-model="testDaten.sprint_D1"
-                    :rules="sprint_rules"
-                  ></v-text-field>
-
-                  <v-text-field
-                    outlined
-                    shaped
-                    label="Versuch 2"
-                    type="number"
-                    suffix="sek"
-                    single-line
-                    v-model="testDaten.sprint_D2"
-                    :rules="sprint_rules"
-                  ></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-carousel-item>
-
-          <v-carousel-item>
-            <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">6-Min-Lauf</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">6-Minuten-Lauf</h3>
               <v-layout row>
                 <v-flex xs9>
                   <v-text-field
@@ -447,21 +447,28 @@
 
     <div color="black" class="text-center">
       <v-dialog class="mx-auto" v-model="dialog" width="500">
-        <v-card style="margin-top:4%;" class="text-center" color="black">
-          <v-card-text style="font-family: spantaran; font-size: 120%;" class="primary--text"> Möchtest du den Test beenden? </v-card-text>
-          <p class="primary-text">dssd</p>
+        <v-card
+          style=" background-color: black; border-style: solid; border-color: #FF6600; margin-top:4%;"
+          class="text-center"
+        >
+          <v-card-text></v-card-text>
+          <p
+            style="font-family: spantaran; font-size: 110%;"
+            class="primary--text"
+          >Möchtest du den Test beenden?</p>
 
           <v-container class="text-xs-center">
             <v-card-actions id="act">
               <v-layout row>
                 <v-flex justify-center>
-              <v-btn color="primary" xl text @click="done">
-                <v-icon dark color="primary">mdi-check</v-icon>
-              </v-btn>
-              <v-btn color="primary" xl text @click="dialog = false">
-                <v-icon>mdi-close</v-icon>
-              </v-btn>
-              </v-flex>
+                  <v-btn fab dark color="#FF6600" @click="done">
+                    <v-icon dark color="black">mdi-check</v-icon>
+                  </v-btn>
+
+                  <v-btn style="margin-left: 30%;" fab dark color="#FF6600" @click="dialog = false">
+                    <v-icon dark color="black">mdi-close</v-icon>
+                  </v-btn>
+                </v-flex>
               </v-layout>
             </v-card-actions>
           </v-container>
@@ -488,6 +495,9 @@ export default {
         gender: null,
         gewicht: 43,
         groeße: 123,
+        //Sprint
+        sprint_D1: 4.0,
+        sprint_D2: 3.0,
         //Gleichgewicht
         Bal_D1_6: 0,
         Bal_D2_6: 0,
@@ -498,7 +508,7 @@ export default {
         //Hinundher
         SHH_D1: 59,
         SHH_D2: 40,
-        //Rumpfbeweglichkeit
+        //Rumpfbeuge
         RB_D1: -43,
         RB_D2: 43,
         //Liegestütze
@@ -508,10 +518,6 @@ export default {
         //Standweitsprung
         SW_D1: 793,
         SW_D2: 345,
-        //Sprint
-        sprint_D1: 4.0,
-        sprint_D2: 3.0,
-
         //Ausdauer
         ausdauer: 1
       },
@@ -528,6 +534,7 @@ export default {
       },
       weight_rules: [v => (v >= 30 && v <= 300) || "Gewicht nicht angenommen."],
       height_rules: [v => (v >= 50 && v <= 250) || "Größe nicht angenommen."],
+      sprint_rules: [v => (v >= 2.0 && v <= 10.0) || "irreguläre Sprintzeit"],
       Bal_rules: [v => (v >= 0 && v <= 8) || "irregulärer Balancierwert"],
       SHH_rules: [v => (v >= 0 && v <= 60) || "irregulärer Koordinationswert"],
       RB_rules: [v => (v >= -50 && v <= 50) || "irregulärer Rumpfbeugewert"],
@@ -536,7 +543,6 @@ export default {
       SW_rules: [
         v => (v >= 0 && v <= 800) || "irregulärer Standweitsprungwert"
       ],
-      sprint_rules: [v => (v >= 2.0 && v <= 10.0) || "irreguläre Sprintzeit"],
       ausdauer_rules: [
         v => (v >= 1 && v <= 30) || "irreguläre Ausdauerrundenanzahl"
       ]
@@ -655,33 +661,32 @@ export default {
       if (testobject.age > 16) {
         //Alter 17 oder mehr
         //20m Sprint
-
         normValues.sprint.norm = 3.5;
         normValues.sprint.sa = 0.28;
+
+        //Balancieren rückwärts
+        normValues.Bal.norm = 34.53;
+        normValues.Bal.sa = 9.12;
+
+        //SHH Seitlich Hin und Herspringen
+        normValues.SHH.norm = 37.35;
+        normValues.SHH.sa = 7.47;
+
+        //RB Rumpfbeuge
+        normValues.RB.norm = 2.6;
+        normValues.RB.sa = 9.11;
 
         //LS Liegestütz
         normValues.LS.norm = 15.19;
         normValues.LS.sa = 3.44;
 
-        //SU Situps
+        //SU Sit-ups
         normValues.SU.norm = 26.32;
         normValues.SU.sa = 5.64;
 
         //SW Standweitsprung
         normValues.SW.norm = 208.69;
         normValues.SW.sa = 27.13;
-
-        //SHH Seitlich Hin und Herspringen
-        normValues.SHH.norm = 37.35;
-        normValues.SHH.sa = 7.47;
-
-        //Balancieren rückwärts
-        normValues.Bal.norm = 34.53;
-        normValues.Bal.sa = 9.12;
-
-        //RB Rumpfbeuge
-        normValues.RB.norm = 2.6;
-        normValues.RB.sa = 9.11;
 
         //6-min Lauf
         normValues.ausdauer.norm = 1346;
@@ -692,29 +697,29 @@ export default {
         normValues.sprint.norm = 3.61;
         normValues.sprint.sa = 0.29;
 
+        //Bal Balancieren rückwärts
+        normValues.Bal.norm = 34.02;
+        normValues.Bal.sa = 9.12;
+
+        //SHH Seitlich Hin und Herspringen
+        normValues.SHH.norm = 36.27;
+        normValues.SHH.sa = 7.25;
+
+        //RB Rumpfbeuge
+        normValues.RB.norm = 2.06;
+        normValues.RB.sa = 8.83;
+
         //LS Liegestütz
         normValues.LS.norm = 14.65;
         normValues.LS.sa = 3.44;
 
-        //SU Situps
+        //SU Sit-ups
         normValues.SU.norm = 25.98;
         normValues.SU.sa = 5.64;
 
         //SW Standweitsprung
         normValues.SW.norm = 199.68;
         normValues.SW.sa = 25.96;
-
-        //SHH Seitlich Hin und Herspringen
-        normValues.SHH.norm = 36.27;
-        normValues.SHH.sa = 7.25;
-
-        //Bal Balancieren rückwärts
-        normValues.Bal.norm = 34.02;
-        normValues.Bal.sa = 9.12;
-
-        //RB Rumpfbeuge
-        normValues.RB.norm = 2.06;
-        normValues.RB.sa = 8.83;
 
         //6-min Lauf
         normValues.ausdauer.norm = 1302;
@@ -725,6 +730,18 @@ export default {
         //20m Sprint
         normValues.sprint.norm = 3.72;
         normValues.sprint.sa = 0.3;
+
+        //Balancieren rückwärts
+        normValues.Bal.norm = 33.51;
+        normValues.Bal.sa = 9.12;
+
+        //SHH Seitlich Hin und Herspringen
+        normValues.SHH.norm = 35.19;
+        normValues.SHH.sa = 7.04;
+
+        //RB Rumpfbeuge
+        normValues.RB.norm = 2.06;
+        normValues.RB.sa = 8.54;
 
         //LS Liegestütz
         normValues.LS.norm = 14.1;
@@ -738,18 +755,6 @@ export default {
         normValues.SW.norm = 190.68;
         normValues.SW.sa = 24.79;
 
-        //SHH Seitlich Hin und Herspringen
-        normValues.SHH.norm = 35.19;
-        normValues.SHH.sa = 7.04;
-
-        //Balancieren rückwärts
-        normValues.Bal.norm = 33.51;
-        normValues.Bal.sa = 9.12;
-
-        //RB Rumpfbeuge
-        normValues.RB.norm = 2.06;
-        normValues.RB.sa = 8.54;
-
         //6-min Lauf
         normValues.ausdauer.norm = 1257;
         normValues.ausdauer.sa = 175;
@@ -758,6 +763,18 @@ export default {
         //20m Sprint
         normValues.sprint.norm = 3.84;
         normValues.sprint.sa = 0.31;
+
+        //Balancieren rückwärts
+        normValues.Bal.norm = 32.99;
+        normValues.Bal.sa = 9.12;
+
+        //SHH Seitlich Hin und Herspringen
+        normValues.SHH.norm = 34.11;
+        normValues.SHH.sa = 6.82;
+
+        //RB Rumpfbeuge
+        normValues.RB.norm = 2.06;
+        normValues.RB.sa = 8.25;
 
         //LS Liegestütz
         normValues.LS.norm = 13.56;
@@ -771,19 +788,7 @@ export default {
         normValues.SW.norm = 181.68;
         normValues.SW.sa = 23.62;
 
-        //SHH Seitlich Hin und Herspringen
-        normValues.SHH.norm = 34.11;
-        normValues.SHH.sa = 6.82;
-
-        //Balancieren rückwärts
-        normValues.Bal.norm = 32.99;
-        normValues.Bal.sa = 9.12;
-
-        //RB Rumpfbeuge
-        normValues.RB.norm = 2.06;
-        normValues.RB.sa = 8.25;
-
-        //6-min Lauf
+        //6-Minuten-Lauf
         normValues.ausdauer.norm = 1213;
         normValues.ausdauer.sa = 168;
       }

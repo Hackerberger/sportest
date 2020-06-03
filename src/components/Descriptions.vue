@@ -10,12 +10,7 @@
         </v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-container class="text-center" v-if="!(d.video == null)">
-            <video
-              :src="publicPath + d.video"
-              loop
-              autoplay
-              width="100%"
-            ></video>
+            <video :src="publicPath + d.video" loop autoplay width="100%"></video>
           </v-container>
           <h4>Testziel</h4>
           {{ d.goal }}
@@ -33,6 +28,14 @@ export default {
     return {
       publicPath: process.env.BASE_URL,
       descriptions: [
+        {
+          //Aktionsschnelligkeit
+          name: "20-m Sprint",
+          goal:
+            "Das Ziel dieser Übung ist es die Aktionsschnelligkeit zu überprüfen.",
+          desc:
+            "Man versucht mit einem Sprint eine Strecke von 20m so schnell wie möglich zurückzulegen. Man steht in einer aufrechten Starthaltung vor der Startlinie. Die Zeit wird durch eine Zeitmess-Anlage automatisch gemessen."
+        },
         {
           //Gleichgewicht
           name: "Balancieren rückwärts",
@@ -84,16 +87,8 @@ export default {
             "Man versucht mit einem Standweitsprung so weit wie möglich zu springen. Beim Abspringen müssen beide Füße parallel vor der Absprunglinie stehen. Die Landung muss ebenfalls mit den Beinen parallel zueinander erfolgen. Nach dem Sprung muss man in der gleichen Position wie bei der Landung stehen bleiben, bis ein/e Mitschüler/in den Abstand von der Absprunglinie bis zur Ferse abgemessen hat. Im Probeversuch dürfen zwei Sprünge absolviert werden."
         },
         {
-          //Aktionsschnelligkeit
-          name: "20-m Sprint",
-          goal:
-            "Das Ziel dieser Übung ist es die Aktionsschnelligkeit zu überprüfen.",
-          desc:
-            "Man versucht mit einem Sprint eine Strecke von 20m so schnell wie möglich zurückzulegen. Man steht in einer aufrechten Starthaltung vor der Startlinie. Die Zeit wird durch eine Zeitmess-Anlage automatisch gemessen."
-        },
-        {
           //Ausdauer
-          name: "6-Min-Lauf",
+          name: "6-Minuten-Lauf",
           goal: "Das Ziel dieser Übung ist es die Ausdauer zu messen",
           desc:
             "Man läuft innerhalb von sechs Minuten so viele Runden wie möglich um ein Volleyballfeld. Es wird in Gruppen von ca. 10 Schüler/innen gelaufen. Ein Partner, meistens ein/e Mitschüler/in zählt die Runden des jeweils anderen. Gehen ist erlaubt, stehen bleiben jedoch nicht. Jede Minute gibt der/die Lehrer/in die noch zu laufende Zeit ein. In das Testformular wird die gelaufene Rundenzahl eingetragen."

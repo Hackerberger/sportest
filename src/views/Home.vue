@@ -1,6 +1,8 @@
 <template>
   <v-container grid-list-xs>
-    <span class="white--text" id="welcome">Willkommen {{globalData.googleUser.getBasicProfile().getName()}}!</span>
+    <span class="white--text" id="welcome"
+      >Willkommen {{ globalData.googleUser.getBasicProfile().getName() }}!</span
+    >
     <span>
       <v-avatar size="36px">
         <img :src="globalData.googleUser.getBasicProfile().getImageUrl()" />
@@ -9,8 +11,9 @@
 
     <br />
     <span mt-11 class="white--text">
-      Hallo {{globalData.googleUser.getBasicProfile().getGivenName()}}, sportest ermöglicht dir die Messung und Bewertung deiner
-      motorischen Fähigkeiten.
+      Hallo {{ globalData.googleUser.getBasicProfile().getGivenName() }},
+      sportest ermöglicht dir die Messung und Bewertung deiner motorischen
+      Fähigkeiten.
     </span>
     <br />
     <br />
@@ -21,18 +24,18 @@
 </template>
 
 <script>
-import Description from '../components/Descriptions.vue';
+import Description from "../components/Descriptions.vue";
 
 export default {
   components: { Description },
   props: {
     globalData: {
-      type: Object,
-    },
+      type: Object
+    }
   },
   data() {
     return {};
-  },
+  }
 };
 </script>
 
