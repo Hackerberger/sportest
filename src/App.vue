@@ -195,8 +195,9 @@ export default {
         },
       };
 
+      //Erstellen oder verbinden mit einer DB
       this.db = new PouchDB(
-        "http://51.144.121.173:5984" + this.dbname,
+        /*"http://51.144.121.173:5984" +*/ this.dbname,
         remoteOptions
       );
       this.db.info().then(function(params) {
@@ -215,6 +216,7 @@ export default {
       this.db
         .post(test)
         .then(async () => {
+          await this.getAllData();
           this.$router.push({ name: "statistics" });
         })
         .catch(error => {
