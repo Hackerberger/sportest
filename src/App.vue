@@ -113,6 +113,7 @@
         grow
       >
         <v-btn
+          id="home"
           @click="$router.push({ name: 'home_l' })"
           color="black"
           value="home"
@@ -135,33 +136,33 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
-import PouchDB from 'pouchdb';
-import PouchDBAuthentication from 'pouchdb-authentication';
+import PouchDB from "pouchdb";
+import PouchDBAuthentication from "pouchdb-authentication";
 PouchDB.plugin(PouchDBAuthentication);
 
 export default {
-  name: 'App',
+  name: "App",
   components: {},
   data() {
     return {
       globalData: {},
       db: {},
-      username: '',
-      token: '',
-      dbname: '',
+      username: "",
+      token: "",
+      dbname: ""
     };
   },
   methods: {
     logout() {
-      this.$router.push({ name: 'login' });
+      this.$router.push({ name: "login" });
 
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function() {
-        console.log('Abmeldung erfolgreich!');
+        console.log("Abmeldung erfolgreich!");
       });
-      alert('Abmeldung erfolgreich!');
+      alert("Abmeldung erfolgreich!");
     },
     async userLogin() {
       await this.getToken();
@@ -171,7 +172,7 @@ export default {
     },
     async getToken() {
       let res = await axios.post(
-        'https://sportest-auth-server.azurewebsites.net/auth/token',
+        "https://sportest-auth-server.azurewebsites.net/auth/token",
         {
           email: this.globalData.googleUser.getBasicProfile().getEmail(),
           token: this.globalData.googleUser.getAuthResponse().id_token,
@@ -186,17 +187,17 @@ export default {
       const remoteOptions = {
         skip_setup: true,
         fetch: (url, opts) => {
-          opts.headers.set('X-Auth-CouchDB-UserName', this.username);
-          opts.headers.set('X-Auth-CouchDB-Roles', '');
-          opts.headers.set('X-Auth-CouchDB-Token', this.token);
+          opts.headers.set("X-Auth-CouchDB-UserName", this.username);
+          opts.headers.set("X-Auth-CouchDB-Roles", "");
+          opts.headers.set("X-Auth-CouchDB-Token", this.token);
 
           return PouchDB.fetch(url, opts);
         },
       };
 
       this.db = new PouchDB(
-        'http://51.144.121.173:5984' + this.dbname,
-        remoteOptions,
+        "http://51.144.121.173:5984" + this.dbname,
+        remoteOptions
       );
       this.db.info().then(function(params) {
         console.log(params);
@@ -214,13 +215,13 @@ export default {
       this.db
         .post(test)
         .then(async () => {
-          this.$router.push({ name: 'statistics' });
+          this.$router.push({ name: "statistics" });
         })
         .catch(error => {
           console.log(error);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

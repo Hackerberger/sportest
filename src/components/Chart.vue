@@ -1,8 +1,8 @@
 <script>
-import { Bar } from 'vue-chartjs';
+import { Bar } from "vue-chartjs";
 
 //Default font color
-Chart.defaults.global.defaultFontColor = 'black';
+Chart.defaults.global.defaultFontColor = "black";
 
 export default {
   props: {
@@ -15,30 +15,29 @@ export default {
     // Overwriting base render method with actual data.
     this.renderChart({
       labels: [
-        'Gleichgewicht',
-        'Koordination',
-        'Rumpfbeweglichkeit',
-        'Oberkörperkraft',
-        'Rumpfkraft',
-        'Schnellkraft',
-        'Aktionsschnelligkeit',
-        'Ausdauer'
+        "Sprint",
+        "Balancieren rückwärts",
+        "Seitliches Hin- und Herspringen",
+        "Rumpfbeuge",
+        "Liegestütz",
+        "Sit-ups",
+        "Standweitsprung",
+        "Ausdauer"
       ],
       datasets: [
         {
-          label: 'Punkte',
-          backgroundColor: 'black',
+          label: "Punkte",
+          backgroundColor: "black",
           // average: 70,
           data: [
-            this.test.erg_gleichgewicht,
-            this.test.erg_koordination,
-            this.test.erg_rumpfbeuge,
-            this.test.erg_oberkoerperkraft,
-            this.test.erg_rumpfkraft,
-            this.test.erg_schnellkraft,
-            this.test.erg_aktionsschnelligkeit,
-            this.test.erg_ausdauer,
-            
+            this.test.erg_sprint,
+            this.test.erg_Bal,
+            this.test.erg_SHH,
+            this.test.erg_RB,
+            this.test.erg_LS,
+            this.test.erg_SU,
+            this.test.erg_SW,
+            this.test.erg_ausdauer
           ]
         }
       ]

@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import Description from '../components/Descriptions.vue';
+import Description from "../components/Descriptions.vue";
 
 export default {
   components: { Description },
   data() {
     return {};
-  },
+  }
 };
 </script>
 

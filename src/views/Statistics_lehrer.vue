@@ -45,49 +45,50 @@
 </template>
 
 <script>
-import ChartCard from '../components/ChartCard';
+import ChartCard from "../components/ChartCard";
 
 export default {
   components: { ChartCard },
   data() {
     return {
-      klassen: ['5AHITN', '5BHITM', '5CHITM'],
-      schueler: ['Schüler x', 'schüler y', 'schüler z'],
+      klassen: ["5AHITN", "5BHITM", "5CHITM"],
+      schueler: ["Schüler x", "schüler y", "schüler z"],
       tests: [
         {
-          date_birth: '04-10-2000',
-          date_test: '21-02-2020',
+          date_birth: "04-10-2000",
+          date_test: "21-02-2020",
           gender: false,
           gewicht: 89,
           groeße: 129,
-          gleichgewicht3_1: 8,
-          gleichgewicht3_2: 8,
-          gleichgewicht4_5_1: 7,
-          gleichgewicht4_5_2: 8,
-          gleichgewicht6_1: 7,
-          gleichgewicht6_2: 6,
-          erg_gleichgewicht: 80,
+          //Sprint
+          sprint: 23.23,
+          erg_sprint: 120.5,
+          //Balancieren
+          Bal_D1_6: 8,
+          Bal_D2_6: 8,
+          Bal_D1_4_5: 7,
+          Bal_D2_4_5: 8,
+          Bal_D1_3: 7,
+          Bal_D2_3: 6,
+          erg_Bal: 80,
           //Hinundher
-          koordination_1: 100,
-          koordination_2: 120,
-          erg_koordination: 120,
+          SHH_D1: 100,
+          SHH_D2: 120,
+          erg_SHH: 120,
           //Rumpfbeweglichkeit
-          rumpfbeuge_1: 5.25,
-          rumpfbeuge_2: 6.23,
-          erg_rumpfbeuge: 85.5,
+          RB_D1: 5.25,
+          RB_D2: 6.23,
+          erg_RB: 85.5,
           //Liegestütze
-          oberkoerperkraft: 21,
-          erg_oeberkoerperkraft: 95.6,
+          LS_Anzahl: 21,
+          erg_LS: 95.6,
           //Situps
-          rumpfkraft: 25,
-          erg_rumpfkraft: 105.2,
+          SU_Anzahl: 25,
+          erg_SU: 105.2,
           //Standweitsprung
-          schnellkraft_1: 3.2,
-          schnellkraft_2: 3.1,
-          erg_schnellkraft: 115,
-          //Springt
-          aktionsschnelligkeit: 23.23,
-          erg_aktionsschnelligkeit: 120.5,
+          SW_D1: 3.2,
+          SW_D2: 3.1,
+          erg_SW: 115,
           //6 min Lauf
           ausdauer: 6000,
           erg_ausdauer: 75

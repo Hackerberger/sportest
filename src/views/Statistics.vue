@@ -14,18 +14,18 @@
 </template>
 
 <script>
-import ChartCard from '../components/ChartCard';
+import ChartCard from "../components/ChartCard";
 
 export default {
   components: { ChartCard },
   props: {
     globalData: {
-      type: Object,
-    },
+      type: Object
+    }
   },
   data() {
     return {};
-  },
+  }
 };
 </script>
 

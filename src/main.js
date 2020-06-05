@@ -3,8 +3,7 @@ import vuetify from "./plugins/vuetify";
 import App from "./App.vue";
 import router from "./router";
 import "./registerServiceWorker";
-import GSignInButton from 'vue-google-signin-button';
-
+import GSignInButton from "vue-google-signin-button";
 
 //Google Sign In Button
 Vue.use(GSignInButton);
@@ -26,8 +25,6 @@ Vue.use(VuetifyConfirm, {
   color: "#4b7dbb",
   property: "$confirm"
 });
-
-
 
 //Charts
 import VueCharts from "vue-chartjs";
