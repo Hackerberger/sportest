@@ -15,7 +15,7 @@
             small
             src="./../public/img/Sportest_Logo.png"
           />
-          
+
           <img
             v-if="$route.name == 'home_l' || $route.name == 'statistics_l'"
             @click="$router.push({ name: 'home_l' })"
@@ -59,16 +59,12 @@
     <!--  Navbar unten Schüler  -->
     <v-container v-if="$route.name == 'home' || $route.name == 'statistics'">
       <v-bottom-navigation
-        block
         :value="true"
         id="Nav"
         fixed
         background-color="black !important"
         grow
       >
-        <!-- <v-divider color="green !important"
-        ></v-divider>-->
-
         <v-btn
           @click="$router.push({ name: 'home' })"
           color="black"
@@ -116,7 +112,6 @@
         background-color="black !important"
         grow
       >
-
         <v-btn
           @click="$router.push({ name: 'home_l' })"
           color="black"
@@ -155,7 +150,7 @@ export default {
       db: {},
       username: '',
       token: '',
-      dbname: ''
+      dbname: '',
     };
   },
   methods: {
@@ -179,8 +174,8 @@ export default {
         'https://sportest-auth-server.azurewebsites.net/auth/token',
         {
           email: this.globalData.googleUser.getBasicProfile().getEmail(),
-          token: this.globalData.googleUser.getAuthResponse().id_token
-        }
+          token: this.globalData.googleUser.getAuthResponse().id_token,
+        },
       );
       console.log(res.data);
       this.username = res.data.username;
@@ -196,12 +191,12 @@ export default {
           opts.headers.set('X-Auth-CouchDB-Token', this.token);
 
           return PouchDB.fetch(url, opts);
-        }
+        },
       };
 
       this.db = new PouchDB(
         'http://51.144.121.173:5984' + this.dbname,
-        remoteOptions
+        remoteOptions,
       );
       this.db.info().then(function(params) {
         console.log(params);
@@ -216,17 +211,28 @@ export default {
       });
     },
     testCreated(test) {
-      this.db.post(test).then(async () => {
-        this.$router.push({ name: 'statistics' });
-      }).catch((error)=>{
-        console.log(error);
-      })
-    }
-  }
+      this.db
+        .post(test)
+        .then(async () => {
+          this.$router.push({ name: 'statistics' });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+  },
 };
 </script>
 
 <style>
+.v-bottom-navigation--fixed {
+  position: fixed !important;
+}
+
+.v-item-group.v-bottom-navigation .v-btn {
+  height: inherit !important;
+}
+
 img {
   margin-top: -0.5rem;
   max-height: 2.5rem;
