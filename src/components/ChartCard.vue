@@ -7,47 +7,48 @@
       </v-container>
     </v-card-title>
     <v-card-actions>
-      <v-btn
-        v-if="detailsButton"
-        @click="getdetails"
-        class="#4b7dbb--text"
-        text
-      >
-        Details
-      </v-btn>
+      <v-btn v-if="detailsButton" @click="getdetails" class="#4b7dbb--text" text>Details</v-btn>
     </v-card-actions>
     <v-container class="text-center" v-if="anzeigen">
       <v-icon @click="close" color="black">mdi-window-close</v-icon>
       <br />
       <p></p>
       <p>
-        <b> Gleichgewicht: </b> <br />
-        3cm-Balken: {{ this.test.gleichgewicht3_1 }} /
-        {{ this.test.gleichgewicht3_2 }} Schritte
+        <b>Balancieren:</b>
         <br />
-        4.5cm-Balken: {{ this.test.gleichgewicht4_5_1 }} /
-        {{ this.test.gleichgewicht4_5_2 }} Schritte
+        6cm-Balken: {{ this.test.Bal_D1_6 }} /
+        {{ this.test.Bal_D2_6 }} Schritte
         <br />
-        6cm-Balken: {{ this.test.gleichgewicht6_1 }} /
-        {{ this.test.gleichgewicht6_2 }} Schritte
+        4.5cm-Balken: {{ this.test.Bal_D1_4_5 }} /
+        {{ this.test.Bal_D2_4_5 }} Schritte
         <br />
-        <b> Koordination: </b> {{ this.test.koordination_1 }} /
-        {{ this.test.koordination_2 }} Sprünge
+        3cm-Balken: {{ this.test.Bal_D1_3 }} /
+        {{ this.test.Bal_D2_3 }} Schritte
         <br />
-        <b> Rumpfbeweglichkeit: </b> {{ this.test.rumpfbeuge_1 }} /
-        {{ this.test.rumpfbeuge_2 }} cm
+        <b>Seitliches Hin- und Herspringen:</b>
+        {{ this.test.SHH_D1 }} /
+        {{ this.SHH_D2 }} Sprünge
         <br />
-        <b> Oberkörperkraft: </b> {{ this.test.oberkoerperkraft }} Liegestütze
+        <b>Rumpfbeuge:</b>
+        {{ this.test.RB_D1 }} /
+        {{ this.test.RB_D2 }} cm
         <br />
-        <b> Rumpfkraft: </b> {{ this.test.rumpfkraft }} Situps
+        <b>Liegestütz:</b>
+        {{ this.test.LS_Anzahl }} Liegestütze
         <br />
-        <b> Schnellkraft: </b> {{ this.test.schnellkraft_1 }} /
-        {{ this.test.schnellkraft_2 }} cm
+        <b>Sit-ups:</b>
+        {{ this.test.SU_Anzahl }} Situps
         <br />
-        <b> Aktionsschnelligkeit: </b> {{ this.test.aktionsschnelligkeit_1 }} /
+        <b>Standweitsprung:</b>
+        {{ this.test.SW_D1 }} /
+        {{ this.test.SW_D1 }} cm
+        <br />
+        <b>Sprint:</b>
+        {{ this.test.aktionsschnelligkeit_1 }} /
         {{ this.test.aktionsschnelligkeit_2 }} sek
         <br />
-        <b> Ausdauer: </b> {{ this.test.ausdauer }} Runden
+        <b>Ausdauer:</b>
+        {{ this.test.ausdauer }} Runden
       </p>
     </v-container>
   </v-card>
