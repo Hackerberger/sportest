@@ -14,6 +14,10 @@
       <br />
       <p></p>
       <p>
+        <b>Sprint:</b>
+        {{ this.test.sprint_D1 }} /
+        {{ this.test.sprint_D2 }} sek
+        <br />
         <b>Balancieren:</b>
         <br />
         6cm-Balken: {{ this.test.Bal_D1_6 }} /
@@ -42,10 +46,6 @@
         <b>Standweitsprung:</b>
         {{ this.test.SW_D1 }} /
         {{ this.test.SW_D1 }} cm
-        <br />
-        <b>Sprint:</b>
-        {{ this.test.aktionsschnelligkeit_1 }} /
-        {{ this.test.aktionsschnelligkeit_2 }} sek
         <br />
         <b>Ausdauer:</b>
         {{ this.test.ausdauer }} Runden
