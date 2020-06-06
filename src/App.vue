@@ -59,16 +59,12 @@
     <!--  Navbar unten Schüler  -->
     <v-container v-if="$route.name == 'home' || $route.name == 'statistics'">
       <v-bottom-navigation
-        block
         :value="true"
         id="Nav"
         fixed
         background-color="black !important"
         grow
       >
-        <!-- <v-divider color="green !important"
-        ></v-divider>-->
-
         <v-btn
           @click="$router.push({ name: 'home' })"
           color="black"
@@ -179,8 +175,8 @@ export default {
         "https://sportest-auth-server.azurewebsites.net/auth/token",
         {
           email: this.globalData.googleUser.getBasicProfile().getEmail(),
-          token: this.globalData.googleUser.getAuthResponse().id_token
-        }
+          token: this.globalData.googleUser.getAuthResponse().id_token,
+        },
       );
       console.log(res.data);
       this.username = res.data.username;
@@ -196,11 +192,12 @@ export default {
           opts.headers.set("X-Auth-CouchDB-Token", this.token);
 
           return PouchDB.fetch(url, opts);
-        }
+        },
       };
 
+      //Erstellen oder verbinden mit einer DB
       this.db = new PouchDB(
-        "http://51.144.121.173:5984" + this.dbname,
+        /*"http://51.144.121.173:5984" +*/ this.dbname,
         remoteOptions
       );
       this.db.info().then(function(params) {
@@ -219,6 +216,7 @@ export default {
       this.db
         .post(test)
         .then(async () => {
+          await this.getAllData();
           this.$router.push({ name: "statistics" });
         })
         .catch(error => {
@@ -230,6 +228,14 @@ export default {
 </script>
 
 <style>
+.v-bottom-navigation--fixed {
+  position: fixed !important;
+}
+
+.v-item-group.v-bottom-navigation .v-btn {
+  height: inherit !important;
+}
+
 img {
   margin-top: -0.5rem;
   max-height: 2.5rem;

@@ -14,16 +14,8 @@ npm run serve
 ```
 npm run build
 ```
+## Entstehung
+Eine ehemalige Diplomarbeit der HTL Wien West, weiterentwickelt.
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Technologien
+sportest ist eine Progressive Web App aufgebaut auf Vue.js und PouchDB.
