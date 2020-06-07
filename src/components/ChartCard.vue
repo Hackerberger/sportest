@@ -31,17 +31,17 @@
         <br />
         <b>Seitliches Hin- und Herspringen:</b>
         {{ this.test.SHH_D1 }} /
-        {{ this.SHH_D2 }} Sprünge
+        {{ this.test.SHH_D2 }} Sprünge
         <br />
         <b>Rumpfbeuge:</b>
         {{ this.test.RB_D1 }} /
         {{ this.test.RB_D2 }} cm
         <br />
-        <b>Liegestütz:</b>
-        {{ this.test.LS_Anzahl }} Liegestütze
+        <b>Liegestütz Anzahl:</b>
+        {{ this.test.LS_Anzahl }} 
         <br />
-        <b>Sit-ups:</b>
-        {{ this.test.SU_Anzahl }} Situps
+        <b>Sit-ups Anzahl:</b>
+        {{ this.test.SU_Anzahl }} 
         <br />
         <b>Standweitsprung:</b>
         {{ this.test.SW_D1 }} /
