@@ -276,13 +276,13 @@
                     outlined
                     shaped
                     label="Versuch 1"
-                    single-line
                     min-width="400px"
                     suffix="Sprünge"
                     type="number"
                     v-model="testDaten.SHH_D1"
                     :rules="SHH_rules"
                   ></v-text-field>
+
 
                   <v-text-field
                     outlined
@@ -404,7 +404,7 @@
             <v-container>
               <h3 style="padding-bottom: 4%;" class="white--text">6-Minuten-Lauf</h3>
               <v-layout row>
-                <v-flex xs9>
+                <v-flex xs12>
                   <v-text-field
                     outlined
                     shaped
@@ -416,8 +416,16 @@
                     style="margin-right: 35%; max-width: 460px"
                   >
                     <template slot="append">
-                      <v-btn fab outlined style="margin-bottom: 25%" @click="addRound">
+                      <v-btn fab outlined style="margin-bottom: 15%" @click="addRound">
                         <v-icon>mdi-plus</v-icon>
+                      </v-btn>
+                      <v-btn
+                        fab
+                        outlined
+                        style="margin-bottom: 10%; margin-left: 5%; margin-right: 5%;"
+                        @click="removeRound"
+                      >
+                        <v-icon>mdi-minus</v-icon>
                       </v-btn>
                     </template>
                   </v-text-field>
@@ -551,7 +559,10 @@ export default {
   created() {},
   methods: {
     addRound() {
-      this.testDaten.ausdauer = this.testDaten.ausdauer + 1;
+      this.testDaten.ausdauer++;
+    },
+    removeRound() {
+      this.testDaten.ausdauer--;
     },
     openD() {
       if (
