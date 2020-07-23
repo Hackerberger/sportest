@@ -213,15 +213,20 @@ export default {
       });
     },
     testCreated(test) {
-      this.db
+      try {
+        this.db
         .post(test)
         .then(async () => {
           await this.getAllData();
-          this.$router.push({ name: "statistics" });
+          
         })
         .catch(error => {
           console.log(error);
         });
+      } catch (error) {
+        alert("local save has failed: "+ error)
+      }
+      
     }
   }
 };

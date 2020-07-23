@@ -44,10 +44,10 @@
 
           <div class="text-center pl-11">
             <v-container fluid>
-              <p>{{ testDaten.gender || "Geschlecht" }}</p>
+              <p>{{ testDaten.gender || 'Geschlecht' }}</p>
               <v-radio-group v-model="testDaten.gender" :mandatory="false">
-                <v-radio label="Männlich" value="Männlich"></v-radio>
-                <v-radio label="Weiblich" value="Weiblich"></v-radio>
+                <v-radio label="Männlich" value="m"></v-radio>
+                <v-radio label="Weiblich" value="w"></v-radio>
               </v-radio-group>
             </v-container>
           </div>
@@ -87,7 +87,9 @@
         <v-form>
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">20m-Sprint</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">
+                20m-Sprint
+              </h3>
               <v-layout wrap>
                 <v-flex xs5>
                   <v-text-field
@@ -269,7 +271,9 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Seitliches Hin- und Herspringen</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">
+                Seitliches Hin- und Herspringen
+              </h3>
               <v-layout wrap>
                 <v-flex xs6>
                   <v-text-field
@@ -300,7 +304,9 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Rumpfbeuge</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">
+                Rumpfbeuge
+              </h3>
               <v-layout row wrap>
                 <v-flex xs5>
                   <v-text-field
@@ -331,7 +337,9 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Liegestütz</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">
+                Liegestütz
+              </h3>
               <v-layout row wrap>
                 <v-flex xs7>
                   <v-text-field
@@ -371,7 +379,9 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">Standweitsprung</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">
+                Standweitsprung
+              </h3>
               <v-layout row wrap>
                 <v-flex xs5>
                   <v-text-field
@@ -402,7 +412,9 @@
 
           <v-carousel-item>
             <v-container>
-              <h3 style="padding-bottom: 4%;" class="white--text">6-Minuten-Lauf</h3>
+              <h3 style="padding-bottom: 4%;" class="white--text">
+                6-Minuten-Lauf
+              </h3>
               <v-layout row>
                 <v-flex xs9>
                   <v-text-field
@@ -416,7 +428,12 @@
                     style="margin-right: 35%; max-width: 460px"
                   >
                     <template slot="append">
-                      <v-btn fab outlined style="margin-bottom: 25%" @click="addRound">
+                      <v-btn
+                        fab
+                        outlined
+                        style="margin-bottom: 25%"
+                        @click="addRound"
+                      >
                         <v-icon>mdi-plus</v-icon>
                       </v-btn>
                     </template>
@@ -455,7 +472,9 @@
           <p
             style="font-family: calibri; font-size: 110%;"
             class="primary--text"
-          >Möchtest du den Test beenden?</p>
+          >
+            Möchtest du den Test beenden?
+          </p>
 
           <v-container class="text-xs-center">
             <v-card-actions id="act">
@@ -465,7 +484,13 @@
                     <v-icon dark color="black">mdi-check</v-icon>
                   </v-btn>
 
-                  <v-btn style="margin-left: 30%;" fab dark color="#FF6600" @click="dialog = false">
+                  <v-btn
+                    style="margin-left: 30%;"
+                    fab
+                    dark
+                    color="#FF6600"
+                    @click="dialog = false"
+                  >
                     <v-icon dark color="black">mdi-close</v-icon>
                   </v-btn>
                 </v-flex>
@@ -479,13 +504,14 @@
 </template>
 
 <script>
-import moment from "moment";
+import moment from 'moment';
+import axios from 'axios';
 
 export default {
   data() {
     return {
       dialog: false,
-      klassen: ["5AHITN", "5BHITM", "5CHITM"],
+      klassen: ['5AHITN', '5BHITM', '5CHITM'],
       testDaten: {
         date_birth: null,
         age: null,
@@ -497,29 +523,29 @@ export default {
         groeße: 123,
         //Sprint
         sprint_D1: 4.0,
-        sprint_D2: 3.0,
+        sprint_D2: 3.2,
         //Gleichgewicht
-        Bal_D1_6: 0,
-        Bal_D2_6: 0,
-        Bal_D1_4_5: 0,
-        Bal_D2_4_5: 0,
-        Bal_D1_3: 0,
-        Bal_D2_3: 0,
+        Bal_D1_6: 2,
+        Bal_D2_6: 4,
+        Bal_D1_4_5: 5,
+        Bal_D2_4_5: 6,
+        Bal_D1_3: 8,
+        Bal_D2_3: 8,
         //Hinundher
         SHH_D1: 59,
         SHH_D2: 40,
         //Rumpfbeuge
-        RB_D1: -43,
-        RB_D2: 43,
+        RB_D1: 2.5,
+        RB_D2: 4.5,
         //Liegestütze
         LS_Anzahl: 28,
         //Situps
-        SU_Anzahl: 99,
+        SU_Anzahl: 34,
         //Standweitsprung
-        SW_D1: 793,
+        SW_D1: 215,
         SW_D2: 345,
         //Ausdauer
-        ausdauer: 1
+        ausdauer: 15,
       },
       ergebnisse: {
         //Punkteergebnisse
@@ -530,26 +556,43 @@ export default {
         erg_LS: null,
         erg_SUt: null,
         erg_SW: null,
-        erg_ausdauer: null
+        erg_ausdauer: null,
       },
-      weight_rules: [v => (v >= 30 && v <= 300) || "Gewicht nicht angenommen."],
-      height_rules: [v => (v >= 50 && v <= 250) || "Größe nicht angenommen."],
-      sprint_rules: [v => (v >= 2.0 && v <= 10.0) || "irreguläre Sprintzeit"],
-      Bal_rules: [v => (v >= 0 && v <= 8) || "irregulärer Balancierwert"],
-      SHH_rules: [v => (v >= 0 && v <= 60) || "irregulärer Koordinationswert"],
-      RB_rules: [v => (v >= -50 && v <= 50) || "irregulärer Rumpfbeugewert"],
-      LS_rules: [v => (v >= 0 && v <= 99) || "irreguläre Liegestützanzahl"],
-      SU_rules: [v => (v >= 0 && v <= 99) || "irreguläre Situpsanzahl"],
+      weight_rules: [v => (v >= 30 && v <= 300) || 'Gewicht nicht angenommen.'],
+      height_rules: [v => (v >= 50 && v <= 250) || 'Größe nicht angenommen.'],
+      sprint_rules: [v => (v >= 2.0 && v <= 10.0) || 'irreguläre Sprintzeit'],
+      Bal_rules: [v => (v >= 0 && v <= 8) || 'irregulärer Balancierwert'],
+      SHH_rules: [v => (v >= 0 && v <= 60) || 'irregulärer Koordinationswert'],
+      RB_rules: [v => (v >= -50 && v <= 50) || 'irregulärer Rumpfbeugewert'],
+      LS_rules: [v => (v >= 0 && v <= 99) || 'irreguläre Liegestützanzahl'],
+      SU_rules: [v => (v >= 0 && v <= 99) || 'irreguläre Situpsanzahl'],
       SW_rules: [
-        v => (v >= 0 && v <= 800) || "irregulärer Standweitsprungwert"
+        v => (v >= 0 && v <= 800) || 'irregulärer Standweitsprungwert',
       ],
       ausdauer_rules: [
-        v => (v >= 1 && v <= 30) || "irreguläre Ausdauerrundenanzahl"
-      ]
+        v => (v >= 1 && v <= 30) || 'irreguläre Ausdauerrundenanzahl',
+      ],
     };
+  },
+  props: {
+    globalData: {
+      type: Object,
+    },
   },
   created() {},
   methods: {
+    generateRandomString(length) {
+      var result = '';
+      var characters =
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength),
+        );
+      }
+      return result;
+    },
     addRound() {
       this.testDaten.ausdauer = this.testDaten.ausdauer + 1;
     },
@@ -596,52 +639,79 @@ export default {
       )
         this.dialog = true;
       else {
-        alert("Eine oder mehre Eingaben sind nicht korrekt!");
+        alert('Eine oder mehre Eingaben sind nicht korrekt!');
         this.dialog = false;
       }
     },
-    done() {
-      let t = this.calcPoints(this.testDaten);
-      console.log(t);
+    async done() {
+      var t = this.calcPoints(this.testDaten);
 
-      this.$emit("testCreated", t);
-      let l = {
-        klasse: "5CHITM",
-        geschlecht: "Männlich",
-        datum_geburt: "2000-10-04",
-        datum_test: "2020-04-17",
-        alter: 19,
+      try {
+        var testDMT = {
+          Bearbeiter: 'E-C03F-6B8C-CJ16-T7KD',
+          Testdatum: new Date().toISOString().substring(0, 10) + 'T00:00:00',
+          Gruppen: [
+            {
+              Gruppe: 'HTLWienWest',
+              Probanden: [
+                {
+                  Identifier: this.generateRandomString(8),
+                  PCode: null,
+                  Vorname: this.globalData.googleUser
+                    .getBasicProfile()
+                    .getGivenName(),
+                  Nachname: this.globalData.googleUser
+                    .getBasicProfile()
+                    .getFamilyName(),
+                  Geschlecht: t.gender,
+                  Geburtsdatum: t.date_birth,
+                  Groesse: t.groeße,
+                  Gewicht: t.gewicht,
+                  ErhebungAbgelehnt: true,
+                  ErhebungKinderturnen: false,
+                  ErhebungVereinsmitglied: false,
+                  Test: {
+                    '20m_D1': t.sprint_D1,
+                    '20m_D2': t.sprint_D2,
+                    'Bal_D1_6 cm': t.Bal_D1_6,
+                    'Bal_D1_4,5 cm': t.Bal_D1_4_5,
+                    'Bal_D1_3 cm': t.Bal_D1_3,
+                    'Bal_D2_6 cm': t.Bal_D2_6,
+                    'Bal_D2_4,5 cm': t.Bal_D2_4_5,
+                    'Bal_D2_3 cm': t.Bal_D2_3,
+                    SHH_D1: t.SHH_D1,
+                    SHH_D2: t.SHH_D2,
+                    RB_D1: t.RB_D1,
+                    RB_D2: t.RB_D2,
+                    LS_Anzahl: t.LS_Anzahl,
+                    SU_Anzahl: t.SU_Anzahl,
+                    SW_D1: t.SW_D1,
+                    SW_D2: t.SW_D2,
+                    '6-Min_Rundenzahl': t.ausdauer,
+                    '6-Min_Reststrecke': 0.0,
+                  },
+                },
+              ],
+            },
+          ],
+        };
+        console.log(testDMT);
 
-        groeße: "178",
-        gewicht: "60",
+        let res = await axios({
+          method: 'post',
+          url: 'https://dmt.motoriktest.eu/api/v1/ProbandTest',
+          data: testDMT,
+          headers: {
+            'Content-type': 'application/json',
+          },
+        });
+        console.log(res.data);
+      } catch (error) {
+        alert('Send to DMT Server failed: ' + error);
+      }
 
-        sprint_D1: 3.2,
-        sprint_D2: "2.8",
-        Bal_D1_6: 7,
-        Bal_D2_6: 7,
-        Bal_D1_4_5: 6,
-        Bal_D2_4_5: 7,
-        Bal_D1_3: 6,
-        Bal_D2_3: 8,
-        SHH_D1: "34",
-        SHH_D2: "45",
-        RB_D1: "-4.6",
-        RB_D2: "-3.4",
-        LS_Anzahl: "23",
-        SU_Anzahl: "30",
-        SW_D1: "214",
-        SW_D2: "176",
-        ausdauer: 26,
-
-        erg_sprint: 125,
-        erg_Bal: 107.09429824561403,
-        erg_SHH: 102.87817938420348,
-        erg_RB: 107.90340285400659,
-        erg_LS: 122.70348837209303,
-        erg_SU: 106.52482269503545,
-        erg_SW: 101.95724290453373,
-        erg_ausdauer: 103.10160427807486
-      };
+      this.$emit('testCreated', t);
+      this.$router.push({ name: 'statistics' });
     },
     calcPoints(testobject) {
       var normValues = {
@@ -652,7 +722,7 @@ export default {
         LS: {},
         SU: {},
         SW: {},
-        ausdauer: {}
+        ausdauer: {},
       };
 
       this.testDaten.age = this.calculateAge(this.testDaten.date_birth);
@@ -808,52 +878,52 @@ export default {
             testobject.Bal_D1_6 +
             testobject.Bal_D2_6,
           normValues.Bal.norm,
-          normValues.Bal.sa
+          normValues.Bal.sa,
         ),
         erg_SHH: zWert(
           (parseInt(testobject.SHH_D1) + parseInt(testobject.SHH_D2)) / 2,
           normValues.SHH.norm,
-          normValues.SHH.sa
+          normValues.SHH.sa,
         ),
         erg_RB: zWert(
           Math.min(testobject.RB_D1, testobject.RB_D2),
           normValues.RB.norm,
-          -normValues.RB.sa
+          -normValues.RB.sa,
         ),
         erg_LS: zWert(
           testobject.LS_Anzahl,
           normValues.LS.norm,
-          normValues.LS.sa
+          normValues.LS.sa,
         ),
         erg_SU: zWert(
           testobject.SU_Anzahl,
           normValues.SU.norm,
-          normValues.SU.sa
+          normValues.SU.sa,
         ),
         erg_SW: zWert(
           Math.max(testobject.SW_D1, testobject.SW_D2),
           normValues.SW.norm,
-          normValues.SW.sa
+          normValues.SW.sa,
         ),
         erg_sprint: zWert(
           Math.min(testobject.sprint_D1, testobject.sprint_D2),
           normValues.sprint.norm,
-          -normValues.sprint.sa
+          -normValues.sprint.sa,
         ),
         erg_ausdauer: zWert(
           testobject.ausdauer * 54,
           normValues.ausdauer.norm,
-          normValues.ausdauer.sa
-        )
+          normValues.ausdauer.sa,
+        ),
       };
 
       return { ...testobject, ...ergebnisse };
     },
     calculateAge(birthd) {
       let b = moment(birthd);
-      return moment().diff(b, "years");
-    }
-  }
+      return moment().diff(b, 'years');
+    },
+  },
 };
 </script>
 
